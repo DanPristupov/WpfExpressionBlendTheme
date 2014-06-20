@@ -59,7 +59,7 @@
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition ></RowDefinition>
                     </Grid.RowDefinitions>
-                    <TextBox Grid.Row="0" Margin="2" ></TextBox>
+                    <TextBox Grid.Row="0" Margin="2" IsEnabled="False">Search Properties</TextBox>
                     <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto"
                               VerticalScrollBarVisibility="Visible" >
                         <StackPanel>
@@ -111,7 +111,7 @@
                                     </StackPanel>
                                 </StackPanel>
                             </Expander>
-                            <Expander Header="Layout" IsExpanded="True">
+                            <Expander Header="Layout">
                                 <StackPanel Margin="0,0,0,2">
                                     <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
                                         <Label>Width</Label>
