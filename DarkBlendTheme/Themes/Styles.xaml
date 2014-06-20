@@ -74,17 +74,12 @@
         <Setter Property="FontFamily" Value="Calibri light"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
     </Style>
-    <!-- Set default font                    -->
-    <!--<Style TargetType="{x:Type TextBlock}">
-        <Setter Property="FontFamily" Value="Calibri light"/>
-        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
-    </Style>-->
     <Style TargetType="{x:Type Window}">
         <Setter Property="FontFamily" Value="Calibri light"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
         <Setter Property="Background" Value="{StaticResource BackGroundBrush}"/>
     </Style>
-    <!-- Neccessary for Blend designer for usercontrols -->
+    <!-- Necessary for Blend designer for UserControls -->
     <Style TargetType="{x:Type UserControl}">
         <Setter Property="FontFamily" Value="Calibri light"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>

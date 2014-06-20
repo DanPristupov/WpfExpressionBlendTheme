@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         mc:Ignorable="d"
         x:Class="DarkBlendTheme.MainWindow"
-        Title="MainWindow" Height="500" Width="650"
+        Title="MainWindow" Height="500" Width="450"
         Style="{StaticResource {x:Type Window}}">
     <Window.Resources>
 
@@ -18,31 +18,37 @@
         <Border Margin="5">
             <ListView>
                 <ListViewItem Padding="5">
-                    <TextBlock Text="ListViewItem Item"/>
+                    <TextBlock Text="Button"/>
                 </ListViewItem>
                 <ListViewItem Padding="5">
-                    <TextBlock Text="ListViewItem Item"/>
+                    <TextBlock Text="CheckBox"/>
                 </ListViewItem>
                 <ListViewItem Padding="5">
-                    <TextBlock Text="ListViewItem Item"/>
+                    <TextBlock Text="ComboBox"/>
                 </ListViewItem>
                 <ListViewItem Padding="5">
-                    <TextBlock Text="ListViewItem Item"/>
+                    <TextBlock Text="Expander"/>
                 </ListViewItem>
                 <ListViewItem Padding="5">
-                    <TextBlock Text="ListViewItem Item"/>
+                    <TextBlock Text="Label"/>
                 </ListViewItem>
                 <ListViewItem Padding="5">
-                    <TextBlock Text="ListViewItem Item"/>
+                    <TextBlock Text="ListView"/>
                 </ListViewItem>
                 <ListViewItem Padding="5">
-                    <TextBlock Text="ListViewItem Item"/>
+                    <TextBlock Text="ScrollViewer"/>
                 </ListViewItem>
                 <ListViewItem Padding="5">
-                    <TextBlock Text="ListViewItem Item"/>
+                    <TextBlock Text="RadioButton"/>
                 </ListViewItem>
                 <ListViewItem Padding="5">
-                    <TextBlock Text="ListViewItem Item"/>
+                    <TextBlock Text="TabControl"/>
+                </ListViewItem>
+                <ListViewItem Padding="5">
+                    <TextBlock Text="TextBox"/>
+                </ListViewItem>
+                <ListViewItem Padding="5">
+                    <TextBlock Text="ToggleButton"/>
                 </ListViewItem>
             </ListView>
         </Border>
