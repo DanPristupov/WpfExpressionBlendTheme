@@ -13,9 +13,9 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition MinWidth="320"/>
+            <ColumnDefinition MinWidth="320" Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Border Background="#333333" Margin="5">
+        <Border Margin="5">
             <ListView>
                 <ListViewItem Padding="5">
                     <TextBlock Text="ListViewItem Item"/>
@@ -23,7 +23,7 @@
                 <ListViewItem Padding="5">
                     <TextBlock Text="ListViewItem Item"/>
                 </ListViewItem>
-                <ListViewItem Padding="5"> 
+                <ListViewItem Padding="5">
                     <TextBlock Text="ListViewItem Item"/>
                 </ListViewItem>
                 <ListViewItem Padding="5">
@@ -51,132 +51,128 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition ></RowDefinition>
                     </Grid.RowDefinitions>
                     <TextBox Grid.Row="0" Margin="2" ></TextBox>
                     <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto"
                               VerticalScrollBarVisibility="Visible" >
                         <StackPanel>
-                            <StackPanel>
-                                <Expander Header="Appearance" IsExpanded="True">
-                                    <StackPanel Margin="0,0,0,2">
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>Opacity</Label>
-                                            <TextBox Width="150" Margin="2"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>Visibility</Label>
-                                            <ComboBox Text="Item1" Width="150" Margin="2">
-                                                <ComboBoxItem Padding="2" IsSelected="True">Visible</ComboBoxItem>
-                                                <ComboBoxItem Padding="2">Hidden</ComboBoxItem>
-                                                <ComboBoxItem Padding="2">Collapsed</ComboBoxItem>
-                                            </ComboBox>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label Margin="0,0,100,0">Effect</Label>
-                                            <Button Content="New" Width="50" Margin="2"/>
+                            <Expander Header="Appearance" IsExpanded="True">
+                                <StackPanel Margin="0,0,0,2">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>Opacity</Label>
+                                        <TextBox Width="150" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>Visibility</Label>
+                                        <ComboBox Text="Item1" Width="150" Margin="2">
+                                            <ComboBoxItem Padding="2" IsSelected="True">Visible</ComboBoxItem>
+                                            <ComboBoxItem Padding="2">Hidden</ComboBoxItem>
+                                            <ComboBoxItem Padding="2">Collapsed</ComboBoxItem>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Margin="0,0,100,0">Effect</Label>
+                                        <Button Content="New" Width="50" Margin="2"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Expander>
+                            <Expander Header="Common" IsExpanded="True">
+                                <StackPanel Margin="0,0,0,2">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>Content</Label>
+                                        <TextBox Width="150" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>Cursor</Label>
+                                        <ComboBox Text="Item1" IsEditable="True" Width="150" Margin="2">
+                                            <ComboBoxItem Padding="2" IsSelected="True">None</ComboBoxItem>
+                                            <ComboBoxItem Padding="2">Arrow</ComboBoxItem>
+                                            <ComboBoxItem Padding="2">Cross</ComboBoxItem>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Margin="0,0,100,0">DataContext</Label>
+                                        <Button Content="New" Width="50" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>IsEnabled</Label>
+                                        <CheckBox VerticalAlignment="Center" Margin="2" Width="150"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>ToolTip</Label>
+                                        <TextBox Width="150" Margin="2"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Expander>
+                            <Expander Header="Layout" IsExpanded="True">
+                                <StackPanel Margin="0,0,0,2">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>Width</Label>
+                                        <TextBox Width="150" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>Height</Label>
+                                        <TextBox Width="150" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>ZIndex</Label>
+                                        <TextBox Width="150" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>HorizontalAlignment</Label>
+                                        <StackPanel Orientation="Horizontal" Width="150" Margin="2">
+                                            <RadioButton Content="L" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
+                                            <RadioButton Content="C" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
+                                            <RadioButton Content="R" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
+                                            <RadioButton Content="S" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
                                         </StackPanel>
                                     </StackPanel>
-                                </Expander>
-                                <Expander Header="Common" IsExpanded="True">
-                                    <StackPanel Margin="0,0,0,2">
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>Content</Label>
-                                            <TextBox Width="150" Margin="2"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>Cursor</Label>
-                                            <ComboBox Text="Item1" IsEditable="True" Width="150" Margin="2">
-                                                <ComboBoxItem Padding="2" IsSelected="True">None</ComboBoxItem>
-                                                <ComboBoxItem Padding="2">Arrow</ComboBoxItem>
-                                                <ComboBoxItem Padding="2">Cross</ComboBoxItem>
-                                            </ComboBox>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label Margin="0,0,100,0">DataContext</Label>
-                                            <Button Content="New" Width="50" Margin="2"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>IsEnabled</Label>
-                                            <CheckBox VerticalAlignment="Center" Margin="2" Width="150"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>ToolTip</Label>
-                                            <TextBox Width="150" Margin="2"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>VerticalAlignment</Label>
+                                        <StackPanel Orientation="Horizontal" Width="150" Margin="2">
+                                            <RadioButton Content="L" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
+                                            <RadioButton Content="C" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
+                                            <RadioButton Content="R" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
+                                            <RadioButton Content="S" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
                                         </StackPanel>
                                     </StackPanel>
-                                </Expander>
-                                <Expander Header="Layout" IsExpanded="True">
-                                    <StackPanel Margin="0,0,0,2">
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>Width</Label>
-                                            <TextBox Width="150" Margin="2"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>Height</Label>
-                                            <TextBox Width="150" Margin="2"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>ZIndex</Label>
-                                            <TextBox Width="150" Margin="2"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>HorizontalAlignment</Label>
-                                            <StackPanel Orientation="Horizontal" Width="150" Margin="2">
-                                                <RadioButton Content="L" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                                <RadioButton Content="C" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                                <RadioButton Content="R" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                                <RadioButton Content="S" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                            </StackPanel>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>VerticalAlignment</Label>
-                                            <StackPanel Orientation="Horizontal" Width="150" Margin="2">
-                                                <RadioButton Content="L" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                                <RadioButton Content="C" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                                <RadioButton Content="R" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                                <RadioButton Content="S" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                            </StackPanel>
+                                </StackPanel>
+                            </Expander>
+                            <Expander Header="Layout" IsExpanded="True">
+                                <StackPanel Margin="0,0,0,2">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>Width</Label>
+                                        <TextBox Width="150" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>Height</Label>
+                                        <TextBox Width="150" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>ZIndex</Label>
+                                        <TextBox Width="150" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>HorizontalAlignment</Label>
+                                        <StackPanel Orientation="Horizontal" Width="150" Margin="2">
+                                            <RadioButton Content="L" Margin="2,2,4,2"/>
+                                            <RadioButton Content="C" Margin="2,2,4,2"/>
+                                            <RadioButton Content="R" Margin="2,2,4,2"/>
+                                            <RadioButton Content="S" Margin="2"/>
                                         </StackPanel>
                                     </StackPanel>
-                                </Expander>
-                                <Expander Header="Layout" IsExpanded="True">
-                                    <StackPanel Margin="0,0,0,2">
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>Width</Label>
-                                            <TextBox Width="150" Margin="2"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>Height</Label>
-                                            <TextBox Width="150" Margin="2"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>ZIndex</Label>
-                                            <TextBox Width="150" Margin="2"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>HorizontalAlignment</Label>
-                                            <StackPanel Orientation="Horizontal" Width="150" Margin="2">
-                                                <RadioButton Content="L" Margin="2,2,4,2"/>
-                                                <RadioButton Content="C" Margin="2,2,4,2"/>
-                                                <RadioButton Content="R" Margin="2,2,4,2"/>
-                                                <RadioButton Content="S" Margin="2"/>
-                                            </StackPanel>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                            <Label>VerticalAlignment</Label>
-                                            <StackPanel Orientation="Horizontal" Width="150" Margin="2">
-                                                <RadioButton Content="L" Margin="2,2,4,2"/>
-                                                <RadioButton Content="C" Margin="2,2,4,2"/>
-                                                <RadioButton Content="R" Margin="2,2,4,2"/>
-                                                <RadioButton Content="S" Margin="2"/>
-                                            </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label>VerticalAlignment</Label>
+                                        <StackPanel Orientation="Horizontal" Width="150" Margin="2">
+                                            <RadioButton Content="L" Margin="2,2,4,2"/>
+                                            <RadioButton Content="C" Margin="2,2,4,2"/>
+                                            <RadioButton Content="R" Margin="2,2,4,2"/>
+                                            <RadioButton Content="S" Margin="2"/>
                                         </StackPanel>
                                     </StackPanel>
-                                </Expander>
-                            </StackPanel>
-                            <ToolBarPanel Height="100" Width="100"/>
-
+                                </StackPanel>
+                            </Expander>
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
