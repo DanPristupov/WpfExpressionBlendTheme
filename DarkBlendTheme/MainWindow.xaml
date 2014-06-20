@@ -54,9 +54,9 @@
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <TextBox Grid.Row="0" Margin="2" ></TextBox>
-                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" Background="#3D3D3D"
+                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto"
                               VerticalScrollBarVisibility="Visible" >
-                        <StackPanel Background="#333333">
+                        <StackPanel>
                             <StackPanel>
                                 <Expander Header="Appearance">
                                     <StackPanel Margin="0,0,0,2">
