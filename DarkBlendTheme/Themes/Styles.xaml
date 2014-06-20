@@ -35,7 +35,7 @@
     <SolidColorBrush x:Key="ButtonNormalBackground" Color="#333333"/>
     <SolidColorBrush x:Key="ButtonNormalBorder" Color="#4C4C4C"/>
 
-    <SolidColorBrush x:Key="ButtonForeground" Color="White"/>
+    <SolidColorBrush x:Key="ButtonForeground" Color="#EFEFEF"/>
     <SolidColorBrush x:Key="MouseOverButtonForeground" Color="#1B1B1B"/>
     <SolidColorBrush x:Key="ButtonBackground" Color="#595959"/>
     <SolidColorBrush x:Key="ButtonBorder" Color="#333333"/>
@@ -766,7 +766,7 @@
 								Width="5.5"
 								Height="5.5" 
 								Stretch="Fill" 
-								Fill="White" RenderTransformOrigin="0.5,0.5" Margin="0,4,0,7">
+								Fill="{DynamicResource ButtonForeground}" RenderTransformOrigin="0.5,0.5" Margin="0,4,0,7">
                                 <Path.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
@@ -1062,7 +1062,7 @@
         <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
         <Setter Property="Background" Value="{StaticResource ButtonBackground}"/>
         <Setter Property="BorderBrush" Value="{StaticResource ButtonBorder}"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderThickness" Value="1"></Setter>
         <Setter Property="Foreground" Value="{StaticResource ButtonForeground}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -1073,9 +1073,14 @@
                     <Border  
 						BorderBrush="{TemplateBinding BorderBrush}" 
 						Background="{TemplateBinding Background}" 
+                        BorderThickness="{TemplateBinding BorderThickness}"
 						SnapsToDevicePixels="true"
 						CornerRadius="3">
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          Margin="{TemplateBinding Padding}" 
+                                          RecognizesAccessKey="True" 
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <MultiTrigger>
