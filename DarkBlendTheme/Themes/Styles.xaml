@@ -30,6 +30,8 @@
     <SolidColorBrush x:Key="TextBoxDisabledForeground" Color="#8C8C8C" />
     <SolidColorBrush x:Key="InactiveSelectionHighlightBrush" Color="#335C85"/>
 
+    <SolidColorBrush x:Key="ComboBoxButtonNormalBackground" Color="#808080"/>
+
     <SolidColorBrush x:Key="ButtonNormalBackground" Color="#333333"/>
     <SolidColorBrush x:Key="ButtonNormalBorder" Color="#4C4C4C"/>
 
@@ -685,7 +687,7 @@
         <Setter Property="Background" Value="{StaticResource TextBoxBackground}"/>
         <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorder}"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Padding" Value="2,1,2,1"/>
+        <Setter Property="Padding" Value="2,2,2,1"/>
         <Setter Property="AllowDrop" Value="true"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
@@ -700,8 +702,7 @@
 						CornerRadius="3"
 						SnapsToDevicePixels="true">
                         <ScrollViewer x:Name="PART_ContentHost" Padding="{TemplateBinding Padding}" 
-							
-							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+							            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="false">
@@ -755,7 +756,7 @@
 						SnapsToDevicePixels="true">
                         <Border x:Name="PopUpButton"
 							HorizontalAlignment="Right"
-							Background="{DynamicResource ButtonBackground}"
+							Background="{DynamicResource ComboBoxButtonNormalBackground}"
 							CornerRadius="3"
 							Margin="1"
 							Width="15">
@@ -870,7 +871,7 @@
         <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}"/>
         <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
         <Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
-        <Setter Property="Padding" Value="5,2,5,2"/>
+        <Setter Property="Padding" Value="5,3,5,1"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
@@ -998,7 +999,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <!-- Button-->
     <Style x:Key="ButtonFocusVisual">
         <Setter Property="Control.Template">
@@ -1462,7 +1463,7 @@
 											Height="Auto" 
 											Width="Auto" 
 											Stretch="Fill" 
-											Fill="White"
+											Fill="{StaticResource ButtonForeground}"
 											Margin="1,1.007,1,1"/>
                             </Border>
                         </BulletDecorator.Bullet>
