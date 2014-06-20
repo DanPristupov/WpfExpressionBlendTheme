@@ -36,10 +36,10 @@
                     <TextBlock Text="ListView"/>
                 </ListViewItem>
                 <ListViewItem Padding="5">
-                    <TextBlock Text="ScrollViewer"/>
+                    <TextBlock Text="RadioButton"/>
                 </ListViewItem>
                 <ListViewItem Padding="5">
-                    <TextBlock Text="RadioButton"/>
+                    <TextBlock Text="ScrollViewer"/>
                 </ListViewItem>
                 <ListViewItem Padding="5">
                     <TextBlock Text="TabControl"/>
