@@ -11,7 +11,7 @@ Before / After
 
 1. Download the project. 
 2. Copy Themes folder with Styles.xaml file to your project. 
-In order to use that theme you need just to add a reference for the Styles.xaml to the App.xaml.
+In order to use that theme you need just to add a reference for the Styles.xaml into the App.xaml.
 So, open App.xaml and add following code:
 
 ```
