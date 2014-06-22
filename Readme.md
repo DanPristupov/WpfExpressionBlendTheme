@@ -2,7 +2,7 @@
 
 ### A WPF theme which will make an application look like Blend.
 
-![Alt text](/Users/dan/Sources/DarkBlendTheme/Screenshot.png)
+![Alt text](Screenshot.png)
 Before / After
 ####List of supported controls
 - Button- CheckBox- ComboBox- Expander- Label- ListView- RadioButton- ScrollViewer- TabControl- TextBox- ToggleButton
