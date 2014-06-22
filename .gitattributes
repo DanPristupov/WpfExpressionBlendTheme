@@ -1,0 +1,28 @@
+
+# Taken from: https://github.com/Danimoth/gitattributes/blob/master/CSharp.gitattributes
+# Auto detect text files and perform LF normalization
+# http://davidlaing.com/2012/09/19/customise-your-gitattributes-to-become-a-git-ninja/
+
+* text=auto
+
+# Replace all tabs with spaces
+
+# Custom for Visual Studio
+*.cs     diff=csharp
+*.sln    merge=union
+*.csproj merge=union
+*.vbproj merge=union
+*.fsproj merge=union
+*.dbproj merge=union
+
+# Standard to msysgit
+*.doc         diff=astextplain
+*.DOC         diff=astextplain
+*.docx		  diff=astextplain
+*.DOCX        diff=astextplain
+*.dot         diff=astextplain
+*.DOT         diff=astextplain
+*.pdf         diff=astextplain
+*.PDF         diff=astextplain
+*.rtf         diff=astextplain
+*.RTF         diff=astextplain
