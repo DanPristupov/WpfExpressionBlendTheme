@@ -69,7 +69,10 @@
     <SolidColorBrush x:Key="MouseOverListViewItem" Color="#4A4A4A"/>
 
     <!--FontStyle-->
-
+    <Style TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="Calibri light"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+    </Style>
     <Style TargetType="{x:Type Control}">
         <Setter Property="FontFamily" Value="Calibri light"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
