@@ -67,6 +67,8 @@
     <SolidColorBrush x:Key="SelectedListViewItem" Color="#BDBDBD"/>
     <SolidColorBrush x:Key="SelectedListViewItemForeground" Color="#333333"/>
     <SolidColorBrush x:Key="MouseOverListViewItem" Color="#4A4A4A"/>
+    
+    <SolidColorBrush x:Key="TreeViewBackground" Color="#333333"/>
 
     <!--FontStyle-->
     <Style TargetType="{x:Type TextBlock}">
