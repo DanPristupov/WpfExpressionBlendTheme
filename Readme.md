@@ -18,7 +18,14 @@ Before / After
 - ToggleButton
 
 ####How to use that theme in your application
+#####NuGet
+1. To install WPF DarkBlend Theme, run the following command in the Package Manager Console:
 
+```
+PM> Install-Package WPFThemes.DarkBlend
+```
+
+#####Manually
 1. Download the project. 
 2. Copy Themes folder with Styles.xaml file to your project. 
 In order to use that theme you need just to add a reference to Styles.xaml into the App.xaml file.
@@ -42,11 +49,10 @@ If you want to apply the theme to the control which is derived from Window (for 
 ```
 <Window ... Style="{StaticResource {x:Type Window}}”>
 ```
-That's all.
+That's it.
 
 ###Todo
 
-- Nuget version will be available soon.
 - Some standard controls are missed, but don't worry, I'm working on them now.
 
 
