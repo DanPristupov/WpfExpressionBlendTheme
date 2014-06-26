@@ -1773,7 +1773,7 @@
                                 </Grid.ColumnDefinitions>
                                 <ToggleButton x:Name="Expander" 
                                               Grid.Column="0"
-                                              Style="{StaticResource ExpanderToggleButtonStyle}"
+                                              Style="{DynamicResource TreeViewToggleButtonStyle}"
                                               IsChecked="{Binding Path=IsExpanded,
                                     RelativeSource={RelativeSource TemplatedParent}}"
                                               ClickMode="Press"/>
@@ -1810,6 +1810,7 @@
                         <Trigger Property="IsSelected" Value="true">
                             <Setter TargetName="Bd" Property="Background" Value="{StaticResource SelectedListViewItem}"/>
                             <Setter Property="Foreground" Value="{StaticResource SelectedListViewItemForeground}"/>
+                            <Setter Property="Style" TargetName="Expander" Value="{DynamicResource TreeViewSelectedToggleButtonStyle}"/>
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -1834,5 +1835,150 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="TreeViewToggleButtonStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border Padding="{TemplateBinding Padding}">
+                        <Grid Background="Transparent" SnapsToDevicePixels="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Path x:Name="arrow"
+								Grid.ColumnSpan="2" 
+								HorizontalAlignment="Left" 
+								Fill="{StaticResource Expander.Static.Arrow.Stroke}" 
+								Stroke="{StaticResource Expander.Static.Arrow.Stroke}" 
+								StrokeThickness="1" 
+								VerticalAlignment="Top" 
+								Data="M5.0028166,-0.0084410848 L8.9999998,5 1.0000001,5 z" 
+								Height="4.5" 
+								Stretch="Fill" 
+								Width="8" 
+								RenderTransformOrigin="0.5,0.5" 
+								Margin="2.068,6.27,0,0">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="135"/>
+                                        <TranslateTransform X="0.17819090885901012" Y="0.43019090885900946"/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                            <ContentPresenter Grid.Column="1" 
+								HorizontalAlignment="Left" 
+								Margin="4,0,0,0" 
+								RecognizesAccessKey="True" 
+								SnapsToDevicePixels="True" 
+								VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="false">
+                            <Setter Property="Margin" TargetName="arrow" Value="-0.526,4.842,0,0"></Setter>
+                            <Setter Property="RenderTransform" TargetName="arrow">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="90"/>
+                                        <TranslateTransform X="0.17819090885901012" Y="0.43019090885900946"/>
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Fill" TargetName="arrow" Value="Transparent"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="true"/>
+                                <Condition Property="IsChecked" Value="true"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Fill" TargetName="arrow" Value="{StaticResource Expander.MouseOver.Arrow.Stroke}"/>
+                            <Setter Property="Stroke" TargetName="arrow" Value="{StaticResource Expander.MouseOver.Arrow.Stroke}"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="true"/>
+                                <Condition Property="IsChecked" Value="false"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Fill" TargetName="arrow" Value="Transparent"/>
+                            <Setter Property="Stroke" TargetName="arrow" Value="{StaticResource Expander.MouseOver.Arrow.Stroke}"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="false"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="TreeViewSelectedToggleButtonStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border Padding="{TemplateBinding Padding}">
+                        <Grid Background="Transparent" SnapsToDevicePixels="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Path x:Name="arrow"
+								Grid.ColumnSpan="2" 
+								HorizontalAlignment="Left" 
+								Fill="{StaticResource TreeViewBackground}" 
+								Stroke="{StaticResource TreeViewBackground}" 
+								StrokeThickness="1" 
+								VerticalAlignment="Top" 
+								Data="M5.0028166,-0.0084410848 L8.9999998,5 1.0000001,5 z" 
+								Height="4.5" 
+								Stretch="Fill" 
+								Width="8" 
+								RenderTransformOrigin="0.5,0.5" 
+								Margin="2.068,6.27,0,0">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="135"/>
+                                        <TranslateTransform X="0.17819090885901012" Y="0.43019090885900946"/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                            <ContentPresenter Grid.Column="1" 
+								HorizontalAlignment="Left" 
+								Margin="4,0,0,0" 
+								RecognizesAccessKey="True" 
+								SnapsToDevicePixels="True" 
+								VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="false">
+                            <Setter Property="Margin" TargetName="arrow" Value="-0.526,4.842,0,0"></Setter>
+                            <Setter Property="RenderTransform" TargetName="arrow">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="90"/>
+                                        <TranslateTransform X="0.17819090885901012" Y="0.43019090885900946"/>
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Fill" TargetName="arrow" Value="Transparent"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="true"/>
+                                <Condition Property="IsChecked" Value="true"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Fill" TargetName="arrow" Value="Transparent"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="true"/>
+                                <Condition Property="IsChecked" Value="false"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Fill" TargetName="arrow" Value="{StaticResource TreeViewBackground}"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="false"/>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 
 </ResourceDictionary>
