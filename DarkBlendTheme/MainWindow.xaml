@@ -86,6 +86,7 @@
         		<Trigger Property="IsHighlighted" Value="true">
                     <Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemSelectionFill}"/>
                     <Setter Property="TextBlock.Foreground" TargetName="Content" Value="{StaticResource MouseOverForegroundBrush}"/>
+                    <Setter Property="Fill" TargetName="Glyph" Value="{StaticResource MouseOverForegroundBrush}"/>
                 </Trigger>
                 <Trigger Property="IsEnabled" Value="false">
         			<Setter Property="Foreground" Value="#FF9A9A9A"/>
@@ -252,6 +253,7 @@
         		<Trigger Property="IsHighlighted" Value="true">
         			<Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemPressedFill}"/>
                     <Setter Property="TextBlock.Foreground" TargetName="Content" Value="{StaticResource MouseOverForegroundBrush}"/>
+                    <Setter Property="Fill" TargetName="GlyphPanel" Value="{StaticResource MouseOverForegroundBrush}"/>
                 </Trigger>
         		<Trigger Property="IsKeyboardFocused" Value="true">
         			<Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemPressedFill}"/>
@@ -343,7 +345,7 @@
 							Width="22">
         				<Path x:Name="Glyph" 
 								Data="{StaticResource Checkmark}"
-								Fill="#0C12A1" 
+								Fill="{StaticResource ForegroundBrush}" 
 								FlowDirection="LeftToRight" 
 								Height="11" 
 								Width="9"/>
@@ -423,6 +425,7 @@
         			<Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemSelectionFill}"/>
                     <Setter Property="TextBlock.Foreground" TargetName="Content" Value="{StaticResource MouseOverForegroundBrush}"/>
                     <Setter Property="Fill" TargetName="RightArrowPath" Value="{StaticResource MouseOverForegroundBrush}"/>
+                    <Setter Property="Fill" TargetName="Glyph" Value="{StaticResource MouseOverForegroundBrush}"/>
                 </Trigger>
         		<Trigger Property="IsEnabled" Value="false">
         			<Setter Property="Foreground" Value="#FF9A9A9A"/>
@@ -481,7 +484,7 @@
                         <MenuItem Header="Font1"/>
                     </MenuItem>
                     <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
+                        <MenuItem IsCheckable="True" Header="Font2"/>
                     </MenuItem>
                     <MenuItem Header="Fonts">
                         <MenuItem Header="Font1"/>
