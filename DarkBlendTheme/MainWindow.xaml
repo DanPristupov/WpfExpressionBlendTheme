@@ -107,20 +107,12 @@
         	<Setter Property="Template">
         		<Setter.Value>
         			<ControlTemplate TargetType="{x:Type RepeatButton}">
-        				<DockPanel Background="Transparent" SnapsToDevicePixels="true">
-        					<Rectangle x:Name="R1" DockPanel.Dock="Right" Fill="Transparent" Width="1"/>
-        					<Rectangle x:Name="B1" DockPanel.Dock="Bottom" Fill="Transparent" Height="1"/>
-        					<Rectangle x:Name="L1" DockPanel.Dock="Left" Fill="Transparent" Width="1"/>
-        					<Rectangle x:Name="T1" DockPanel.Dock="Top" Fill="Transparent" Height="1"/>
-        					<ContentPresenter x:Name="ContentContainer" HorizontalAlignment="Center" Margin="2,2,2,2" VerticalAlignment="Center"/>
+        				<DockPanel x:Name="DPButton" Background="{StaticResource SubMenuRepeatButtonBrush}" SnapsToDevicePixels="true">
+        					<ContentPresenter x:Name="ContentContainer" HorizontalAlignment="Center" Margin="2,8,2,8" VerticalAlignment="Center"/>
         				</DockPanel>
         				<ControlTemplate.Triggers>
         					<Trigger Property="IsPressed" Value="true">
-        						<Setter Property="Fill" TargetName="R1" Value="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-        						<Setter Property="Fill" TargetName="B1" Value="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-        						<Setter Property="Fill" TargetName="L1" Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
-        						<Setter Property="Fill" TargetName="T1" Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
-        						<Setter Property="Margin" TargetName="ContentContainer" Value="3,3,1,1"/>
+        						<Setter Property="Background" TargetName="DPButton" Value="{StaticResource SubMenuHoverRepeatButtonBrush}"/>
         					</Trigger>
         				</ControlTemplate.Triggers>
         			</ControlTemplate>
@@ -156,7 +148,7 @@
         								<Binding Path="ViewportHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
         							</MultiBinding>
         						</RepeatButton.Visibility>
-        						<Path Data="{StaticResource UpArrow}" Fill="{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}"/>
+        						<Path x:Name="UpArrow" Data="{StaticResource UpArrow}" Fill="{StaticResource ForegroundBrush}"/>
         					</RepeatButton>
         					<RepeatButton Grid.Column="0" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Command="{x:Static ScrollBar.LineDownCommand}" Focusable="false" Grid.Row="2" Style="{StaticResource MenuScrollButton}">
         						<RepeatButton.Visibility>
@@ -167,7 +159,7 @@
         								<Binding Path="ViewportHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
         							</MultiBinding>
         						</RepeatButton.Visibility>
-        						<Path Data="{StaticResource DownArrow}" Fill="{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}"/>
+        						<Path x:Name="DownArrow" Data="{StaticResource DownArrow}" Fill="{StaticResource ForegroundBrush}"/>
         					</RepeatButton>
         				</Grid>
         			</ControlTemplate>
