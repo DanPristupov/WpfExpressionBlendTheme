@@ -33,7 +33,7 @@
         	</Setter>
         </Style>
        
-        <Geometry x:Key="Checkmark">M 0,5.1 L 1.7,5.2 L 3.4,7.1 L 8,0.4 L 9.2,0 L 3.3,10.8 Z</Geometry>
+        <Geometry x:Key="Checkmark">M1.0E-41,4.2 L0,2.1 2.5,4.5 6.7,4.4E-47 6.7,2.3 2.5,6.7 z</Geometry>
         <ControlTemplate x:Key="{ComponentResourceKey ResourceId=SubmenuItemTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}" TargetType="{x:Type MenuItem}">
         	<Grid SnapsToDevicePixels="true">
         		<Rectangle x:Name="Bg" 
@@ -56,13 +56,11 @@
                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
                                       VerticalAlignment="Center"/>
         			<Border x:Name="GlyphPanel" 
-                            BorderBrush="#CDD3E6" 
-                            BorderThickness="1" 
-							Background="#E6EFF4" 
+                            BorderBrush="Transparent" 
                             CornerRadius="3" Height="22" Margin="1" Visibility="Hidden" Width="22">
         				<Path x:Name="Glyph" 
                               Data="{StaticResource Checkmark}" 
-                              Fill="#0C12A1" 
+                              Fill="{StaticResource ForegroundBrush}" 
                               FlowDirection="LeftToRight"
                               Height="11" 
                               Width="9"/>
@@ -88,8 +86,6 @@
         		<Trigger Property="IsHighlighted" Value="true">
                     <Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemSelectionFill}"/>
                     <Setter Property="TextBlock.Foreground" TargetName="Content" Value="{StaticResource MouseOverForegroundBrush}"/>
-                </Trigger>
-                <Trigger Property="IsMouseOver" Value="True">
                 </Trigger>
                 <Trigger Property="IsEnabled" Value="false">
         			<Setter Property="Foreground" Value="#FF9A9A9A"/>
@@ -481,6 +477,119 @@
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
             <Menu Style="{DynamicResource MenuStyle}" Height="25">
                 <MenuItem Header="Fonts" Style="{DynamicResource MenuItemStyle}">
+                    <MenuItem IsCheckable="True" Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+
+                </MenuItem>
+                <MenuItem Header="Fonts">
+                    <MenuItem  Header="Fonts">
+                        <MenuItem IsCheckable="True" Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem  Header="Fonts">
+                        <MenuItem IsCheckable="True" Header="Font2"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Fonts" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Header="Fonts">
                         <MenuItem Header="Font1"/>
                     </MenuItem>
@@ -488,14 +597,15 @@
                         <MenuItem Header="Font2"/>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Properties">
-                    <MenuItem Header="Property">
-                        <MenuItem Header="Property1"/>
+                <MenuItem Header="Fonts" Style="{DynamicResource MenuItemStyle}">
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
                     </MenuItem>
-                    <MenuItem Header="Property">
-                        <MenuItem Header="Property2"/>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
                     </MenuItem>
                 </MenuItem>
+                
             </Menu>
         </StackPanel>
         <Border Margin="5" Grid.Row="1" Grid.Column="0">
