@@ -78,7 +78,9 @@
     <SolidColorBrush x:Key="SubMenuBackgroundBrush" Color="#3A3A3A"/>
     <SolidColorBrush x:Key="MenuItemPressedFill" Color="#BDBDBD"/>
     <SolidColorBrush x:Key="SubMenuBorderBrush" Color="#595959"/>
-
+    <SolidColorBrush x:Key="SubMenuRepeatButtonBrush" Color="#525252"/>
+    <SolidColorBrush x:Key="SubMenuHoverRepeatButtonBrush" Color="#7F7F7F"/>
+    
     <!--FontStyle-->
     <Style TargetType="{x:Type TextBlock}">
         <Setter Property="FontFamily" Value="Calibri light"/>
