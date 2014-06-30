@@ -99,7 +99,6 @@
         		</Trigger>
         	</ControlTemplate.Triggers>
         </ControlTemplate>
-        <Geometry x:Key="UpArrow">M 0,4 L 3.5,0 L 7,4 Z</Geometry>
         <Style x:Key="MenuScrollButton" BasedOn="{x:Null}" TargetType="{x:Type RepeatButton}">
         	<Setter Property="ClickMode" Value="Hover"/>
         	<Setter Property="MinWidth" Value="0"/>
@@ -108,7 +107,7 @@
         		<Setter.Value>
         			<ControlTemplate TargetType="{x:Type RepeatButton}">
         				<DockPanel x:Name="DPButton" Background="{StaticResource SubMenuRepeatButtonBrush}" SnapsToDevicePixels="true">
-        					<ContentPresenter x:Name="ContentContainer" HorizontalAlignment="Center" Margin="2,8,2,8" VerticalAlignment="Center"/>
+        					<ContentPresenter x:Name="ContentContainer" HorizontalAlignment="Center" Margin="2,0,2,5" VerticalAlignment="Center"/>
         				</DockPanel>
         				<ControlTemplate.Triggers>
         					<Trigger Property="IsPressed" Value="true">
@@ -120,7 +119,6 @@
         	</Setter>
         </Style>
         <MenuScrollingVisibilityConverter x:Key="MenuScrollingVisibilityConverter"/>
-        <Geometry x:Key="DownArrow">M 0,0 L 3.5,4 L 7,0 Z</Geometry>
         <Style x:Key="{ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}" BasedOn="{x:Null}" TargetType="{x:Type ScrollViewer}">
         	<Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
         	<Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
@@ -148,7 +146,7 @@
         								<Binding Path="ViewportHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
         							</MultiBinding>
         						</RepeatButton.Visibility>
-        						<Path x:Name="UpArrow" Data="{StaticResource UpArrow}" Fill="{StaticResource ForegroundBrush}"/>
+        						<Path x:Name="UpArrow" Data="{StaticResource UpArrowGeometry}" Fill="{StaticResource ForegroundBrush}"/>
         					</RepeatButton>
         					<RepeatButton Grid.Column="0" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Command="{x:Static ScrollBar.LineDownCommand}" Focusable="false" Grid.Row="2" Style="{StaticResource MenuScrollButton}">
         						<RepeatButton.Visibility>
@@ -159,7 +157,7 @@
         								<Binding Path="ViewportHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
         							</MultiBinding>
         						</RepeatButton.Visibility>
-        						<Path x:Name="DownArrow" Data="{StaticResource DownArrow}" Fill="{StaticResource ForegroundBrush}"/>
+        						<Path x:Name="DownArrow" Data="{StaticResource DownArrowGeometry}" Fill="{StaticResource ForegroundBrush}"/>
         					</RepeatButton>
         				</Grid>
         			</ControlTemplate>
