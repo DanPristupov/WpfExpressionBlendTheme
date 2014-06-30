@@ -4,206 +4,689 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:darkBlendTheme="clr-namespace:DarkBlendTheme"
+        xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
         mc:Ignorable="d"
         x:Class="DarkBlendTheme.MainWindow"
         Title="MainWindow" Height="500" Width="450"
-        Style="{StaticResource {x:Type Window}}">
+        Style ="{StaticResource {x:Type Window}}"
+        >
     <Window.Resources>
+        <Style x:Key="MenuStyle" TargetType="{x:Type Menu}">
+        	<Setter Property="Background" Value="{StaticResource MenuBackground}"/>
+            <!--<Setter Property="FontFamily" Value="{DynamicResource {x:Static SystemFonts.MenuFontFamilyKey}}"/>
+            <Setter Property="FontSize" Value="{DynamicResource {x:Static SystemFonts.MenuFontSizeKey}}"/>-->
+            <!--<Setter Property="FontStyle" Value="{DynamicResource {x:Static SystemFonts.MenuFontStyleKey}}"/>-->
+            <!--<Setter Property="FontWeight" Value="{DynamicResource {x:Static SystemFonts.MenuFontWeightKey}}"/>-->
+        	<Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="{x:Type Menu}">
+        				<Border BorderBrush="{TemplateBinding BorderBrush}" 
+        					BorderThickness="{TemplateBinding BorderThickness}" 
+        					Background="{TemplateBinding Background}" 
+        					Padding="{TemplateBinding Padding}" 
+        					SnapsToDevicePixels="true">
+        					<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+        				</Border>
+        			</ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
+        </Style>
+       
+        <Geometry x:Key="Checkmark">M 0,5.1 L 1.7,5.2 L 3.4,7.1 L 8,0.4 L 9.2,0 L 3.3,10.8 Z</Geometry>
+        <ControlTemplate x:Key="{ComponentResourceKey ResourceId=SubmenuItemTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}" TargetType="{x:Type MenuItem}">
+        	<Grid SnapsToDevicePixels="true">
+        		<Rectangle x:Name="Bg" 
+                           Fill="{TemplateBinding Background}" 
+                           Stroke="{TemplateBinding BorderBrush}" 
+                           StrokeThickness="1"/>
+        		<Rectangle x:Name="InnerBorder" Margin="1"/>
+        		<Grid>
+        			<Grid.ColumnDefinitions>
+        				<ColumnDefinition MinWidth="24" SharedSizeGroup="MenuItemIconColumnGroup" Width="Auto"/>
+        				<ColumnDefinition Width="4"/>
+        				<ColumnDefinition Width="*"/>
+        				<ColumnDefinition Width="37"/>
+        				<ColumnDefinition SharedSizeGroup="MenuItemIGTColumnGroup" Width="Auto"/>
+        				<ColumnDefinition Width="17"/>
+        			</Grid.ColumnDefinitions>
+        			<ContentPresenter x:Name="Icon" 
+                                      ContentSource="Icon" 
+                                      Margin="1" 
+                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                      VerticalAlignment="Center"/>
+        			<Border x:Name="GlyphPanel" 
+                            BorderBrush="#CDD3E6" 
+                            BorderThickness="1" 
+							Background="#E6EFF4" 
+                            CornerRadius="3" Height="22" Margin="1" Visibility="Hidden" Width="22">
+        				<Path x:Name="Glyph" 
+                              Data="{StaticResource Checkmark}" 
+                              Fill="#0C12A1" 
+                              FlowDirection="LeftToRight"
+                              Height="11" 
+                              Width="9"/>
+        			</Border>
+        			<ContentPresenter x:Name="Content"  Grid.Column="2" 
+                                      ContentSource="Header"
+                                      Margin="{TemplateBinding Padding}"
+                                      RecognizesAccessKey="True" 
+                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+        			<TextBlock Grid.Column="4" 
+                               Margin="{TemplateBinding Padding}"
+                               Text="{TemplateBinding InputGestureText}"/>
+        		</Grid>
+        	</Grid>
+        	<ControlTemplate.Triggers>
+        		<Trigger Property="Icon" Value="{x:Null}">
+        			<Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
+        		</Trigger>
+        		<Trigger Property="IsChecked" Value="true">
+        			<Setter Property="Visibility" TargetName="GlyphPanel" Value="Visible"/>
+        			<Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
+        		</Trigger>
+        		<Trigger Property="IsHighlighted" Value="true">
+                    <Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemSelectionFill}"/>
+                    <Setter Property="TextBlock.Foreground" TargetName="Content" Value="{StaticResource MouseOverForegroundBrush}"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="false">
+        			<Setter Property="Foreground" Value="#FF9A9A9A"/>
+        			<Setter Property="Background" TargetName="GlyphPanel" Value="#EEE9E9"/>
+        			<Setter Property="BorderBrush" TargetName="GlyphPanel" Value="#DBD6D6"/>
+        			<Setter Property="Fill" TargetName="Glyph" Value="#848589"/>
+        		</Trigger>
+        	</ControlTemplate.Triggers>
+        </ControlTemplate>
+        <Geometry x:Key="UpArrow">M 0,4 L 3.5,0 L 7,4 Z</Geometry>
+        <Style x:Key="MenuScrollButton" BasedOn="{x:Null}" TargetType="{x:Type RepeatButton}">
+        	<Setter Property="ClickMode" Value="Hover"/>
+        	<Setter Property="MinWidth" Value="0"/>
+        	<Setter Property="MinHeight" Value="0"/>
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="{x:Type RepeatButton}">
+        				<DockPanel Background="Transparent" SnapsToDevicePixels="true">
+        					<Rectangle x:Name="R1" DockPanel.Dock="Right" Fill="Transparent" Width="1"/>
+        					<Rectangle x:Name="B1" DockPanel.Dock="Bottom" Fill="Transparent" Height="1"/>
+        					<Rectangle x:Name="L1" DockPanel.Dock="Left" Fill="Transparent" Width="1"/>
+        					<Rectangle x:Name="T1" DockPanel.Dock="Top" Fill="Transparent" Height="1"/>
+        					<ContentPresenter x:Name="ContentContainer" HorizontalAlignment="Center" Margin="2,2,2,2" VerticalAlignment="Center"/>
+        				</DockPanel>
+        				<ControlTemplate.Triggers>
+        					<Trigger Property="IsPressed" Value="true">
+        						<Setter Property="Fill" TargetName="R1" Value="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+        						<Setter Property="Fill" TargetName="B1" Value="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+        						<Setter Property="Fill" TargetName="L1" Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+        						<Setter Property="Fill" TargetName="T1" Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+        						<Setter Property="Margin" TargetName="ContentContainer" Value="3,3,1,1"/>
+        					</Trigger>
+        				</ControlTemplate.Triggers>
+        			</ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
+        </Style>
+        <MenuScrollingVisibilityConverter x:Key="MenuScrollingVisibilityConverter"/>
+        <Geometry x:Key="DownArrow">M 0,0 L 3.5,4 L 7,0 Z</Geometry>
+        <Style x:Key="{ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}" BasedOn="{x:Null}" TargetType="{x:Type ScrollViewer}">
+        	<Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+        	<Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="{x:Type ScrollViewer}">
+        				<Grid SnapsToDevicePixels="true">
+        					<Grid.ColumnDefinitions>
+        						<ColumnDefinition Width="*"/>
+        					</Grid.ColumnDefinitions>
+        					<Grid.RowDefinitions>
+        						<RowDefinition Height="Auto"/>
+        						<RowDefinition Height="*"/>
+        						<RowDefinition Height="Auto"/>
+        					</Grid.RowDefinitions>
+        					<Border Grid.Column="0" Grid.Row="1">
+        						<ScrollContentPresenter CanContentScroll="{TemplateBinding CanContentScroll}" Margin="{TemplateBinding Padding}"/>
+        					</Border>
+        					<RepeatButton Grid.Column="0" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Command="{x:Static ScrollBar.LineUpCommand}" Focusable="false" Grid.Row="0" Style="{StaticResource MenuScrollButton}">
+        						<RepeatButton.Visibility>
+        							<MultiBinding ConverterParameter="0" Converter="{StaticResource MenuScrollingVisibilityConverter}" FallbackValue="Visibility.Collapsed">
+        								<Binding Path="ComputedVerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}"/>
+        								<Binding Path="VerticalOffset" RelativeSource="{RelativeSource TemplatedParent}"/>
+        								<Binding Path="ExtentHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
+        								<Binding Path="ViewportHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
+        							</MultiBinding>
+        						</RepeatButton.Visibility>
+        						<Path Data="{StaticResource UpArrow}" Fill="{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}"/>
+        					</RepeatButton>
+        					<RepeatButton Grid.Column="0" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Command="{x:Static ScrollBar.LineDownCommand}" Focusable="false" Grid.Row="2" Style="{StaticResource MenuScrollButton}">
+        						<RepeatButton.Visibility>
+        							<MultiBinding ConverterParameter="100" Converter="{StaticResource MenuScrollingVisibilityConverter}" FallbackValue="Visibility.Collapsed">
+        								<Binding Path="ComputedVerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}"/>
+        								<Binding Path="VerticalOffset" RelativeSource="{RelativeSource TemplatedParent}"/>
+        								<Binding Path="ExtentHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
+        								<Binding Path="ViewportHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
+        							</MultiBinding>
+        						</RepeatButton.Visibility>
+        						<Path Data="{StaticResource DownArrow}" Fill="{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}"/>
+        					</RepeatButton>
+        				</Grid>
+        			</ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
+        </Style>
+        <ControlTemplate x:Key="{ComponentResourceKey ResourceId=TopLevelHeaderTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}" TargetType="{x:Type MenuItem}">
+        	<Grid SnapsToDevicePixels="true">
+        		<Rectangle x:Name="Bg" 
+							Fill="{TemplateBinding Background}" 
+							Margin="1"/>
+				<DockPanel>
+        			<ContentPresenter x:Name="Icon" 
+										ContentSource="Icon"
+										Margin="4,0,6,0" 
+										SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+										VerticalAlignment="Center"/>
+        			<Path x:Name="GlyphPanel" 
+							Data="{StaticResource Checkmark}" 
+							Fill="{TemplateBinding Foreground}" 
+							FlowDirection="LeftToRight" 
+							Margin="7,0,0,0" 
+							Visibility="Collapsed" 
+							VerticalAlignment="Center"/>
+        			<ContentPresenter x:Name="Content" ContentSource="Header" 
+										Margin="{TemplateBinding Padding}" 
+										RecognizesAccessKey="True" 
+										SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+        		</DockPanel>
+        		<Popup x:Name="PART_Popup"
+						AllowsTransparency="true" 
+						Focusable="false" 
+						HorizontalOffset="1" 
+						IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
+						PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}" 
+						Placement="Bottom" 
+						VerticalOffset="-1">
+        			<Border x:Name="Shdw" Background="Transparent">
+        				<Border x:Name="SubMenuBorder" 
+								BorderBrush="{StaticResource SubMenuBorderBrush}" 
+								BorderThickness="1" 
+								Background="{StaticResource SubMenuBackgroundBrush}">
+        					<ScrollViewer x:Name="SubMenuScrollViewer" 
+											Margin="1,0" 
+											Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
+        						<Grid RenderOptions.ClearTypeHint="Enabled">
+        							<Canvas HorizontalAlignment="Left" 
+											Height="0" 
+											VerticalAlignment="Top" 
+											Width="0">
+        								<Rectangle x:Name="OpaqueRect" 
+													Fill="{StaticResource SubMenuBackgroundBrush}" 
+													Height="{Binding ActualHeight, ElementName=SubMenuBorder}" 
+													Width="{Binding ActualWidth, ElementName=SubMenuBorder}"/>
+        							</Canvas>
+        							<!--<Rectangle Fill="#F1F1F1" HorizontalAlignment="Left" Margin="1,2" Width="28"/>
+        							<Rectangle Fill="#E2E3E3" HorizontalAlignment="Left" Margin="29,2,0,2" Width="1"/>
+        							<Rectangle Fill="White" HorizontalAlignment="Left" Margin="30,2,0,2" Width="1"/>-->
+        							<ItemsPresenter x:Name="ItemsPresenter" 
+													KeyboardNavigation.DirectionalNavigation="Cycle"
+													Grid.IsSharedSizeScope="true" 
+													Margin="2" 
+													SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+													KeyboardNavigation.TabNavigation="Cycle"/>
+        						</Grid>
+        					</ScrollViewer>
+        				</Border>
+        			</Border>
+        		</Popup>
+        	</Grid>
+        	<ControlTemplate.Triggers>
+        		<Trigger Property="IsSuspendingPopupAnimation" Value="true">
+        			<Setter Property="PopupAnimation" TargetName="PART_Popup" Value="None"/>
+        		</Trigger>
+        		<Trigger Property="Icon" Value="{x:Null}">
+        			<Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
+        		</Trigger>
+        		<Trigger Property="IsChecked" Value="true">
+        			<Setter Property="Visibility" TargetName="GlyphPanel" Value="Visible"/>
+        			<Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
+        		</Trigger>
+        		<Trigger Property="HasDropShadow" SourceName="PART_Popup" Value="true">
+        			<Setter Property="Margin" TargetName="Shdw" Value="0,0,5,5"/>
+        			<Setter Property="Background" TargetName="Shdw" Value="#71000000"/>
+        		</Trigger>
+        		<Trigger Property="IsHighlighted" Value="true">
+        			<Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemPressedFill}"/>
+                    <Setter Property="TextBlock.Foreground" TargetName="Content" Value="{StaticResource MouseOverForegroundBrush}"/>
+                </Trigger>
+        		<Trigger Property="IsKeyboardFocused" Value="true">
+        			<Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemPressedFill}"/>
+        		</Trigger>
+        		<Trigger Property="IsSubmenuOpen" Value="true">
+        			<Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemPressedFill}"/>
+        		</Trigger>
+        		<Trigger Property="IsEnabled" Value="false">
+        			<Setter Property="Foreground" Value="#FF9A9A9A"/>
+        			<Setter Property="Fill" TargetName="GlyphPanel" Value="#848589"/>
+        		</Trigger>
+        		<Trigger Property="ScrollViewer.CanContentScroll" SourceName="SubMenuScrollViewer" Value="false">
+        			<Setter Property="Canvas.Top" TargetName="OpaqueRect" Value="{Binding VerticalOffset, ElementName=SubMenuScrollViewer}"/>
+        			<Setter Property="Canvas.Left" TargetName="OpaqueRect" Value="{Binding HorizontalOffset, ElementName=SubMenuScrollViewer}"/>
+        		</Trigger>
+        	</ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="{ComponentResourceKey ResourceId=TopLevelItemTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}" TargetType="{x:Type MenuItem}">
+        	<Grid SnapsToDevicePixels="true">
+        		<Rectangle x:Name="Bg"
+							Fill="{TemplateBinding Background}"
+							Margin="1"/>
+        		<DockPanel>
+        			<ContentPresenter x:Name="Icon"
+										ContentSource="Icon"
+										Margin="4,0,6,0"
+										SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+										VerticalAlignment="Center"/>
+        			<Path x:Name="GlyphPanel"
+							Data="{StaticResource Checkmark}"
+							Fill="{TemplateBinding Foreground}"
+							FlowDirection="LeftToRight"
+							Margin="7,0,0,0"
+							Visibility="Collapsed"
+							VerticalAlignment="Center"/>
+        			<ContentPresenter ContentSource="Header"
+										Margin="{TemplateBinding Padding}"
+										RecognizesAccessKey="True"
+										SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+        		</DockPanel>
+        	</Grid>
+        	<ControlTemplate.Triggers>
+        		<Trigger Property="Icon" Value="{x:Null}">
+        			<Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
+        		</Trigger>
+        		<Trigger Property="IsChecked" Value="true">
+        			<Setter Property="Visibility" TargetName="GlyphPanel" Value="Visible"/>
+        			<Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
+        		</Trigger>
+        		<Trigger Property="IsHighlighted" Value="true">
+        			<Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemPressedFill}"/>
+                </Trigger>
+        		<Trigger Property="IsKeyboardFocused" Value="true">
+        			<Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemPressedFill}"/>
+        		</Trigger>
+        		<Trigger Property="IsEnabled" Value="false">
+        			<Setter Property="Foreground" Value="#FF9A9A9A"/>
+        			<Setter Property="Fill" TargetName="GlyphPanel" Value="#848589"/>
+        		</Trigger>
+        	</ControlTemplate.Triggers>
+        </ControlTemplate>
+        <Geometry x:Key="RightArrow">M 0,0 L 4,3.5 L 0,7 Z</Geometry>
+        <ControlTemplate x:Key="{ComponentResourceKey ResourceId=SubmenuHeaderTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}" TargetType="{x:Type MenuItem}">
+        	<Grid SnapsToDevicePixels="true">
+        		<Rectangle x:Name="Bg" Fill="{TemplateBinding Background}"
+							Stroke="{TemplateBinding BorderBrush}" 
+							StrokeThickness="1"/>
+        		<Grid>
+        			<Grid.ColumnDefinitions>
+        				<ColumnDefinition MinWidth="24" SharedSizeGroup="MenuItemIconColumnGroup" Width="Auto"/>
+        				<ColumnDefinition Width="4"/>
+        				<ColumnDefinition Width="*"/>
+        				<ColumnDefinition Width="37"/>
+        				<ColumnDefinition SharedSizeGroup="MenuItemIGTColumnGroup" Width="Auto"/>
+        				<ColumnDefinition Width="17"/>
+        			</Grid.ColumnDefinitions>
+        			<ContentPresenter x:Name="Icon"
+										ContentSource="Icon"
+										Margin="1" 
+										SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+										VerticalAlignment="Center"/>
+        			<Border x:Name="GlyphPanel" 
+							BorderBrush="#CDD3E6" 
+							BorderThickness="1" 
+							Background="#E6EFF4"
+							Height="22" 
+							Margin="1" 
+							Visibility="Hidden"
+							Width="22">
+        				<Path x:Name="Glyph" 
+								Data="{StaticResource Checkmark}"
+								Fill="#0C12A1" 
+								FlowDirection="LeftToRight" 
+								Height="11" 
+								Width="9"/>
+        			</Border>
+        			<ContentPresenter x:Name="Content" Grid.Column="2"
+										ContentSource="Header" 
+										Margin="{TemplateBinding Padding}" 
+										RecognizesAccessKey="True" 
+										SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+        			<TextBlock  Grid.Column="4"
+								Margin="{TemplateBinding Padding}" 
+								Text="{TemplateBinding InputGestureText}"
+								Visibility="Collapsed"/>
+                    <Path x:Name="RightArrowPath" Grid.Column="5" 
+							Data="{StaticResource RightArrow}"
+							Fill="{TemplateBinding Foreground}" 
+							Margin="4,0,0,0" 
+							VerticalAlignment="Center"/>
+        		</Grid>
+        		<Popup x:Name="PART_Popup" 
+						AllowsTransparency="true" 
+						Focusable="false" 
+						HorizontalOffset="-2" 
+						IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" 
+						PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}"
+						Placement="Right" 
+						VerticalOffset="-3">
+        			<Border x:Name="Shdw" Background="Transparent">
+        				<Border x:Name="SubMenuBorder" 
+								BorderBrush="{StaticResource SubMenuBorderBrush}"
+								BorderThickness="1"
+								Background="{StaticResource SubMenuBackgroundBrush}">
+        					<ScrollViewer x:Name="SubMenuScrollViewer" 
+											Margin="1,0" 
+											Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
+        						<Grid RenderOptions.ClearTypeHint="Enabled">
+        							<Canvas HorizontalAlignment="Left"
+											Height="0"
+											VerticalAlignment="Top"
+											Width="0">
+        								<Rectangle x:Name="OpaqueRect"	
+													Fill="{StaticResource SubMenuBackgroundBrush}" 
+													Height="{Binding ActualHeight, ElementName=SubMenuBorder}"
+													Width="{Binding ActualWidth, ElementName=SubMenuBorder}"/>
+        							</Canvas>
+        							<!--<Rectangle Fill="#F1F1F1" HorizontalAlignment="Left" Margin="1,2" RadiusY="2" RadiusX="2" Width="28"/>
+        							<Rectangle Fill="#E2E3E3" HorizontalAlignment="Left" Margin="29,2,0,2" Width="1"/>
+        							<Rectangle Fill="White" HorizontalAlignment="Left" Margin="30,2,0,2" Width="1"/>-->
+        							<ItemsPresenter x:Name="ItemsPresenter" 
+													KeyboardNavigation.DirectionalNavigation="Cycle"
+													Grid.IsSharedSizeScope="true" 
+													Margin="2" 
+													SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+													KeyboardNavigation.TabNavigation="Cycle"/>
+        						</Grid>
+        					</ScrollViewer>
+        				</Border>
+        			</Border>
+        		</Popup>
+        	</Grid>
+        	<ControlTemplate.Triggers>
+        		<Trigger Property="IsSuspendingPopupAnimation" Value="true">
+        			<Setter Property="PopupAnimation" TargetName="PART_Popup" Value="None"/>
+        		</Trigger>
+        		<Trigger Property="Icon" Value="{x:Null}">
+        			<Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
+        		</Trigger>
+        		<Trigger Property="IsChecked" Value="true">
+        			<Setter Property="Visibility" TargetName="GlyphPanel" Value="Visible"/>
+        			<Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
+        		</Trigger>
+        		<Trigger Property="HasDropShadow" SourceName="PART_Popup" Value="true">
+        			<Setter Property="Margin" TargetName="Shdw" Value="0,0,5,5"/>
+        			<Setter Property="Background" TargetName="Shdw" Value="#71000000"/>
+        		</Trigger>
+        		<Trigger Property="IsHighlighted" Value="true">
+        			<Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemSelectionFill}"/>
+                    <Setter Property="TextBlock.Foreground" TargetName="Content" Value="{StaticResource MouseOverForegroundBrush}"/>
+                    <Setter Property="Fill" TargetName="RightArrowPath" Value="{StaticResource MouseOverForegroundBrush}"/>
+                </Trigger>
+        		<Trigger Property="IsEnabled" Value="false">
+        			<Setter Property="Foreground" Value="#FF9A9A9A"/>
+        			<Setter Property="Background" TargetName="GlyphPanel" Value="#EEE9E9"/>
+        			<Setter Property="BorderBrush" TargetName="GlyphPanel" Value="#DBD6D6"/>
+        			<Setter Property="Fill" TargetName="Glyph" Value="#848589"/>
+        		</Trigger>
+        		<Trigger Property="ScrollViewer.CanContentScroll" SourceName="SubMenuScrollViewer" Value="false">
+        			<Setter Property="Canvas.Top" TargetName="OpaqueRect" Value="{Binding VerticalOffset, ElementName=SubMenuScrollViewer}"/>
+        			<Setter Property="Canvas.Left" TargetName="OpaqueRect" Value="{Binding HorizontalOffset, ElementName=SubMenuScrollViewer}"/>
+        		</Trigger>
+        	</ControlTemplate.Triggers>
+        </ControlTemplate>
+        <Style x:Key="MenuItemStyle" TargetType="{x:Type MenuItem}">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"></Setter>
+        	<Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        	<Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        	<Setter Property="Background" Value="Transparent"/>
+        	<Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+			<Setter Property="MinHeight" Value="25"/>
+        	<Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        	<Setter Property="Template" Value="{DynamicResource {ComponentResourceKey ResourceId=SubmenuItemTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}"/>
+        	<Style.Triggers>
+        		<Trigger Property="Role" Value="TopLevelHeader">
+        			<Setter Property="Padding" Value="7,5,8,3"/>
+        			<Setter Property="Template" Value="{DynamicResource {ComponentResourceKey ResourceId=TopLevelHeaderTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}"/>
+        		</Trigger>
+        		<Trigger Property="Role" Value="TopLevelItem">
+        			<Setter Property="Padding" Value="7,5,8,3"/>
+        			<Setter Property="Template" Value="{DynamicResource {ComponentResourceKey ResourceId=TopLevelItemTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}"/>
+        		</Trigger>
+        		<Trigger Property="Role" Value="SubmenuHeader">
+        			<Setter Property="Padding" Value="2,6,2,6"/>
+        			<Setter Property="Template" Value="{DynamicResource {ComponentResourceKey ResourceId=SubmenuHeaderTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}"/>
+        		</Trigger>
+        		<Trigger Property="Role" Value="SubmenuItem">
+        			<Setter Property="Padding" Value="2,6,2,6"/>
+        		</Trigger>
+            </Style.Triggers>
+        </Style>
+    	
     </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition MinWidth="320" Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <Border Margin="5">
-            <ListView>
-                <ListViewItem Padding="5">
-                    <TextBlock Text="Button"/>
-                </ListViewItem>
-                <ListViewItem Padding="5">
-                    <TextBlock Text="CheckBox"/>
-                </ListViewItem>
-                <ListViewItem Padding="5">
-                    <TextBlock Text="ComboBox"/>
-                </ListViewItem>
-                <ListViewItem Padding="5">
-                    <TextBlock Text="Expander"/>
-                </ListViewItem>
-                <ListViewItem Padding="5">
-                    <TextBlock Text="Label"/>
-                </ListViewItem>
-                <ListViewItem Padding="5">
-                    <TextBlock Text="ListView"/>
-                </ListViewItem>
-                <ListViewItem Padding="5">
-                    <TextBlock Text="RadioButton"/>
-                </ListViewItem>
-                <ListViewItem Padding="5">
-                    <TextBlock Text="ScrollViewer"/>
-                </ListViewItem>
-                <ListViewItem Padding="5">
-                    <TextBlock Text="TabControl"/>
-                </ListViewItem>
-                <ListViewItem Padding="5">
-                    <TextBlock Text="TextBox"/>
-                </ListViewItem>
-                <ListViewItem Padding="5">
-                    <TextBlock Text="ToggleButton"/>
-                </ListViewItem>
-            </ListView>
-        </Border>
-        <TabControl Grid.Column="1" TabStripPlacement="Top" Margin="5">
-            <TabItem Header="Properties">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition ></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <TextBox Grid.Row="0" Margin="2" IsEnabled="False">Search Properties</TextBox>
-                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto"
-                              VerticalScrollBarVisibility="Visible" >
-                        <StackPanel>
-                            <Expander Header="Appearance" IsExpanded="True">
-                                <StackPanel Margin="0,0,0,2">
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>Opacity</Label>
-                                        <TextBox Width="150" Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>Visibility</Label>
-                                        <ComboBox Text="Item1" Width="150" Margin="2">
-                                            <ComboBoxItem Padding="2" IsSelected="True">Visible</ComboBoxItem>
-                                            <ComboBoxItem Padding="2">Hidden</ComboBoxItem>
-                                            <ComboBoxItem Padding="2">Collapsed</ComboBoxItem>
-                                        </ComboBox>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Margin="0,0,100,0">Effect</Label>
-                                        <Button Content="New" Width="50" Margin="2"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Expander>
-                            <Expander Header="Common" IsExpanded="True">
-                                <StackPanel Margin="0,0,0,2">
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>Content</Label>
-                                        <TextBox Width="150" Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>Cursor</Label>
-                                        <ComboBox Text="Item1" IsEditable="True" Width="150" Margin="2">
-                                            <ComboBoxItem Padding="2" IsSelected="True">None</ComboBoxItem>
-                                            <ComboBoxItem Padding="2">Arrow</ComboBoxItem>
-                                            <ComboBoxItem Padding="2">Cross</ComboBoxItem>
-                                        </ComboBox>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Margin="0,0,100,0">DataContext</Label>
-                                        <Button Content="New" Width="50" Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>IsEnabled</Label>
-                                        <CheckBox VerticalAlignment="Center" Margin="2" Width="150"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>ToolTip</Label>
-                                        <TextBox Width="150" Margin="2"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Expander>
-                            <Expander Header="Layout">
-                                <StackPanel Margin="0,0,0,2">
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>Width</Label>
-                                        <TextBox Width="150" Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>Height</Label>
-                                        <TextBox Width="150" Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>ZIndex</Label>
-                                        <TextBox Width="150" Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>HorizontalAlignment</Label>
-                                        <StackPanel Orientation="Horizontal" Width="150" Margin="2">
-                                            <RadioButton Content="L" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                            <RadioButton Content="C" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                            <RadioButton Content="R" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                            <RadioButton Content="S" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                        </StackPanel>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>VerticalAlignment</Label>
-                                        <StackPanel Orientation="Horizontal" Width="150" Margin="2">
-                                            <RadioButton Content="L" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                            <RadioButton Content="C" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                            <RadioButton Content="R" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                            <RadioButton Content="S" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-                                        </StackPanel>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Expander>
-                            <Expander Header="Layout" IsExpanded="True">
-                                <StackPanel Margin="0,0,0,2">
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>Width</Label>
-                                        <TextBox Width="150" Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>Height</Label>
-                                        <TextBox Width="150" Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>ZIndex</Label>
-                                        <TextBox Width="150" Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>HorizontalAlignment</Label>
-                                        <StackPanel Orientation="Horizontal" Width="150" Margin="2">
-                                            <RadioButton Content="L" Margin="2,2,4,2"/>
-                                            <RadioButton Content="C" Margin="2,2,4,2"/>
-                                            <RadioButton Content="R" Margin="2,2,4,2"/>
-                                            <RadioButton Content="S" Margin="2"/>
-                                        </StackPanel>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label>VerticalAlignment</Label>
-                                        <StackPanel Orientation="Horizontal" Width="150" Margin="2">
-                                            <RadioButton Content="L" Margin="2,2,4,2"/>
-                                            <RadioButton Content="C" Margin="2,2,4,2"/>
-                                            <RadioButton Content="R" Margin="2,2,4,2"/>
-                                            <RadioButton Content="S" Margin="2"/>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Expander>
-                        </StackPanel>
-                    </ScrollViewer>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Resources">
-                    <TreeView>
-                        <TreeViewItem Header="Fonts">
-                            <TreeViewItem Header="Fonts">
-                            <TreeViewItem Header="Fonts">
-                                <TreeViewItem Header="Fonts">
-                                    <TreeViewItem Header="Fonts"/>
-                                </TreeViewItem>
-                            </TreeViewItem>
-                        </TreeViewItem>
-                        </TreeViewItem>
-                        <TreeViewItem Header="Properties">
-                            <TreeViewItem Header="Properties">
-                            <TreeViewItem Header="Properties">
-                                <TreeViewItem Header="Properties"/>
-                            </TreeViewItem>
-                        </TreeViewItem>
-                        </TreeViewItem>
-                    </TreeView>
-            </TabItem>
-            <TabItem Header="Data"/>
-        </TabControl>
-    </Grid>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition MinWidth="320" Width="Auto"/>
+		</Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
+            <Menu Style="{DynamicResource MenuStyle}" Height="25">
+                <MenuItem Header="Fonts" Style="{DynamicResource MenuItemStyle}">
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font1"/>
+                    </MenuItem>
+                    <MenuItem Header="Fonts">
+                        <MenuItem Header="Font2"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Properties">
+                    <MenuItem Header="Property">
+                        <MenuItem Header="Property1"/>
+                    </MenuItem>
+                    <MenuItem Header="Property">
+                        <MenuItem Header="Property2"/>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+        <Border Margin="5" Grid.Row="1" Grid.Column="0">
+			<ListView>
+				<ListViewItem Padding="5">
+					<TextBlock Text="Button"/>
+				</ListViewItem>
+				<ListViewItem Padding="5">
+					<TextBlock Text="CheckBox"/>
+				</ListViewItem>
+				<ListViewItem Padding="5">
+					<TextBlock Text="ComboBox"/>
+				</ListViewItem>
+				<ListViewItem Padding="5">
+					<TextBlock Text="Expander"/>
+				</ListViewItem>
+				<ListViewItem Padding="5">
+					<TextBlock Text="Label"/>
+				</ListViewItem>
+				<ListViewItem Padding="5">
+					<TextBlock Text="ListView"/>
+				</ListViewItem>
+				<ListViewItem Padding="5">
+					<TextBlock Text="RadioButton"/>
+				</ListViewItem>
+				<ListViewItem Padding="5">
+					<TextBlock Text="ScrollViewer"/>
+				</ListViewItem>
+				<ListViewItem Padding="5">
+					<TextBlock Text="TabControl"/>
+				</ListViewItem>
+				<ListViewItem Padding="5">
+					<TextBlock Text="TextBox"/>
+				</ListViewItem>
+				<ListViewItem Padding="5">
+					<TextBlock Text="ToggleButton"/>
+				</ListViewItem>
+			</ListView>
+		</Border>
+		<TabControl Grid.Column="1" Grid.Row="1" TabStripPlacement="Top" Margin="5">
+			<TabItem Header="Properties">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<TextBox Grid.Row="0" Margin="2" IsEnabled="False" Text="Search Properties"/>
+					<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto"
+						VerticalScrollBarVisibility="Visible" >
+						<StackPanel>
+							<Expander Header="Appearance" IsExpanded="True">
+								<StackPanel Margin="0,0,0,2">
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="Opacity"/>
+										<TextBox Width="150" Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="Visibility"/>
+										<ComboBox Text="Item1" Width="150" Margin="2">
+											<ComboBoxItem Padding="2" IsSelected="True" Content="Visible"/>
+											<ComboBoxItem Padding="2" Content="Hidden"/>
+											<ComboBoxItem Padding="2" Content="Collapsed"/>
+										</ComboBox>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Margin="0,0,100,0" Content="Effect"/>
+										<Button Content="New" Width="50" Margin="2"/>
+									</StackPanel>
+								</StackPanel>
+							</Expander>
+							<Expander Header="Common" IsExpanded="True">
+								<StackPanel Margin="0,0,0,2">
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="Content"/>
+										<TextBox Width="150" Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="Cursor"/>
+										<ComboBox Text="Item1" IsEditable="True" Width="150" Margin="2">
+											<ComboBoxItem Padding="2" IsSelected="True" Content="None"/>
+											<ComboBoxItem Padding="2" Content="Arrow"/>
+											<ComboBoxItem Padding="2" Content="Cross"/>
+										</ComboBox>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Margin="0,0,100,0" Content="DataContext"/>
+										<Button Content="New" Width="50" Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="IsEnabled"/>
+										<CheckBox VerticalAlignment="Center" Margin="2" Width="150"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="ToolTip"/>
+										<TextBox Width="150" Margin="2"/>
+									</StackPanel>
+								</StackPanel>
+							</Expander>
+							<Expander Header="Layout">
+								<StackPanel Margin="0,0,0,2">
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="Width"/>
+										<TextBox Width="150" Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="Height"/>
+										<TextBox Width="150" Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="ZIndex"/>
+										<TextBox Width="150" Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="HorizontalAlignment"/>
+										<StackPanel Orientation="Horizontal" Width="150" Margin="2">
+											<RadioButton Content="L" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
+											<RadioButton Content="C" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
+											<RadioButton Content="R" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
+											<RadioButton Content="S" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
+										</StackPanel>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="VerticalAlignment"/>
+										<StackPanel Orientation="Horizontal" Width="150" Margin="2">
+											<RadioButton Content="L" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
+											<RadioButton Content="C" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
+											<RadioButton Content="R" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
+											<RadioButton Content="S" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
+										</StackPanel>
+									</StackPanel>
+								</StackPanel>
+							</Expander>
+							<Expander Header="Layout" IsExpanded="True">
+								<StackPanel Margin="0,0,0,2">
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="Width"/>
+										<TextBox Width="150" Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="Height"/>
+										<TextBox Width="150" Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="ZIndex"/>
+										<TextBox Width="150" Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="HorizontalAlignment"/>
+										<StackPanel Orientation="Horizontal" Width="150" Margin="2">
+											<RadioButton Content="L" Margin="2,2,4,2"/>
+											<RadioButton Content="C" Margin="2,2,4,2"/>
+											<RadioButton Content="R" Margin="2,2,4,2"/>
+											<RadioButton Content="S" Margin="2"/>
+										</StackPanel>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="VerticalAlignment"/>
+										<StackPanel Orientation="Horizontal" Width="150" Margin="2">
+											<RadioButton Content="L" Margin="2,2,4,2"/>
+											<RadioButton Content="C" Margin="2,2,4,2"/>
+											<RadioButton Content="R" Margin="2,2,4,2"/>
+											<RadioButton Content="S" Margin="2"/>
+										</StackPanel>
+									</StackPanel>
+								</StackPanel>
+							</Expander>
+						</StackPanel>
+					</ScrollViewer>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Resources">
+				<TreeView>
+					<TreeViewItem Header="Fonts">
+						<TreeViewItem Header="Fonts">
+							<TreeViewItem Header="Fonts">
+								<TreeViewItem Header="Fonts">
+									<TreeViewItem Header="Fonts"/>
+								</TreeViewItem>
+							</TreeViewItem>
+						</TreeViewItem>
+					</TreeViewItem>
+					<TreeViewItem Header="Properties">
+						<TreeViewItem Header="Properties">
+							<TreeViewItem Header="Properties">
+								<TreeViewItem Header="Properties"/>
+							</TreeViewItem>
+						</TreeViewItem>
+					</TreeViewItem>
+				</TreeView>
+			</TabItem>
+			<TabItem Header="Data"/>
+		</TabControl>
+	</Grid>
 </Window>
