@@ -6,6 +6,7 @@
                     mc:Ignorable="d">
 
     <SolidColorBrush x:Key="ForegroundBrush" Color="#EFEFEF"/>
+    <SolidColorBrush x:Key="MouseOverForegroundBrush" Color="#333333"/>
     <SolidColorBrush x:Key="BackGroundBrush" Color="#444444"/>
 
     <SolidColorBrush x:Key="TabControlNormalBorderBrush" Color="#444444"/>
@@ -71,6 +72,12 @@
     <SolidColorBrush x:Key="MouseOverListViewItem" Color="#4A4A4A"/>
 
     <SolidColorBrush x:Key="TreeViewBackground" Color="#333333"/>
+    
+    <SolidColorBrush x:Key="MenuBackground" Color="#3A3A3A"/>
+    <SolidColorBrush x:Key="MenuItemSelectionFill" Color="#BDBDBD"/>
+    <SolidColorBrush x:Key="SubMenuBackgroundBrush" Color="#3A3A3A"/>
+    <SolidColorBrush x:Key="MenuItemPressedFill" Color="#BDBDBD"/>
+    <SolidColorBrush x:Key="SubMenuBorderBrush" Color="#595959"/>
 
     <!--FontStyle-->
     <Style TargetType="{x:Type TextBlock}">
