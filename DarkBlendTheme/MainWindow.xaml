@@ -43,10 +43,10 @@
         		<Rectangle x:Name="InnerBorder" Margin="1"/>
         		<Grid>
         			<Grid.ColumnDefinitions>
-        				<ColumnDefinition MinWidth="24" SharedSizeGroup="MenuItemIconColumnGroup" Width="Auto"/>
+        				<ColumnDefinition MinWidth="14" SharedSizeGroup="MenuItemIconColumnGroup" Width="Auto"/>
         				<ColumnDefinition Width="4"/>
         				<ColumnDefinition Width="*"/>
-        				<ColumnDefinition Width="37"/>
+        				<ColumnDefinition MinWidth="37"/>
         				<ColumnDefinition SharedSizeGroup="MenuItemIGTColumnGroup" Width="Auto"/>
         				<ColumnDefinition Width="17"/>
         			</Grid.ColumnDefinitions>
@@ -56,14 +56,17 @@
                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
                                       VerticalAlignment="Center"/>
         			<Border x:Name="GlyphPanel" 
-                            BorderBrush="Transparent" 
-                            CornerRadius="3" Height="22" Margin="1" Visibility="Hidden" Width="22">
+                            BorderBrush="Transparent"
+							Margin="1" Visibility="Hidden">
         				<Path x:Name="Glyph" 
-                              Data="{StaticResource Checkmark}" 
-                              Fill="{StaticResource ForegroundBrush}" 
-                              FlowDirection="LeftToRight"
-                              Height="11" 
-                              Width="9"/>
+								Data="{StaticResource Checkmark}" 
+								Fill="{StaticResource ForegroundBrush}" 
+								FlowDirection="LeftToRight"
+								Margin="5,0,0,0"
+								VerticalAlignment="Center" 
+								Height="7.5"
+								Stretch="Fill" 
+								Width="7.5"/>
         			</Border>
         			<ContentPresenter x:Name="Content"  Grid.Column="2" 
                                       ContentSource="Header"
@@ -186,9 +189,12 @@
 							Data="{StaticResource Checkmark}" 
 							Fill="{TemplateBinding Foreground}" 
 							FlowDirection="LeftToRight" 
-							Margin="7,0,0,0" 
-							Visibility="Collapsed" 
-							VerticalAlignment="Center"/>
+							Visibility="Collapsed"
+							Margin="5,0,0,0"
+							VerticalAlignment="Center" 
+							Height="7.5"
+							Stretch="Fill" 
+							Width="7.5"/>
         			<ContentPresenter x:Name="Content" ContentSource="Header" 
 										Margin="{TemplateBinding Padding}" 
 										RecognizesAccessKey="True" 
@@ -286,9 +292,12 @@
 							Data="{StaticResource Checkmark}"
 							Fill="{TemplateBinding Foreground}"
 							FlowDirection="LeftToRight"
-							Margin="7,0,0,0"
-							Visibility="Collapsed"
-							VerticalAlignment="Center"/>
+							Margin="5,0,0,0"
+							VerticalAlignment="Center" 
+							Height="7.5"
+							Stretch="Fill" 
+							Width="7.5"
+							Visibility="Collapsed"/>
         			<ContentPresenter ContentSource="Header"
 										Margin="{TemplateBinding Padding}"
 										RecognizesAccessKey="True"
@@ -323,10 +332,10 @@
 							StrokeThickness="1"/>
         		<Grid>
         			<Grid.ColumnDefinitions>
-        				<ColumnDefinition MinWidth="24" SharedSizeGroup="MenuItemIconColumnGroup" Width="Auto"/>
+        				<ColumnDefinition MinWidth="14" SharedSizeGroup="MenuItemIconColumnGroup" Width="Auto"/>
         				<ColumnDefinition Width="4"/>
         				<ColumnDefinition Width="*"/>
-        				<ColumnDefinition Width="37"/>
+        				<ColumnDefinition MinWidth="37"/>
         				<ColumnDefinition SharedSizeGroup="MenuItemIGTColumnGroup" Width="Auto"/>
         				<ColumnDefinition Width="17"/>
         			</Grid.ColumnDefinitions>
@@ -336,19 +345,18 @@
 										SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
 										VerticalAlignment="Center"/>
         			<Border x:Name="GlyphPanel" 
-							BorderBrush="#CDD3E6" 
-							BorderThickness="1" 
-							Background="#E6EFF4"
-							Height="22" 
+							Background="Transparent"
 							Margin="1" 
-							Visibility="Hidden"
-							Width="22">
+							Visibility="Hidden">
         				<Path x:Name="Glyph" 
 								Data="{StaticResource Checkmark}"
 								Fill="{StaticResource ForegroundBrush}" 
 								FlowDirection="LeftToRight" 
-								Height="11" 
-								Width="9"/>
+								Margin="5,0,0,0"
+								VerticalAlignment="Center" 
+								Height="7.5"
+								Stretch="Fill" 
+								Width="7.5"/>
         			</Border>
         			<ContentPresenter x:Name="Content" Grid.Column="2"
 										ContentSource="Header" 
