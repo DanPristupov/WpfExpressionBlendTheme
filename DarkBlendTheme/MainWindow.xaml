@@ -92,10 +92,8 @@
                     <Setter Property="Fill" TargetName="Glyph" Value="{StaticResource MouseOverForegroundBrush}"/>
                 </Trigger>
                 <Trigger Property="IsEnabled" Value="false">
-        			<Setter Property="Foreground" Value="#FF9A9A9A"/>
-        			<Setter Property="Background" TargetName="GlyphPanel" Value="#EEE9E9"/>
-        			<Setter Property="BorderBrush" TargetName="GlyphPanel" Value="#DBD6D6"/>
-        			<Setter Property="Fill" TargetName="Glyph" Value="#848589"/>
+                    <Setter Property="Foreground" Value="{StaticResource DisabledMenuForeground}"/>
+                    <Setter Property="Fill" TargetName="Glyph" Value="{StaticResource DisabledMenuForeground}"/>
         		</Trigger>
         	</ControlTemplate.Triggers>
         </ControlTemplate>
@@ -258,9 +256,9 @@
         			<Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemPressedFill}"/>
         		</Trigger>
         		<Trigger Property="IsEnabled" Value="false">
-        			<Setter Property="Foreground" Value="#FF9A9A9A"/>
-        			<Setter Property="Fill" TargetName="GlyphPanel" Value="#848589"/>
-        		</Trigger>
+                    <Setter Property="Foreground" Value="{StaticResource DisabledMenuForeground}"/>
+                    <Setter Property="Fill" TargetName="GlyphPanel" Value="{StaticResource DisabledMenuForeground}"/>
+                </Trigger>
         		<Trigger Property="ScrollViewer.CanContentScroll" SourceName="SubMenuScrollViewer" Value="false">
         			<Setter Property="Canvas.Top" TargetName="OpaqueRect" Value="{Binding VerticalOffset, ElementName=SubMenuScrollViewer}"/>
         			<Setter Property="Canvas.Left" TargetName="OpaqueRect" Value="{Binding HorizontalOffset, ElementName=SubMenuScrollViewer}"/>
@@ -309,9 +307,9 @@
         			<Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemPressedFill}"/>
         		</Trigger>
         		<Trigger Property="IsEnabled" Value="false">
-        			<Setter Property="Foreground" Value="#FF9A9A9A"/>
-        			<Setter Property="Fill" TargetName="GlyphPanel" Value="#848589"/>
-        		</Trigger>
+                    <Setter Property="Foreground" Value="{StaticResource DisabledMenuForeground}"/>
+                    <Setter Property="Fill" TargetName="GlyphPanel" Value="{StaticResource DisabledMenuForeground}"/>
+                </Trigger>
         	</ControlTemplate.Triggers>
         </ControlTemplate>
         <Geometry x:Key="RightArrow">M 0,0 L 4,3.5 L 0,7 Z</Geometry>
@@ -426,11 +424,9 @@
                     <Setter Property="Fill" TargetName="Glyph" Value="{StaticResource MouseOverForegroundBrush}"/>
                 </Trigger>
         		<Trigger Property="IsEnabled" Value="false">
-        			<Setter Property="Foreground" Value="#FF9A9A9A"/>
-        			<Setter Property="Background" TargetName="GlyphPanel" Value="#EEE9E9"/>
-        			<Setter Property="BorderBrush" TargetName="GlyphPanel" Value="#DBD6D6"/>
-        			<Setter Property="Fill" TargetName="Glyph" Value="#848589"/>
-        		</Trigger>
+                    <Setter Property="Foreground" Value="{StaticResource DisabledMenuForeground}"/>
+                    <Setter Property="Fill" TargetName="Glyph" Value="{StaticResource DisabledMenuForeground}"/>
+                </Trigger>
         		<Trigger Property="ScrollViewer.CanContentScroll" SourceName="SubMenuScrollViewer" Value="false">
         			<Setter Property="Canvas.Top" TargetName="OpaqueRect" Value="{Binding VerticalOffset, ElementName=SubMenuScrollViewer}"/>
         			<Setter Property="Canvas.Left" TargetName="OpaqueRect" Value="{Binding HorizontalOffset, ElementName=SubMenuScrollViewer}"/>
@@ -478,11 +474,11 @@
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
             <Menu Style="{DynamicResource MenuStyle}" Height="25">
                 <MenuItem Header="Fonts" Style="{DynamicResource MenuItemStyle}">
-                    <MenuItem IsCheckable="True" Header="Fonts">
-                        <MenuItem Header="Font1"/>
+                    <MenuItem IsCheckable="True"  Header="Fonts">
+                        <MenuItem Header="Font1" />
                     </MenuItem>
                     <MenuItem Header="Fonts">
-                        <MenuItem IsCheckable="True" Header="Font2"/>
+                        <MenuItem IsCheckable="True" IsEnabled="False" Header="Font2"/>
                     </MenuItem>
                     <MenuItem Header="Fonts">
                         <MenuItem Header="Font1"/>
@@ -583,8 +579,8 @@
 
                 </MenuItem>
                 <MenuItem Header="Fonts">
-                    <MenuItem  Header="Fonts">
-                        <MenuItem IsCheckable="True" Header="Font1"/>
+                    <MenuItem  Header="Fonts" >
+                        <MenuItem IsCheckable="True" IsEnabled="False" Header="Font1"/>
                     </MenuItem>
                     <MenuItem  Header="Fonts">
                         <MenuItem IsCheckable="True" Header="Font2"/>
@@ -592,7 +588,7 @@
                 </MenuItem>
                 <MenuItem Header="Fonts" Style="{DynamicResource MenuItemStyle}">
                     <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
+                        <MenuItem  Header="Font1"/>
                     </MenuItem>
                     <MenuItem Header="Fonts">
                         <MenuItem Header="Font2"/>
