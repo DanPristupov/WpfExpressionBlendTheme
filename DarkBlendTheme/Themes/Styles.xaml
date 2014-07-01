@@ -85,6 +85,7 @@
     <SolidColorBrush x:Key="MouseOverListViewItem" Color="#4A4A4A"/>
 
     <SolidColorBrush x:Key="TreeViewBackground" Color="{StaticResource DarkBackgroundColor}"/>
+    <SolidColorBrush x:Key="TreeViewDisabledForeground" Color="{StaticResource LightDisabledBackgroundColor}"/>
 
     <SolidColorBrush x:Key="DisabledMenuForeground" Color="#656565"/>
     <SolidColorBrush x:Key="MenuBackground" Color="#3A3A3A"/>
@@ -1757,7 +1758,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Foreground" Value="{StaticResource DisabledButtonForeground}"/>
+                            <Setter Property="Foreground" Value="{StaticResource TreeViewDisabledForeground}"/>
                         </Trigger>
                         <!--<Trigger Property="VirtualizingPanel.IsVirtualizing" Value="true">
     							<Setter Property="CanContentScroll" TargetName="_tv_scrollviewer_" Value="true"/>
@@ -1870,7 +1871,7 @@
                             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
                         </MultiTrigger>-->
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Foreground" Value="{StaticResource DisabledButtonForeground}"/>
+                            <Setter Property="Foreground" Value="{StaticResource TreeViewDisabledForeground}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -1944,7 +1945,9 @@
                             <Setter Property="Fill" TargetName="arrow" Value="Transparent"/>
                             <Setter Property="Stroke" TargetName="arrow" Value="{StaticResource Expander.MouseOver.Arrow.Stroke}"/>
                         </MultiTrigger>
-                        <Trigger Property="IsEnabled" Value="false"/>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Stroke" TargetName="arrow" Value="{StaticResource Expander.Disabled.Arrow.Stroke}"/>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
