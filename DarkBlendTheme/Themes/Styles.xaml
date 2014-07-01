@@ -1733,8 +1733,6 @@
 
     <Style TargetType="{x:Type TreeView}">
         <Setter Property="Background" Value="{StaticResource TreeViewBackground}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource ListBorder}"/>
-        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Padding" Value="1"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
@@ -1745,7 +1743,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TreeView}">
-                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                    <Border x:Name="Bd" SnapsToDevicePixels="true">
                         <ScrollViewer x:Name="_tv_scrollviewer_" 
                                           Background="{TemplateBinding Background}"
                                           CanContentScroll="false" Focusable="false" 
