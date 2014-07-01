@@ -47,7 +47,6 @@
     <SolidColorBrush x:Key="InactiveSelectionHighlightBrush" Color="#335C85"/>
 
     <SolidColorBrush x:Key="ComboBoxButtonNormalBackground" Color="#808080"/>
-    <SolidColorBrush x:Key="ComboBoxDisabledBackground" Color="{StaticResource LightDisabledBackgroundColor}" />
 
     <SolidColorBrush x:Key="ButtonNormalBackground" Color="{StaticResource DarkBackgroundColor}"/>
     <SolidColorBrush x:Key="ButtonNormalBorder" Color="#4C4C4C"/>
@@ -254,6 +253,7 @@
                                 <Trigger Property="IsEnabled" Value="false">
                                     <Setter Property="Background" TargetName="Bd" Value="{StaticResource TabItemDisabledBackground}"/>
                                     <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource TabItemDisabledBorderBrush}"/>
+                                    <Setter Property="Fill" TargetName="RoundedCorner" Value="{StaticResource TabItemDisabledBackground}"></Setter>
                                     <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
