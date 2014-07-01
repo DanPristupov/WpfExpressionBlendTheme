@@ -460,6 +460,17 @@
         		</Trigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="MenuSeparatorStyle" TargetType="{x:Type Separator}">
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="{x:Type Separator}">
+        				<Grid Margin="3,2,3,2" SnapsToDevicePixels="true" UseLayoutRounding="False">
+        					<Rectangle Fill="{StaticResource MenuSeparatorBrush}" Height="1"/>
+        				</Grid>
+        			</ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
+        </Style>
     	
     </Window.Resources>
 	<Grid>
@@ -477,6 +488,7 @@
                     <MenuItem IsCheckable="True" Header="Fonts">
                         <MenuItem Header="Font1" />
                     </MenuItem>
+                    <Separator Style="{DynamicResource MenuSeparatorStyle}"></Separator>
                     <MenuItem Header="Fonts">
                         <MenuItem IsCheckable="True" IsEnabled="False" Header="Font2"/>
                     </MenuItem>

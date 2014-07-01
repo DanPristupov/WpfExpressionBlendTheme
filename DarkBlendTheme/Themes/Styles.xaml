@@ -81,6 +81,7 @@
     <SolidColorBrush x:Key="SubMenuBorderBrush" Color="#595959"/>
     <SolidColorBrush x:Key="SubMenuRepeatButtonBrush" Color="#525252"/>
     <SolidColorBrush x:Key="SubMenuHoverRepeatButtonBrush" Color="#7F7F7F"/>
+    <SolidColorBrush x:Key="MenuSeparatorBrush" Color="#4C4C4C"/>
 
     <Geometry x:Key="DownArrowGeometry">M-0.7,5.2 L-2.2,6.7 3.6,12.6 9.5,6.7 8,5.2 3.6,9.6 z</Geometry>
     <Geometry x:Key="UpArrowGeometry">M-2.2,10.9 L-0.7,12.4 3.7,8 8,12.4 9.5,10.9 3.7,5 z</Geometry>
