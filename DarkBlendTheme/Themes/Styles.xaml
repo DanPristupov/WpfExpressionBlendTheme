@@ -5,81 +5,94 @@
                     xmlns:darkBlendTheme="clr-namespace:DarkBlendTheme"
                     mc:Ignorable="d">
 
-    <SolidColorBrush x:Key="ForegroundBrush" Color="#EFEFEF"/>
-    <SolidColorBrush x:Key="MouseOverForegroundBrush" Color="#333333"/>
-    <SolidColorBrush x:Key="BackGroundBrush" Color="#444444"/>
+    <!--Colors-->
+    <Color x:Key="WindowBackgroundColor">#444444</Color>
+    <Color x:Key="DarkBackgroundColor">#333333</Color>
+    <Color x:Key="LightBackgroundColor">#595959</Color>
+    <Color x:Key="BackgroundColor">#3D3D3D</Color>
+    <Color x:Key="DisabledBackgroundColor">#424242</Color>
+    <Color x:Key="LightDisabledBackgroundColor">#666666</Color>
+    
+    <Color x:Key="ForegroundColor">#EFEFEF</Color>
 
-    <SolidColorBrush x:Key="TabControlNormalBorderBrush" Color="#444444"/>
+    <Color x:Key="HighlightColor">#BDBDBD</Color>
+    <Color x:Key="HotColor">#525252</Color>
+    
+    <!--Brushes-->
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource ForegroundColor}"/>
+    <SolidColorBrush x:Key="MouseOverForegroundBrush" Color="{StaticResource DarkBackgroundColor}"/>
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{StaticResource WindowBackgroundColor}"/>
 
-    <!--<SolidColorBrush x:Key="ButtonNormalBackground" Color="#333333"/>-->
-    <SolidColorBrush x:Key="TabItemHotBackground" Color="#525252"/>
-    <SolidColorBrush x:Key="TabItemSelectedBackground" Color="#595959"/>
-    <SolidColorBrush x:Key="TabItemHotBorderBrush" Color="#525252"/>
-    <SolidColorBrush x:Key="TabItemDisabledBackground" Color="#333333"/>
-    <SolidColorBrush x:Key="TabItemDisabledBorderBrush" Color="#333333"/>
+    <SolidColorBrush x:Key="TabControlNormalBorderBrush" Color="{StaticResource WindowBackgroundColor}"/>
 
-    <SolidColorBrush x:Key="ScrollViewerBackground" Color="#333333" />
-    <SolidColorBrush x:Key="VerticalScrollBarBackground" Color="#3D3D3D"/>
-    <SolidColorBrush x:Key="HorizontalScrollBarBackground" Color="#3D3D3D" />
+    <SolidColorBrush x:Key="TabItemHotBackground" Color="{StaticResource HotColor}"/>
+    <SolidColorBrush x:Key="TabItemSelectedBackground" Color="{StaticResource LightBackgroundColor}"/>
+    <SolidColorBrush x:Key="TabItemHotBorderBrush" Color="{StaticResource HotColor}"/>
+    <SolidColorBrush x:Key="TabItemDisabledBackground" Color="{StaticResource DarkBackgroundColor}"/>
+    <SolidColorBrush x:Key="TabItemDisabledBorderBrush" Color="{StaticResource DarkBackgroundColor}"/>
+
+    <SolidColorBrush x:Key="ScrollViewerBackground" Color="{StaticResource DarkBackgroundColor}" />
+    <SolidColorBrush x:Key="VerticalScrollBarBackground" Color="{StaticResource BackgroundColor}"/>
+    <SolidColorBrush x:Key="HorizontalScrollBarBackground" Color="{StaticResource BackgroundColor}" />
     <SolidColorBrush x:Key="VerticalScrollBarThumb" Color="#808080"/>
-    <SolidColorBrush x:Key="ScrollBarDisabledBackground" Color="#3D3D3D"/>
+    <SolidColorBrush x:Key="ScrollBarDisabledBackground" Color="{StaticResource BackgroundColor}"/>
     <SolidColorBrush x:Key="ScrollBarHotThumb" Color="#CCCCCC"/>
     <SolidColorBrush x:Key="ScrollBarSelectedThumb" Color="#E5E5E5"/>
-    <SolidColorBrush x:Key="CornerBorder" Color="#333333"/>
+    <SolidColorBrush x:Key="CornerBorder" Color="{StaticResource DarkBackgroundColor}"/>
 
-    <SolidColorBrush x:Key="TextBoxBorder" Color="#333333" />
-    <SolidColorBrush x:Key="TextBoxBackground" Color="#333333" />
-    <SolidColorBrush x:Key="TextBoxDisabledBackground" Color="#666666" />
+    <SolidColorBrush x:Key="TextBoxBorder" Color="{StaticResource DarkBackgroundColor}" />
+    <SolidColorBrush x:Key="TextBoxBackground" Color="{StaticResource DarkBackgroundColor}" />
+    <SolidColorBrush x:Key="TextBoxDisabledBackground" Color="{StaticResource LightDisabledBackgroundColor}" />
     <SolidColorBrush x:Key="TextBoxDisabledForeground" Color="#8C8C8C" />
     <SolidColorBrush x:Key="InactiveSelectionHighlightBrush" Color="#335C85"/>
 
     <SolidColorBrush x:Key="ComboBoxButtonNormalBackground" Color="#808080"/>
 
-    <SolidColorBrush x:Key="ButtonNormalBackground" Color="#333333"/>
+    <SolidColorBrush x:Key="ButtonNormalBackground" Color="{StaticResource DarkBackgroundColor}"/>
     <SolidColorBrush x:Key="ButtonNormalBorder" Color="#4C4C4C"/>
 
-    <SolidColorBrush x:Key="ButtonForeground" Color="#EFEFEF"/>
+    <SolidColorBrush x:Key="ButtonForeground" Color="{StaticResource ForegroundColor}"/>
     <SolidColorBrush x:Key="MouseOverButtonForeground" Color="#1B1B1B"/>
-    <SolidColorBrush x:Key="ButtonBackground" Color="#595959"/>
-    <SolidColorBrush x:Key="ButtonBorder" Color="#333333"/>
-    <SolidColorBrush x:Key="PressedButtonBackground" Color="#424242"/>
+    <SolidColorBrush x:Key="ButtonBackground" Color="{StaticResource LightBackgroundColor}"/>
+    <SolidColorBrush x:Key="ButtonBorder" Color="{StaticResource DarkBackgroundColor}"/>
+    <SolidColorBrush x:Key="PressedButtonBackground" Color="{StaticResource DisabledBackgroundColor}"/>
     <SolidColorBrush x:Key="MouseOverButtonBackground" Color="#AAAAAA"/>
     <SolidColorBrush x:Key="DisabledButtonBackground" Color="#707070"/>
-    <SolidColorBrush x:Key="DisabledButtonForeground" Color="#424242"/>
+    <SolidColorBrush x:Key="DisabledButtonForeground" Color="{StaticResource DisabledBackgroundColor}"/>
 
-    <SolidColorBrush x:Key="Expander.Background" Color="#595959"/>
-    <SolidColorBrush x:Key="Expander.MouseOver.Arrow.Stroke" Color="#EFEFEF"/>
-    <SolidColorBrush x:Key="Expander.Disabled.Arrow.Stroke" Color="#666"/>
+    <SolidColorBrush x:Key="Expander.Background" Color="{StaticResource LightBackgroundColor}"/>
+    <SolidColorBrush x:Key="Expander.MouseOver.Arrow.Stroke" Color="{StaticResource ForegroundColor}"/>
+    <SolidColorBrush x:Key="Expander.Disabled.Arrow.Stroke" Color="{StaticResource LightDisabledBackgroundColor}"/>
     <SolidColorBrush x:Key="Expander.Static.Arrow.Stroke" Color="#AAAAAA"/>
 
-    <SolidColorBrush x:Key="CheckBoxFillNormal" Color="#666666"/>
-    <SolidColorBrush x:Key="CheckBoxMouseOverStroke" Color="#EFEFEF"/>
-    <SolidColorBrush x:Key="CheckBoxDisabledStroke" Color="#424242"/>
+    <SolidColorBrush x:Key="CheckBoxFillNormal" Color="{StaticResource LightDisabledBackgroundColor}"/>
+    <SolidColorBrush x:Key="CheckBoxMouseOverStroke" Color="{StaticResource ForegroundColor}"/>
+    <SolidColorBrush x:Key="CheckBoxDisabledStroke" Color="{StaticResource DisabledBackgroundColor}"/>
     <SolidColorBrush x:Key="CheckBoxDisabledForeground" Color="#939393"/>
-    <SolidColorBrush x:Key="CheckBoxStroke" Color="#333333"/>
+    <SolidColorBrush x:Key="CheckBoxStroke" Color="{StaticResource DarkBackgroundColor}"/>
 
-    <SolidColorBrush x:Key="RadioButtonMouseOverStroke" Color="#EFEFEF"/>
-    <SolidColorBrush x:Key="RadioButtonDisabledStroke" Color="#424242"/>
+    <SolidColorBrush x:Key="RadioButtonMouseOverStroke" Color="{StaticResource ForegroundColor}"/>
+    <SolidColorBrush x:Key="RadioButtonDisabledStroke" Color="{StaticResource DisabledBackgroundColor}"/>
     <SolidColorBrush x:Key="RadioButtonDisabledForeground" Color="#939393"/>
-    <SolidColorBrush x:Key="RadioButtonStroke" Color="#333333"/>
-    <SolidColorBrush x:Key="RadioButtonForeground" Color="#EFEFEF"/>
-    <SolidColorBrush x:Key="RadioButtonBackground" Color="#666666"/>
+    <SolidColorBrush x:Key="RadioButtonStroke" Color="{StaticResource DarkBackgroundColor}"/>
+    <SolidColorBrush x:Key="RadioButtonForeground" Color="{StaticResource ForegroundColor}"/>
+    <SolidColorBrush x:Key="RadioButtonBackground" Color="{StaticResource LightDisabledBackgroundColor}"/>
 
-    <SolidColorBrush x:Key="ListBorder" Color="#333333"/>
-    <SolidColorBrush x:Key="ListBackground" Color="#333333"/>
-    <SolidColorBrush x:Key="SelectedListViewItem" Color="#BDBDBD"/>
-    <SolidColorBrush x:Key="SelectedListViewItemForeground" Color="#333333"/>
+    <SolidColorBrush x:Key="ListBorder" Color="{StaticResource DarkBackgroundColor}"/>
+    <SolidColorBrush x:Key="ListBackground" Color="{StaticResource DarkBackgroundColor}"/>
+    <SolidColorBrush x:Key="SelectedListViewItem" Color="{StaticResource HighlightColor}"/>
+    <SolidColorBrush x:Key="SelectedListViewItemForeground" Color="{StaticResource DarkBackgroundColor}"/>
     <SolidColorBrush x:Key="MouseOverListViewItem" Color="#4A4A4A"/>
 
-    <SolidColorBrush x:Key="TreeViewBackground" Color="#333333"/>
+    <SolidColorBrush x:Key="TreeViewBackground" Color="{StaticResource DarkBackgroundColor}"/>
 
     <SolidColorBrush x:Key="DisabledMenuForeground" Color="#656565"/>
     <SolidColorBrush x:Key="MenuBackground" Color="#3A3A3A"/>
-    <SolidColorBrush x:Key="MenuItemSelectionFill" Color="#BDBDBD"/>
+    <SolidColorBrush x:Key="MenuItemSelectionFill" Color="{StaticResource HighlightColor}"/>
     <SolidColorBrush x:Key="SubMenuBackgroundBrush" Color="#3A3A3A"/>
-    <SolidColorBrush x:Key="MenuItemPressedFill" Color="#BDBDBD"/>
-    <SolidColorBrush x:Key="SubMenuBorderBrush" Color="#595959"/>
-    <SolidColorBrush x:Key="SubMenuRepeatButtonBrush" Color="#525252"/>
+    <SolidColorBrush x:Key="MenuItemPressedFill" Color="{StaticResource HighlightColor}"/>
+    <SolidColorBrush x:Key="SubMenuBorderBrush" Color="{StaticResource LightBackgroundColor}"/>
+    <SolidColorBrush x:Key="SubMenuRepeatButtonBrush" Color="{StaticResource HotColor}"/>
     <SolidColorBrush x:Key="SubMenuHoverRepeatButtonBrush" Color="#7F7F7F"/>
     <SolidColorBrush x:Key="MenuSeparatorBrush" Color="#4C4C4C"/>
 
@@ -98,7 +111,7 @@
     <Style TargetType="{x:Type Window}">
         <Setter Property="FontFamily" Value="Calibri light"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
-        <Setter Property="Background" Value="{StaticResource BackGroundBrush}"/>
+        <Setter Property="Background" Value="{StaticResource WindowBackgroundBrush}"/>
     </Style>
     <!-- Necessary for Blend designer for UserControls -->
     <Style TargetType="{x:Type UserControl}">
@@ -1004,7 +1017,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsHighlighted" Value="true">
-                            <Setter Property="Background" TargetName="Bd" Value="#BDBDBD"/>
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource SelectedListViewItem}"/>
                             <Setter Property="Foreground" Value="Black"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
