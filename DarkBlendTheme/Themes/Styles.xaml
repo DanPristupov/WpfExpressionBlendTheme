@@ -160,7 +160,7 @@
 
             <Style TargetType="{x:Type TabItem}">
                 <Setter Property="FocusVisualStyle" Value="{StaticResource TabItemFocusVisual}"/>
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
                 <Setter Property="Padding" Value="6,1,6,1"/>
                 <Setter Property="BorderBrush" Value="{StaticResource TabControlNormalBorderBrush}"/>
                 <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
@@ -265,7 +265,7 @@
         </Style.Resources>
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>-->
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
         <Setter Property="Padding" Value="4"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="{StaticResource TabControlNormalBorderBrush}"/>
@@ -773,7 +773,7 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Rectangle Margin="2,2,21,2" SnapsToDevicePixels="true"
-						Stroke="White"
+						Stroke="{StaticResource ForegroundBrush}"
 						StrokeThickness="1"
 						StrokeDashArray="1 2"/>
                 </ControlTemplate>
@@ -1051,7 +1051,7 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Rectangle Margin="2" SnapsToDevicePixels="true"
-						Stroke="White"
+						Stroke="{StaticResource ForegroundBrush}"
 						StrokeThickness="1"
 						StrokeDashArray="1 2"/>
                 </ControlTemplate>
@@ -1636,9 +1636,6 @@
                         </ScrollViewer>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
-                        </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsGrouping" Value="true"/>
@@ -1803,8 +1800,6 @@
                     <StackPanel>
                         <Border Name="Bd"
                                       Background="{TemplateBinding Background}"
-                                      BorderBrush="{TemplateBinding BorderBrush}"
-                                      BorderThickness="{TemplateBinding BorderThickness}"
                                       Padding="{TemplateBinding Padding}">
                             <Grid Margin="{Binding Converter={StaticResource LengthConverter},
                                          RelativeSource={RelativeSource TemplatedParent}}">
