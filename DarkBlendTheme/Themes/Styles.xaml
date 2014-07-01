@@ -43,6 +43,7 @@
     <SolidColorBrush x:Key="TextBoxBorder" Color="{StaticResource DarkBackgroundColor}" />
     <SolidColorBrush x:Key="TextBoxBackground" Color="{StaticResource DarkBackgroundColor}" />
     <SolidColorBrush x:Key="TextBoxDisabledForeground" Color="#8C8C8C" />
+    <SolidColorBrush x:Key="TextBoxDisabledBackground" Color="{StaticResource DisabledBackgroundColor}" />
     <SolidColorBrush x:Key="InactiveSelectionHighlightBrush" Color="#335C85"/>
 
     <SolidColorBrush x:Key="ComboBoxButtonNormalBackground" Color="#808080"/>
@@ -746,6 +747,9 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{StaticResource TextBoxDisabledForeground}"/>
+                            <Setter Property="Background" TargetName="PART_ContentHost" Value="{StaticResource TextBoxDisabledBackground}"/>
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource TextBoxDisabledBackground}"/>
+                            <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource TextBoxDisabledBackground}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -886,8 +890,8 @@
                 <Setter Property="Height" TargetName="DropDownBorder" Value="95"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Foreground" Value="{DynamicResource DisabledButtonForeground}"/>
-                <Setter Property="Background" Value="{DynamicResource DisabledButtonBackground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource TextBoxDisabledForeground}"/>
+                <Setter Property="Background" Value="{DynamicResource TextBoxDisabledBackground}"/>
             </Trigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
