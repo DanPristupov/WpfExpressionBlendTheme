@@ -42,11 +42,11 @@
 
     <SolidColorBrush x:Key="TextBoxBorder" Color="{StaticResource DarkBackgroundColor}" />
     <SolidColorBrush x:Key="TextBoxBackground" Color="{StaticResource DarkBackgroundColor}" />
-    <SolidColorBrush x:Key="TextBoxDisabledBackground" Color="{StaticResource LightDisabledBackgroundColor}" />
     <SolidColorBrush x:Key="TextBoxDisabledForeground" Color="#8C8C8C" />
     <SolidColorBrush x:Key="InactiveSelectionHighlightBrush" Color="#335C85"/>
 
     <SolidColorBrush x:Key="ComboBoxButtonNormalBackground" Color="#808080"/>
+    <SolidColorBrush x:Key="ComboBoxDisabledBackground" Color="{StaticResource LightDisabledBackgroundColor}" />
 
     <SolidColorBrush x:Key="ButtonNormalBackground" Color="{StaticResource DarkBackgroundColor}"/>
     <SolidColorBrush x:Key="ButtonNormalBorder" Color="#4C4C4C"/>
@@ -57,7 +57,7 @@
     <SolidColorBrush x:Key="ButtonBorder" Color="{StaticResource DarkBackgroundColor}"/>
     <SolidColorBrush x:Key="PressedButtonBackground" Color="{StaticResource DisabledBackgroundColor}"/>
     <SolidColorBrush x:Key="MouseOverButtonBackground" Color="#AAAAAA"/>
-    <SolidColorBrush x:Key="DisabledButtonBackground" Color="#707070"/>
+    <SolidColorBrush x:Key="DisabledButtonBackground" Color="{StaticResource LightDisabledBackgroundColor}"/>
     <SolidColorBrush x:Key="DisabledButtonForeground" Color="{StaticResource DisabledBackgroundColor}"/>
 
     <SolidColorBrush x:Key="Expander.Background" Color="{StaticResource LightBackgroundColor}"/>
@@ -745,7 +745,6 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource TextBoxDisabledBackground}"/>
                             <Setter Property="Foreground" Value="{StaticResource TextBoxDisabledForeground}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
