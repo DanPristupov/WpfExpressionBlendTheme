@@ -472,9 +472,9 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
-            <Menu Style="{DynamicResource MenuStyle}" Height="25">
+            <Menu Style="{DynamicResource MenuStyle}">
                 <MenuItem Header="Fonts" Style="{DynamicResource MenuItemStyle}">
-                    <MenuItem IsCheckable="True"  Header="Fonts">
+                    <MenuItem IsCheckable="True" Header="Fonts">
                         <MenuItem Header="Font1" />
                     </MenuItem>
                     <MenuItem Header="Fonts">
