@@ -3,352 +3,240 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:darkBlendTheme="clr-namespace:DarkBlendTheme"
-        xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
         mc:Ignorable="d"
         x:Class="DarkBlendTheme.MainWindow"
-        Title="MainWindow" Height="500" Width="450"
-        Style ="{StaticResource {x:Type Window}}"
-        >
-    <Window.Resources>
-        
-    	
-    </Window.Resources>
-	<Grid>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition/>
-			<ColumnDefinition MinWidth="320" Width="Auto"/>
-		</Grid.ColumnDefinitions>
+        Title="MainWindow" Height="500" Width="460"
+        Style ="{StaticResource {x:Type Window}}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="130" Width="Auto"/>
+            <ColumnDefinition MinWidth="320" Width="Auto"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
             <Menu>
-                <MenuItem Header="Fonts">
-                    <MenuItem IsCheckable="True" Header="Fonts">
-                        <MenuItem Header="Font1" />
+                <MenuItem Header="File">
+                    <MenuItem IsCheckable="True" Header="New Item">
+                        <MenuItem Header="Item" />
+                    </MenuItem>
+                    <MenuItem Header="New Project">
+                        <MenuItem IsCheckable="True" IsEnabled="False" Header="Project"/>
                     </MenuItem>
                     <Separator/>
-                    <MenuItem Header="Fonts">
-                        <MenuItem IsCheckable="True" IsEnabled="False" Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
+                    <MenuItem Header="Save"/>
+                    <MenuItem Header="Save All" IsEnabled="False"/>
+                    <MenuItem Header="Save Copy of Project"/>
+                    <Separator/>
+                    <MenuItem Header="Import">
+                        <MenuItem IsCheckable="True" Header="Import Adobe Illustrator File"/>
+                        <MenuItem IsCheckable="True" Header="Import Adobe Photoshop File"/>
                     </MenuItem>
                     <Separator/>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
+                    <MenuItem Header="Exit"/>
                     <Separator/>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-
                 </MenuItem>
-                <MenuItem Header="Fonts">
-                    <MenuItem  Header="Fonts" >
-                        <MenuItem IsCheckable="True" IsEnabled="False" Header="Font1"/>
+                <MenuItem Header="Edit"/>
+                <MenuItem Header="View"/>
+                <MenuItem Header="Object">
+                    <MenuItem Header="Edit Text" IsEnabled="False"/>
+                    <MenuItem Header="Edit Control" IsEnabled="False"/>
+                    <Separator/>
+                    <MenuItem Header="Order">
+                        <MenuItem Header="Bring to Front"/>
+                        <MenuItem Header="Bring Forward"/>
+                        <MenuItem Header="Send to Back"/>
                     </MenuItem>
-                    <MenuItem  Header="Fonts">
-                        <MenuItem IsCheckable="True" Header="Font2"/>
+                    <MenuItem Header="Align">
+                        <MenuItem Header="Left"/>
+                        <MenuItem Header="Top" IsChecked="True"/>
+                        <MenuItem Header="Right"/>
+                        <MenuItem Header="Bottom"/>
                     </MenuItem>
+                    <MenuItem Header="Reset Layout"/>
+                    <MenuItem Header="Make Same"/>
+                    <MenuItem Header="Flip"/>
+                    <Separator/>
+                    <MenuItem Header="Group" IsEnabled="False"/>
+                    <MenuItem Header="Ungroup" IsEnabled="False"/>
+                    <MenuItem Header="Pin Active Container" IsEnabled="False"/>
                 </MenuItem>
-                <MenuItem Header="Fonts">
-                    <MenuItem Header="Fonts">
-                        <MenuItem  Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                </MenuItem>
-                <MenuItem Header="Fonts">
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font1"/>
-                    </MenuItem>
-                    <MenuItem Header="Fonts">
-                        <MenuItem Header="Font2"/>
-                    </MenuItem>
-                </MenuItem>
-                
             </Menu>
         </StackPanel>
-        <Border Margin="5" Grid.Row="1" Grid.Column="0">
-			<ListView>
-				<ListViewItem Padding="5">
-					<TextBlock Text="Button"/>
-				</ListViewItem>
-				<ListViewItem Padding="5">
-					<TextBlock Text="CheckBox"/>
-				</ListViewItem>
-				<ListViewItem Padding="5">
-					<TextBlock Text="ComboBox"/>
-				</ListViewItem>
-				<ListViewItem Padding="5">
-					<TextBlock Text="Expander"/>
-				</ListViewItem>
-				<ListViewItem Padding="5">
-					<TextBlock Text="Label"/>
-				</ListViewItem>
-				<ListViewItem Padding="5">
-					<TextBlock Text="ListView"/>
-				</ListViewItem>
-				<ListViewItem Padding="5">
-					<TextBlock Text="RadioButton"/>
-				</ListViewItem>
-				<ListViewItem Padding="5">
-					<TextBlock Text="ScrollViewer"/>
-				</ListViewItem>
-				<ListViewItem Padding="5">
-					<TextBlock Text="TabControl"/>
-				</ListViewItem>
-				<ListViewItem Padding="5">
-					<TextBlock Text="TextBox"/>
-				</ListViewItem>
-				<ListViewItem Padding="5">
-					<TextBlock Text="ToggleButton"/>
-				</ListViewItem>
-			</ListView>
-		</Border>
-		<TabControl Grid.Column="1" Grid.Row="1" TabStripPlacement="Top" Margin="5">
-			<TabItem Header="Properties">
-				<Grid>
-					<Grid.RowDefinitions>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition />
-					</Grid.RowDefinitions>
-					<TextBox Grid.Row="0" Margin="2" IsEnabled="False" Text="Search Properties"/>
-					<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto"
-						VerticalScrollBarVisibility="Visible" >
-						<StackPanel>
-							<Expander Header="Appearance" IsExpanded="True">
-								<StackPanel Margin="0,0,0,2">
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="Opacity"/>
-										<TextBox Width="150" Margin="2"/>
-									</StackPanel>
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="Visibility"/>
-										<ComboBox Text="Item1" Width="150" Margin="2">
-											<ComboBoxItem Padding="2" IsSelected="True" Content="Visible"/>
-											<ComboBoxItem Padding="2" Content="Hidden"/>
-											<ComboBoxItem Padding="2" Content="Collapsed"/>
-										</ComboBox>
-									</StackPanel>
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Margin="0,0,100,0" Content="Effect"/>
-										<Button Content="New" Width="50" Margin="2"/>
-									</StackPanel>
-								</StackPanel>
-							</Expander>
-							<Expander Header="Common" IsExpanded="True">
-								<StackPanel Margin="0,0,0,2">
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="Content"/>
-										<TextBox Width="150" Margin="2"/>
-									</StackPanel>
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="Cursor"/>
-										<ComboBox Text="Item1" IsEditable="True" Width="150" Margin="2">
-											<ComboBoxItem Padding="2" IsSelected="True" Content="None"/>
-											<ComboBoxItem Padding="2" Content="Arrow"/>
-											<ComboBoxItem Padding="2" Content="Cross"/>
-										</ComboBox>
-									</StackPanel>
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Margin="0,0,100,0" Content="DataContext"/>
-										<Button Content="New" Width="50" Margin="2"/>
-									</StackPanel>
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="IsEnabled"/>
-										<CheckBox VerticalAlignment="Center" Margin="2" Width="150"/>
-									</StackPanel>
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="ToolTip"/>
-										<TextBox Width="150" Margin="2"/>
-									</StackPanel>
-								</StackPanel>
-							</Expander>
-							<Expander Header="Layout">
-								<StackPanel Margin="0,0,0,2">
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="Width"/>
-										<TextBox Width="150" Margin="2"/>
-									</StackPanel>
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="Height"/>
-										<TextBox Width="150" Margin="2"/>
-									</StackPanel>
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="ZIndex"/>
-										<TextBox Width="150" Margin="2"/>
-									</StackPanel>
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="HorizontalAlignment"/>
-										<StackPanel Orientation="Horizontal" Width="150" Margin="2">
-											<RadioButton Content="L" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-											<RadioButton Content="C" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-											<RadioButton Content="R" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-											<RadioButton Content="S" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-										</StackPanel>
-									</StackPanel>
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="VerticalAlignment"/>
-										<StackPanel Orientation="Horizontal" Width="150" Margin="2">
-											<RadioButton Content="L" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-											<RadioButton Content="C" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-											<RadioButton Content="R" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-											<RadioButton Content="S" Width="25" Height="25" Style="{StaticResource {x:Type ToggleButton}}" />
-										</StackPanel>
-									</StackPanel>
-								</StackPanel>
-							</Expander>
-							<Expander Header="Layout" IsExpanded="True">
-								<StackPanel Margin="0,0,0,2">
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="Width"/>
-										<TextBox Width="150" Margin="2"/>
-									</StackPanel>
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="Height"/>
-										<TextBox Width="150" Margin="2"/>
-									</StackPanel>
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="ZIndex"/>
-										<TextBox Width="150" Margin="2"/>
-									</StackPanel>
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="HorizontalAlignment"/>
-										<StackPanel Orientation="Horizontal" Width="150" Margin="2">
-											<RadioButton Content="L" Margin="2,2,4,2"/>
-											<RadioButton Content="C" Margin="2,2,4,2"/>
-											<RadioButton Content="R" Margin="2,2,4,2"/>
-											<RadioButton Content="S" Margin="2"/>
-										</StackPanel>
-									</StackPanel>
-									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-										<Label Content="VerticalAlignment"/>
-										<StackPanel Orientation="Horizontal" Width="150" Margin="2">
-											<RadioButton Content="L" Margin="2,2,4,2"/>
-											<RadioButton Content="C" Margin="2,2,4,2"/>
-											<RadioButton Content="R" Margin="2,2,4,2"/>
-											<RadioButton Content="S" Margin="2"/>
-										</StackPanel>
-									</StackPanel>
-								</StackPanel>
-							</Expander>
-						</StackPanel>
-					</ScrollViewer>
-				</Grid>
-			</TabItem>
-			<TabItem Header="Resources">
-				<TreeView>
-					<TreeViewItem Header="Fonts">
-						<TreeViewItem Header="Fonts">
-							<TreeViewItem Header="Fonts">
-								<TreeViewItem Header="Fonts">
-									<TreeViewItem Header="Fonts"/>
-								</TreeViewItem>
-							</TreeViewItem>
-						</TreeViewItem>
-					</TreeViewItem>
-					<TreeViewItem Header="Properties">
-						<TreeViewItem Header="Properties">
-							<TreeViewItem Header="Properties">
-								<TreeViewItem Header="Properties"/>
-							</TreeViewItem>
-						</TreeViewItem>
-					</TreeViewItem>
-				</TreeView>
-			</TabItem>
-			<TabItem Header="Data"/>
-		</TabControl>
-	</Grid>
+        <Border Margin="5,5,2.5,5" Grid.Row="1" Grid.Column="0">
+            <TreeView>
+                <TreeViewItem IsExpanded="True" Header="DarkBlendTheme">
+                    <TreeViewItem IsExpanded="True" Header="References">
+                        <TreeViewItem Header="CSharp"/>
+                        <TreeViewItem Header="Controls"/>
+                        <TreeViewItem Header="Drawing"/>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Fonts"/>
+                    <TreeViewItem Header="Properties">
+                        <TreeViewItem Header="AssemblyInfo.cs" />
+                        <TreeViewItem Header="DesignTimeResources.cs" />
+                        <TreeViewItem Header="Resources.resx">
+                            <TreeViewItem Header="Resources.Designer.cs" />
+                        </TreeViewItem>
+                        <TreeViewItem Header="Settings.xaml">
+                            <TreeViewItem Header="Settings.Designer.cs" />
+                        </TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Resources">
+                        <TreeViewItem Header="Icon.png"/>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Themes">
+                        <TreeViewItem Header="Styles.xaml">
+                        </TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="LightTheme"/>
+                </TreeViewItem>
+            </TreeView>
+        </Border>
+        <TabControl  Grid.Column="1" Grid.Row="1" TabStripPlacement="Top" Margin="2.5,5,5,5">
+            <TabItem Header="Properties">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBox Grid.Row="0" Margin="2" IsEnabled="False" Text="Search Properties"/>
+                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto"
+						VerticalScrollBarVisibility="Visible">
+                        <StackPanel>
+                            <Expander Header="Appearance" IsExpanded="True">
+                                <StackPanel Margin="0,0,0,2">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Content="Opacity"/>
+                                        <TextBox Width="150" Text="20%"  Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Content="Visibility"/>
+                                        <ComboBox Text="Item1" Width="150" Margin="2">
+                                            <ComboBoxItem Padding="2" IsSelected="True" Content="Visible"/>
+                                            <ComboBoxItem Padding="2" Content="Hidden"/>
+                                            <ComboBoxItem Padding="2" Content="Collapsed"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Margin="0,0,100,0" Content="Effect"/>
+                                        <Button Content="New" Width="50" Margin="2"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Expander>
+                            <Expander Header="Common" IsExpanded="True">
+                                <StackPanel Margin="0,0,0,2">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Content="Content"/>
+                                        <TextBox Width="150" Text="New" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Content="Cursor"/>
+                                        <ComboBox Text="Item1" IsEditable="True" Width="150" Margin="2">
+                                            <ComboBoxItem Padding="2" IsSelected="True"  Content="None"/>
+                                            <ComboBoxItem Padding="2" Content="Arrow"/>
+                                            <ComboBoxItem Padding="2" Content="Cross"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Margin="0,0,100,0" Content="DataContext"/>
+                                        <Button Content="New" Width="50" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Content="IsEnabled"/>
+                                        <CheckBox VerticalAlignment="Center" IsChecked="True" Margin="2" Width="150"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Content="ToolTip"/>
+                                        <TextBox Width="150" Margin="2"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Expander>
+                            <Expander Header="Layout" IsExpanded="True">
+                                <StackPanel Margin="0,0,0,2">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Content="Width"/>
+                                        <TextBox Width="150" Text="200" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Content="Height"/>
+                                        <TextBox Width="150" Text="25" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Content="ZIndex"/>
+                                        <TextBox Width="150" Text="1" Margin="2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Content="HorizontalAlignment"/>
+                                        <StackPanel Orientation="Horizontal" Width="150" Margin="2">
+                                            <RadioButton Content="L" Width="25" Height="25"/>
+                                            <RadioButton Content="C" Width="25" IsChecked="True" Height="25"/>
+                                            <RadioButton Content="R" Width="25" Height="25"/>
+                                            <RadioButton Content="S" Width="25" Height="25"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                        <Label Content="VerticalAlignment"/>
+                                        <StackPanel Orientation="Horizontal" Width="150" Margin="2">
+                                            <RadioButton Content="L" Width="25" Height="25" />
+                                            <RadioButton Content="C" Width="25" IsChecked="True" Height="25" />
+                                            <RadioButton Content="R" Width="25" Height="25" />
+                                            <RadioButton Content="S" Width="25" Height="25" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Expander>
+                            <Expander Header="Text" />
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="Resources">
+                <ListView>
+                    <ListViewItem Padding="5">
+                        <TextBlock Text="Button"/>
+                    </ListViewItem>
+                    <ListViewItem Padding="5">
+                        <TextBlock Text="CheckBox"/>
+                    </ListViewItem>
+                    <ListViewItem Padding="5">
+                        <TextBlock Text="ComboBox"/>
+                    </ListViewItem>
+                    <ListViewItem Padding="5">
+                        <TextBlock Text="Expander"/>
+                    </ListViewItem>
+                    <ListViewItem Padding="5">
+                        <TextBlock Text="Label"/>
+                    </ListViewItem>
+                    <ListViewItem Padding="5">
+                        <TextBlock Text="ListView"/>
+                    </ListViewItem>
+                    <ListViewItem Padding="5">
+                        <TextBlock Text="Menu"/>
+                    </ListViewItem>
+                    <ListViewItem Padding="5">
+                        <TextBlock Text="RadioButton"/>
+                    </ListViewItem>
+                    <ListViewItem Padding="5">
+                        <TextBlock Text="ScrollViewer"/>
+                    </ListViewItem>
+                    <ListViewItem Padding="5">
+                        <TextBlock Text="TabControl"/>
+                    </ListViewItem>
+                    <ListViewItem Padding="5">
+                        <TextBlock Text="TextBox"/>
+                    </ListViewItem>
+                    <ListViewItem Padding="5">
+                        <TextBlock Text="TreeView"/>
+                    </ListViewItem>
+                    <ListViewItem Padding="5">
+                        <TextBlock Text="ToggleButton"/>
+                    </ListViewItem>
+                </ListView>
+            </TabItem>
+            <TabItem Header="Data"/>
+        </TabControl>
+    </Grid>
 </Window>
