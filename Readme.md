@@ -5,17 +5,8 @@
 ![Alt text](Screenshot.png)
 Before / After
 ####List of supported controls
-- Button
-- CheckBox
-- ComboBox
-- Expander
-- Label
-- ListView
-- RadioButton
-- ScrollViewer
-- TabControl
-- TextBox
-- ToggleButton
+- Button- CheckBox- ComboBox- Expander- Label- ListView
+- Menu- RadioButton- ScrollViewer- TabControl- TextBox- ToggleButton- TreeView
 
 ####How to use that theme in your application
 #####NuGet
@@ -59,4 +50,3 @@ That's it.
 ###Feedback
 
 I hope you find it useful. Feel free to contact me for any questions you may have.
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/d6297453e809a5281bcc861f3206c601 "githalytics.com")](http://githalytics.com/DanPristupov/WpfThemes)
