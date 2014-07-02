@@ -9,8 +9,8 @@
         Style ="{StaticResource {x:Type Window}}">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition MinWidth="130" Width="Auto"/>
-            <ColumnDefinition MinWidth="320" Width="Auto"/>
+            <ColumnDefinition MinWidth="130"/>
+            <ColumnDefinition MinWidth="320"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
