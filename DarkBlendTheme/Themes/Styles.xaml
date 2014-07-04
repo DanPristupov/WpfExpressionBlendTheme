@@ -80,9 +80,9 @@
 
     <SolidColorBrush x:Key="ListBorder" Color="{StaticResource DarkBackgroundColor}"/>
     <SolidColorBrush x:Key="ListBackground" Color="{StaticResource DarkBackgroundColor}"/>
-    <SolidColorBrush x:Key="SelectedListViewItem" Color="{StaticResource HighlightColor}"/>
-    <SolidColorBrush x:Key="SelectedListViewItemForeground" Color="{StaticResource DarkBackgroundColor}"/>
-    <SolidColorBrush x:Key="MouseOverListViewItem" Color="#4A4A4A"/>
+    <SolidColorBrush x:Key="SelectedListItem" Color="{StaticResource HighlightColor}"/>
+    <SolidColorBrush x:Key="SelectedListItemForeground" Color="{StaticResource DarkBackgroundColor}"/>
+    <SolidColorBrush x:Key="MouseOverListItem" Color="#4A4A4A"/>
 
     <SolidColorBrush x:Key="TreeViewBackground" Color="{StaticResource DarkBackgroundColor}"/>
     <SolidColorBrush x:Key="TreeViewDisabledForeground" Color="{StaticResource LightDisabledBackgroundColor}"/>
@@ -1033,7 +1033,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsHighlighted" Value="true">
-                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource SelectedListViewItem}"/>
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource SelectedListItem}"/>
                             <Setter Property="Foreground" Value="Black"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
@@ -1494,6 +1494,7 @@
         </Setter>
     </Style>
     <Style TargetType="{x:Type CheckBox}">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"></Setter>
         <Setter Property="Background" Value="{StaticResource CheckBoxFillNormal}"/>
         <Setter Property="BorderBrush" Value="{StaticResource CheckBoxStroke}"/>
         <Setter Property="FocusVisualStyle" Value="{StaticResource EmptyCheckBoxFocusVisual}"/>
@@ -1668,8 +1669,8 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="true">
-                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource SelectedListViewItem}"/>
-                            <Setter Property="Foreground" Value="{StaticResource SelectedListViewItemForeground}"/>
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource SelectedListItem}"/>
+                            <Setter Property="Foreground" Value="{StaticResource SelectedListItemForeground}"/>
                         </Trigger>
                         <!--<MultiTrigger>
 								<MultiTrigger.Conditions>
@@ -1680,14 +1681,14 @@
 								<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}}"/>
 							</MultiTrigger>-->
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            <Setter Property="Foreground" Value="{StaticResource DisabledMenuForeground}"/>
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsMouseOver" Value="true"/>
                                 <Condition Property="IsSelected" Value="false"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource MouseOverListViewItem}"/>
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource MouseOverListItem}"/>
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -1762,7 +1763,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers>
+        <!--<Style.Triggers>
             <Trigger Property="VirtualizingPanel.IsVirtualizing" Value="true">
                 <Setter Property="ItemsPanel">
                     <Setter.Value>
@@ -1772,7 +1773,7 @@
                     </Setter.Value>
                 </Setter>
             </Trigger>
-        </Style.Triggers>
+        </Style.Triggers>-->
     </Style>
     <Style x:Key="TreeViewItemFocusVisual">
         <Setter Property="Control.Template">
@@ -1844,8 +1845,8 @@
                             <Setter TargetName="PART_Header" Property="MinHeight" Value="21"/>
                         </MultiTrigger>
                         <Trigger Property="IsSelected" Value="true">
-                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource SelectedListViewItem}"/>
-                            <Setter Property="Foreground" Value="{StaticResource SelectedListViewItemForeground}"/>
+                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource SelectedListItem}"/>
+                            <Setter Property="Foreground" Value="{StaticResource SelectedListItemForeground}"/>
                             <Setter Property="Style" TargetName="Expander" Value="{DynamicResource TreeViewSelectedToggleButtonStyle}"/>
                         </Trigger>
                         <MultiTrigger>
@@ -1853,7 +1854,7 @@
                                 <Condition Property="IsMouseOver" SourceName="Bd" Value="true"/>
                                 <Condition Property="IsSelected" Value="false"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource MouseOverListViewItem}"/>
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource MouseOverListItem}"/>
                         </MultiTrigger>
                         <!--<MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -2468,6 +2469,160 @@
                 <ControlTemplate TargetType="{x:Type Separator}">
                     <Grid Margin="3,2,3,2" SnapsToDevicePixels="true" UseLayoutRounding="False">
                         <Rectangle Fill="{StaticResource MenuSeparatorBrush}" Height="1"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- ListBox -->
+
+    <Style TargetType="{x:Type ListBox}">
+        <Setter Property="Background" Value="{StaticResource ListBackground}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ListBorder}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBox}">
+                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                Padding="1"
+                                SnapsToDevicePixels="true">
+                        <ScrollViewer Focusable="false" Padding="{TemplateBinding Padding}">
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </ScrollViewer>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsGrouping" Value="true"/>
+                                <!--<Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>-->
+                            </MultiTrigger.Conditions>
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type ListBoxItem}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        <Setter Property="Padding" Value="2,0,0,0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="Bd"
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Background="{TemplateBinding Background}" 
+                                Padding="{TemplateBinding Padding}" 
+                                SnapsToDevicePixels="true">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource SelectedListItem}"/>
+                            <Setter Property="Foreground" Value="{StaticResource SelectedListItemForeground}"/>
+                        </Trigger>
+                        <!--<MultiTrigger>
+								<MultiTrigger.Conditions>
+									<Condition Property="IsSelected" Value="true"/>
+									<Condition Property="Selector.IsSelectionActive" Value="false"/>
+								</MultiTrigger.Conditions>
+								<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+								<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}}"/>
+							</MultiTrigger>-->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="true"/>
+                                <Condition Property="IsSelected" Value="false"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource MouseOverListItem}"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{StaticResource DisabledMenuForeground}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- GroupBox -->
+    <BorderGapMaskConverter x:Key="BorderGapMaskConverter"/>
+    <Style TargetType="{x:Type GroupBox}">
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GroupBox}">
+                    <Grid SnapsToDevicePixels="true">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="6"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="6"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="6"/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="Transparent"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}"
+                                    Grid.ColumnSpan="4" 
+                                    Grid.Column="0"
+                                    CornerRadius="3"
+                                    Grid.Row="1"
+                                    Grid.RowSpan="3">
+                            <!--<Border Grid.ColumnSpan="4"
+									CornerRadius="3"
+									Grid.Row="1"
+									Grid.RowSpan="3">-->
+                            <Border.OpacityMask>
+                                <MultiBinding ConverterParameter="7" Converter="{StaticResource BorderGapMaskConverter}">
+                                    <Binding ElementName="Header" Path="ActualWidth"/>
+                                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource Self}"/>
+                                    <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}"/>
+                                </MultiBinding>
+                            </Border.OpacityMask>
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+										BorderThickness="{TemplateBinding BorderThickness}"
+										CornerRadius="3">
+                                <!--<Border BorderBrush="White"
+											BorderThickness="{TemplateBinding BorderThickness}"
+											CornerRadius="4"/>-->
+                            </Border>
+                        </Border>
+                        <Border x:Name="Header"
+									Grid.Column="1"
+									Padding="3,1,3,0"
+									Grid.Row="0"
+									Grid.RowSpan="2">
+                            <ContentPresenter ContentSource="Header"
+													RecognizesAccessKey="True"
+													SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
+                        <ContentPresenter Grid.ColumnSpan="2"
+												Grid.Column="1"
+												Margin="{TemplateBinding Padding}"
+												Grid.Row="2"
+												SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

@@ -7,6 +7,8 @@
         x:Class="DarkBlendTheme.MainWindow"
         Title="MainWindow" Height="500" Width="460"
         Style ="{StaticResource {x:Type Window}}">
+    <Window.Resources>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="130"/>
@@ -38,8 +40,16 @@
                     <MenuItem Header="Exit"/>
                     <Separator/>
                 </MenuItem>
-                <MenuItem Header="Edit"/>
-                <MenuItem Header="View"/>
+                <MenuItem Header="Edit">
+                    <MenuItem IsCheckable="True" Header="Item">
+                        <MenuItem Header="Item" />
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="View">
+                    <MenuItem IsCheckable="True" Header="Item">
+                        <MenuItem Header="Item" />
+                    </MenuItem>
+                </MenuItem>
                 <MenuItem Header="Object">
                     <MenuItem Header="Edit Text" IsEnabled="False"/>
                     <MenuItem Header="Edit Control" IsEnabled="False"/>
@@ -236,7 +246,58 @@
                     </ListViewItem>
                 </ListView>
             </TabItem>
-            <TabItem Header="Data"/>
+            <TabItem Header="Data">
+                <StackPanel>
+                    <ListBox>
+                        <ListBoxItem Padding="5">
+                            <TextBlock Text="Button"/>
+                        </ListBoxItem>
+                        <ListBoxItem Padding="5">
+                            <TextBlock Text="CheckBox"/>
+                        </ListBoxItem>
+                        <ListBoxItem Padding="5">
+                            <TextBlock Text="ComboBox"/>
+                        </ListBoxItem>
+                        <ListBoxItem Padding="5">
+                            <TextBlock Text="Expander"/>
+                        </ListBoxItem>
+                        <ListBoxItem Padding="5">
+                            <TextBlock Text="Label"/>
+                        </ListBoxItem>
+                        <ListBoxItem Padding="5">
+                            <TextBlock Text="ListView"/>
+                        </ListBoxItem>
+                        <ListBoxItem Padding="5">
+                            <TextBlock Text="Menu"/>
+                        </ListBoxItem>
+                        <ListBoxItem Padding="5">
+                            <TextBlock Text="RadioButton"/>
+                        </ListBoxItem>
+                        <ListBoxItem Padding="5">
+                            <TextBlock Text="ScrollViewer"/>
+                        </ListBoxItem>
+                        <ListBoxItem Padding="5">
+                            <TextBlock Text="TabControl"/>
+                        </ListBoxItem>
+                        <ListBoxItem Padding="5">
+                            <TextBlock Text="TextBox"/>
+                        </ListBoxItem>
+                        <ListBoxItem Padding="5">
+                            <TextBlock Text="TreeView"/>
+                        </ListBoxItem>
+                        <ListBoxItem Padding="5">
+                            <TextBlock Text="ToggleButton"/>
+                        </ListBoxItem>
+                    </ListBox>
+                    <GroupBox Padding="5" Header="GroupBox" >
+                        <StackPanel Orientation="Horizontal">
+                            <Button Width="40" Height="20" Margin="2" Content="Left"/>
+                            <Button Width="40" Height="20" Margin="2" Content="Center"/>
+                            <Button Width="40" Height="20" Margin="2" Content="Right"/>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
