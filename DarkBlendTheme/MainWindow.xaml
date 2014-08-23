@@ -443,6 +443,39 @@
                     </GroupBox>
                 </StackPanel>
             </TabItem>
+            <TabItem Header="DataGrid">
+                <StackPanel>
+                    <DataGrid x:Name="DataGrid" AutoGenerateColumns="False" MinHeight="300" CanUserAddRows="false"
+                                SelectionMode="Extended" RowDetailsVisibilityMode="VisibleWhenSelected">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                            <DataGridTextColumn Header="Birthday" Binding="{Binding Birthday}" />
+                        </DataGrid.Columns>
+                        <DataGrid.RowDetailsTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <Image DockPanel.Dock="Left" Source="{Binding ImageUrl}" Height="64" Margin="10" />
+                                    <StackPanel Orientation="Vertical" Margin="10" >
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="ID: " FontWeight="Bold" />
+                                            <TextBlock Text="{Binding Id}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Name: " FontWeight="Bold" />
+                                            <TextBlock Text="{Binding Name}"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Birthday: " FontWeight="Bold" />
+                                            <TextBlock Text="{Binding Birthday, StringFormat=d}" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DockPanel>
+                            </DataTemplate>
+                        </DataGrid.RowDetailsTemplate>
+                    </DataGrid>
+                </StackPanel>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
