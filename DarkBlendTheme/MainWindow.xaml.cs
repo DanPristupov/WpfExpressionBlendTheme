@@ -33,7 +33,9 @@ namespace DarkBlendTheme
                     ImageUrl = "http://www.wpf-tutorial.com/images/misc/john_doe.jpg"
                 },
                 new User() {Id = 2, Name = "Jane Doe", Birthday = new DateTime(1974, 1, 17)},
-                new User() {Id = 3, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2)}
+                new User() {Id = 3, Name = "Sally Doe", Birthday = new DateTime(1991, 9, 12)},
+                new User() {Id = 3, Name = "Simon Doe", Birthday = new DateTime(1981, 9, 5)},
+                new User() {Id = 3, Name = "Ann Doe", Birthday = new DateTime(1984, 7, 3)},
             };
 
             DataGrid.ItemsSource = users;
