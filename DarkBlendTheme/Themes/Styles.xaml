@@ -97,6 +97,14 @@
     <SolidColorBrush x:Key="SubMenuHoverRepeatButtonBrush" Color="#7F7F7F"/>
     <SolidColorBrush x:Key="MenuSeparatorBrush" Color="#4C4C4C"/>
 
+	<SolidColorBrush x:Key="DataGridBackgroundBrush" Color="{StaticResource BackgroundColor}"/>
+	<SolidColorBrush x:Key="DataGridHeaderBackgroundBrush" Color="{StaticResource BackgroundColor}"/>
+	<SolidColorBrush x:Key="DataGridHeaderBorderBrush" Color="{StaticResource DarkBackgroundColor}"/>
+	<SolidColorBrush x:Key="DataGridRowBorderBrush" Color="{StaticResource DisabledBackgroundColor}"/>
+	<SolidColorBrush x:Key="DataGridRowBackgroundBrush" Color="{StaticResource BackgroundColor}"/>
+	<SolidColorBrush x:Key="DataGridRowSelectedBrush" Color="{StaticResource HighlightColor}"/>
+	<SolidColorBrush x:Key="GridLinesBrush" Color="{StaticResource DarkBackgroundColor}"/>
+	
     <Geometry x:Key="MenuScrollDownArrowGeometry">M-0.7,5.2 L-2.2,6.7 3.6,12.6 9.5,6.7 8,5.2 3.6,9.6 z</Geometry>
     <Geometry x:Key="MenuScrollUpArrowGeometry">M-2.2,10.9 L-0.7,12.4 3.7,8 8,12.4 9.5,10.9 3.7,5 z</Geometry>
     <Geometry x:Key="Checkmark">M1.0E-41,4.2 L0,2.1 2.5,4.5 6.7,4.4E-47 6.7,2.3 2.5,6.7 z</Geometry>
