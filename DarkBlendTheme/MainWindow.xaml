@@ -3,25 +3,26 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
         mc:Ignorable="d"
         x:Class="DarkBlendTheme.MainWindow"
         Title="MainWindow" Height="500" Width="460"
-        Style ="{StaticResource {x:Type Window}}">
+        >
     <Window.Resources>
     	<Style x:Key="CalendarStyle" TargetType="{x:Type Calendar}">
     		<Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
     		<Setter Property="Background" Value="{StaticResource ButtonBackground}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource ButtonBackground}"/>
+    		<Setter Property="BorderBrush" Value="{StaticResource ButtonBackground}"/>
     		<Setter Property="BorderThickness" Value="1"/>
     		<Setter Property="Template">
     			<Setter.Value>
     				<ControlTemplate TargetType="{x:Type Calendar}">
     					<StackPanel x:Name="PART_Root" HorizontalAlignment="Center">
     						<CalendarItem x:Name="PART_CalendarItem"
-                                          BorderBrush="{TemplateBinding BorderBrush}"
-                                          BorderThickness="{TemplateBinding BorderThickness}"
-                                          Background="{TemplateBinding Background}"
-                                          Style="{DynamicResource CalendarItemStyle}"/>
+    							BorderBrush="{TemplateBinding BorderBrush}"
+    							BorderThickness="{TemplateBinding BorderThickness}"
+    							Background="{TemplateBinding Background}"
+    							Style="{DynamicResource CalendarItemStyle}"/>
     					</StackPanel>
     				</ControlTemplate>
     			</Setter.Value>
@@ -35,12 +36,12 @@
     					<ControlTemplate.Resources>
     						<DataTemplate x:Key="{x:Static CalendarItem.DayTitleTemplateResourceKey}">
     							<TextBlock Foreground="{StaticResource ForegroundBrush}"
-                                           FontSize="9.5"
-                                           FontFamily="Calibri"
-                                           HorizontalAlignment="Center"
-                                           Margin="0,6,0,6"
-                                           Text="{Binding}"
-                                           VerticalAlignment="Center"/>
+    								FontSize="9.5"
+    								FontFamily="Calibri"
+    								HorizontalAlignment="Center"
+    								Margin="0,6,0,6"
+    								Text="{Binding}"
+    								VerticalAlignment="Center"/>
     						</DataTemplate>
     					</ControlTemplate.Resources>
     					<Grid x:Name="PART_Root">
@@ -216,10 +217,13 @@
     		</Setter>
     	</Style>
     	<Style x:Key="DataGridStyle" TargetType="{x:Type DataGrid}">
-    		<Setter Property="Background" Value="Transparent"/>
-    		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-    		<Setter Property="BorderBrush" Value="#FF688CAF"/>
-    		<Setter Property="BorderThickness" Value="1"/>
+    		<Setter Property="RowHeight" Value="22" />
+    		<Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource GridLinesBrush}"/>
+			<Setter Property="VerticalGridLinesBrush" Value="{DynamicResource GridLinesBrush}"/>
+    		<Setter Property="Background" Value="{DynamicResource DataGridBackgroundBrush}"/>
+    		<Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource DataGridHeaderBorderBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
     		<Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
     		<Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
     		<Setter Property="ScrollViewer.PanningMode" Value="Both"/>
@@ -227,7 +231,11 @@
     		<Setter Property="Template">
     			<Setter.Value>
     				<ControlTemplate TargetType="{x:Type DataGrid}">
-    					<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+    					<Border BorderBrush="{TemplateBinding BorderBrush}"
+								BorderThickness="{TemplateBinding BorderThickness}"
+								Background="{TemplateBinding Background}"
+								Padding="{TemplateBinding Padding}"
+								SnapsToDevicePixels="True">
     						<ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
     							<ScrollViewer.Template>
     								<ControlTemplate TargetType="{x:Type ScrollViewer}">
@@ -243,31 +251,31 @@
     											<RowDefinition Height="Auto"/>
     										</Grid.RowDefinitions>
     										<Button Command="{x:Static DataGrid.SelectAllCommand}"
-													Focusable="false"
-													Style="{DynamicResource {ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}}"
-													Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
-													Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+    											Focusable="false"
+    											Style="{DynamicResource {ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}}"
+    											Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+    											Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
     										<DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter"
-																			Grid.Column="1"
-																			Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+    											Grid.Column="1"
+    											Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
     										<ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
-																	CanContentScroll="{TemplateBinding CanContentScroll}"
-																	Grid.ColumnSpan="2" Grid.Row="1"/>
+    											CanContentScroll="{TemplateBinding CanContentScroll}"
+    											Grid.ColumnSpan="2" Grid.Row="1"/>
     										<ScrollBar x:Name="PART_VerticalScrollBar" Grid.Column="2" Maximum="{TemplateBinding ScrollableHeight}"
-														Orientation="Vertical" Grid.Row="1"
-														Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
-														Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
-														ViewportSize="{TemplateBinding ViewportHeight}"
-														Style="{DynamicResource VerticalScrollBarStyle}"/>
+    											Orientation="Vertical" Grid.Row="1"
+    											Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+    											Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+    											ViewportSize="{TemplateBinding ViewportHeight}"
+    											Style="{DynamicResource VerticalScrollBarStyle}"/>
     										<Grid Grid.Column="1" Grid.Row="2">
     											<Grid.ColumnDefinitions>
     												<ColumnDefinition Width="{Binding NonFrozenColumnsViewportHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
     												<ColumnDefinition Width="*"/>
     											</Grid.ColumnDefinitions>
     											<ScrollBar x:Name="PART_HorizontalScrollBar" Grid.Column="1" Maximum="{TemplateBinding ScrollableWidth}"
-															Orientation="Horizontal" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
-															Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
-															ViewportSize="{TemplateBinding ViewportWidth}"/>
+    												Orientation="Horizontal" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+    												Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+    												ViewportSize="{TemplateBinding ViewportWidth}"/>
     										</Grid>
     									</Grid>
     								</ControlTemplate>
@@ -282,296 +290,504 @@
     			<MultiTrigger>
     				<MultiTrigger.Conditions>
     					<Condition Property="IsGrouping" Value="true"/>
-    					<Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+    					<!--<Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>-->
     				</MultiTrigger.Conditions>
     				<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
     			</MultiTrigger>
     		</Style.Triggers>
     	</Style>
+    	<Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
+    		<Setter Property="Width" Value="8"/>
+    		<Setter Property="Background" Value="Transparent"/>
+    		<Setter Property="Cursor" Value="SizeWE"/>
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type Thumb}">
+    					<Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"/>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+    	<Style x:Key="DataGridColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
+    		<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="BorderBrush" Value="{DynamicResource DataGridHeaderBorderBrush}"/>
+			<Setter Property="Background" Value="{DynamicResource DataGridHeaderBackgroundBrush}"/>
+			<Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}"/>
+			<Setter Property="Padding" Value="3"/>
+			<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+    					<Grid>
+    						<Themes:DataGridHeaderBorder BorderBrush="{TemplateBinding BorderBrush}"
+														 BorderThickness="{TemplateBinding BorderThickness}"
+														 Background="{TemplateBinding Background}"
+														 IsClickable="{TemplateBinding CanUserSort}"
+														 IsPressed="{TemplateBinding IsPressed}"
+														 IsHovered="{TemplateBinding IsMouseOver}"
+														 Padding="{TemplateBinding Padding}"
+														 SortDirection="{TemplateBinding SortDirection}"
+														 SeparatorBrush="{TemplateBinding SeparatorBrush}"
+														 SeparatorVisibility="{TemplateBinding SeparatorVisibility}">
+    							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+    						</Themes:DataGridHeaderBorder>
+    						<Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left"
+									Style="{StaticResource ColumnHeaderGripperStyle}"/>
+    						<Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" 
+									Style="{StaticResource ColumnHeaderGripperStyle}"/>
+    					</Grid>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+    	<Style x:Key="DataGridRowStyle" TargetType="{x:Type DataGridRow}">
+    		<Setter Property="Background" Value="{DynamicResource DataGridRowBackgroundBrush}"/>
+    		<Setter Property="SnapsToDevicePixels" Value="true"/>
+			<Setter Property="Padding" Value="0"/>
+			<Setter Property="BorderBrush" Value="Transparent"/>
+    		<Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
+    		<Setter Property="ValidationErrorTemplate">
+    			<Setter.Value>
+    				<ControlTemplate>
+    					<TextBlock Foreground="Red" Margin="2,0,0,0" Text="!"
+									VerticalAlignment="Center"/>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type DataGridRow}">
+    					<Border x:Name="DGR_Border"
+								BorderBrush="{TemplateBinding BorderBrush}"
+								BorderThickness="0"
+								Background="{TemplateBinding Background}"
+								SnapsToDevicePixels="True">
+    						<SelectiveScrollingGrid>
+    							<SelectiveScrollingGrid.ColumnDefinitions>
+    								<ColumnDefinition Width="Auto"/>
+    								<ColumnDefinition Width="*"/>
+    							</SelectiveScrollingGrid.ColumnDefinitions>
+    							<SelectiveScrollingGrid.RowDefinitions>
+    								<RowDefinition Height="*"/>
+    								<RowDefinition Height="Auto"/>
+    							</SelectiveScrollingGrid.RowDefinitions>
+    							<DataGridCellsPresenter Grid.Column="1"
+														ItemsPanel="{TemplateBinding ItemsPanel}"
+														SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+    							<DataGridDetailsPresenter Grid.Column="1" Grid.Row="1"
+														  SelectiveScrollingGrid.SelectiveScrollingOrientation="{Binding AreRowDetailsFrozen, ConverterParameter={x:Static SelectiveScrollingOrientation.Vertical}, Converter={x:Static DataGrid.RowDetailsScrollingConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+														  Visibility="{TemplateBinding DetailsVisibility}"/>
+    							<DataGridRowHeader Grid.RowSpan="2"
+												   SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical"
+												   Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Row}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+												   />
+    						</SelectiveScrollingGrid>
+    					</Border>
+						<ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="true"/>
+                                <Condition Property="IsSelected" Value="false"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="DGR_Border" Value="{StaticResource MouseOverListItem}"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="DGR_Border" Property="Background" Value="{DynamicResource DataGridRowSelectedBrush}" />
+                            
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    		<Style.Triggers>
+    			<Trigger Property="IsNewItem" Value="True">
+    				<Setter Property="Margin" Value="{Binding NewItemMargin, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+    			</Trigger>
+				<Trigger Property="IsSelected" Value="True">
+    				<Setter Property="Background" Value="{DynamicResource DataGridRowSelectedBrush}"/>
+				</Trigger>
+    		</Style.Triggers>
+    	</Style>
+    	<SolidColorBrush x:Key="{x:Static DataGrid.FocusBorderBrushKey}" Color="Red"/>
+    	<Style x:Key="DataGridCellStyle" TargetType="{x:Type DataGridCell}">
+    		<Setter Property="Background" Value="Transparent"/>
+    		<Setter Property="BorderBrush" Value="Transparent"/>
+    		<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="Padding" Value="5,0,5,0"/>
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type DataGridCell}">
+    					<Border BorderBrush="{TemplateBinding BorderBrush}"
+								BorderThickness="{TemplateBinding BorderThickness}"
+								Background="{TemplateBinding Background}"
+								SnapsToDevicePixels="True">
+    						<ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+												VerticalAlignment="Center"
+												Margin="{TemplateBinding Padding}"/>
+    					</Border>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    		<Style.Triggers>
+    			<Trigger Property="IsSelected" Value="True">
+    				<Setter Property="Background" Value="Transparent"/>
+    				<Setter Property="Foreground" Value="Black"/>
+    				<Setter Property="BorderBrush" Value="Transparent"/>
+    			</Trigger>
+    			<Trigger Property="IsKeyboardFocusWithin" Value="True">
+    				<Setter Property="BorderBrush" Value="{DynamicResource {x:Static DataGrid.FocusBorderBrushKey}}"/>
+    			</Trigger>
+    			<MultiTrigger>
+    				<MultiTrigger.Conditions>
+    					<Condition Property="IsSelected" Value="true"/>
+    					<Condition Property="Selector.IsSelectionActive" Value="false"/>
+    				</MultiTrigger.Conditions>
+    				<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+    				<Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+    				<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}}"/>
+    			</MultiTrigger>
+    			<Trigger Property="IsEnabled" Value="false">
+    				<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+    			</Trigger>
+    		</Style.Triggers>
+    	</Style>
+    	<BooleanToVisibilityConverter x:Key="bool2VisibilityConverter"/>
+    	<Style x:Key="RowHeaderGripperStyle" TargetType="{x:Type Thumb}">
+    		<Setter Property="Height" Value="8"/>
+    		<Setter Property="Background" Value="Transparent"/>
+    		<Setter Property="Cursor" Value="SizeNS"/>
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type Thumb}">
+    					<Border Background="{TemplateBinding Background}"
+								Padding="{TemplateBinding Padding}"/>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+    	<Style x:Key="DataGridRowHeaderStyle" TargetType="{x:Type DataGridRowHeader}">
+    		<Setter Property="Background" Value="{DynamicResource DataGridHeaderBorderBrush}"/>
+    		<Setter Property="BorderBrush" Value="{DynamicResource DataGridHeaderBorderBrush}"/>
+    		<Setter Property="BorderThickness" Value="1"/>
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type DataGridRowHeader}">
+    					<Grid>
+    						<Themes:DataGridHeaderBorder BorderBrush="{TemplateBinding BorderBrush}"
+															BorderThickness="{TemplateBinding BorderThickness}"
+															Background="{TemplateBinding Background}"
+															IsPressed="{TemplateBinding IsPressed}"
+															IsHovered="{TemplateBinding IsMouseOver}"
+															IsSelected="{TemplateBinding IsRowSelected}"
+															Orientation="Horizontal"
+															Padding="{TemplateBinding Padding}"
+															SeparatorBrush="{TemplateBinding SeparatorBrush}"
+															SeparatorVisibility="{TemplateBinding SeparatorVisibility}">
+    							<StackPanel Orientation="Horizontal">
+    								<ContentPresenter RecognizesAccessKey="True"
+														SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+														VerticalAlignment="Center"/>
+    								<Control SnapsToDevicePixels="false"
+												Template="{Binding ValidationErrorTemplate, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}"
+												Visibility="{Binding (Validation.HasError), Converter={StaticResource bool2VisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}"/>
+    							</StackPanel>
+    						</Themes:DataGridHeaderBorder>
+    						<Thumb x:Name="PART_TopHeaderGripper" Style="{StaticResource RowHeaderGripperStyle}" VerticalAlignment="Top"/>
+    						<Thumb x:Name="PART_BottomHeaderGripper" Style="{StaticResource RowHeaderGripperStyle}" VerticalAlignment="Bottom"/>
+    					</Grid>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
     </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition MinWidth="130"/>
-            <ColumnDefinition MinWidth="320"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
-            <Menu>
-                <MenuItem Header="File">
-                    <MenuItem IsCheckable="True" Header="New Item">
-                        <MenuItem Header="Item" />
-                    </MenuItem>
-                    <MenuItem Header="New Project">
-                        <MenuItem IsCheckable="True" IsEnabled="False" Header="Project"/>
-                    </MenuItem>
-                    <Separator/>
-                    <MenuItem Header="Save"/>
-                    <MenuItem Header="Save All" IsEnabled="False"/>
-                    <MenuItem Header="Save Copy of Project"/>
-                    <Separator/>
-                    <MenuItem Header="Import">
-                        <MenuItem IsCheckable="True" Header="Import Adobe Illustrator File"/>
-                        <MenuItem IsCheckable="True" Header="Import Adobe Photoshop File"/>
-                    </MenuItem>
-                    <Separator/>
-                    <MenuItem Header="Exit"/>
-                    <Separator/>
-                </MenuItem>
-                <MenuItem Header="Edit">
-                    <MenuItem IsCheckable="True" Header="Item">
-                        <MenuItem Header="Item" />
-                    </MenuItem>
-                </MenuItem>
-                <MenuItem Header="View">
-                    <MenuItem IsCheckable="True" Header="Item">
-                        <MenuItem Header="Item" />
-                    </MenuItem>
-                </MenuItem>
-                <MenuItem Header="Object">
-                    <MenuItem Header="Edit Text" IsEnabled="False"/>
-                    <MenuItem Header="Edit Control" IsEnabled="False"/>
-                    <Separator/>
-                    <MenuItem Header="Order">
-                        <MenuItem Header="Bring to Front"/>
-                        <MenuItem Header="Bring Forward"/>
-                        <MenuItem Header="Send to Back"/>
-                    </MenuItem>
-                    <MenuItem Header="Align">
-                        <MenuItem Header="Left"/>
-                        <MenuItem Header="Top" IsChecked="True"/>
-                        <MenuItem Header="Right"/>
-                        <MenuItem Header="Bottom"/>
-                    </MenuItem>
-                    <MenuItem Header="Reset Layout"/>
-                    <MenuItem Header="Make Same"/>
-                    <MenuItem Header="Flip"/>
-                    <Separator/>
-                    <MenuItem Header="Group" IsEnabled="False"/>
-                    <MenuItem Header="Ungroup" IsEnabled="False"/>
-                    <MenuItem Header="Pin Active Container" IsEnabled="False"/>
-                </MenuItem>
-            </Menu>
-        </StackPanel>
-        <Border Margin="5,5,2.5,5" Grid.Row="1" Grid.Column="0">
-            <TreeView>
-                <TreeViewItem IsExpanded="True" Header="DarkBlendTheme">
-                    <TreeViewItem IsExpanded="True" Header="References">
-                        <TreeViewItem Header="CSharp"/>
-                        <TreeViewItem Header="Controls"/>
-                        <TreeViewItem Header="Drawing"/>
-                    </TreeViewItem>
-                    <TreeViewItem Header="Fonts"/>
-                    <TreeViewItem Header="Properties">
-                        <TreeViewItem Header="AssemblyInfo.cs" />
-                        <TreeViewItem Header="DesignTimeResources.cs" />
-                        <TreeViewItem Header="Resources.resx">
-                            <TreeViewItem Header="Resources.Designer.cs" />
-                        </TreeViewItem>
-                        <TreeViewItem Header="Settings.xaml">
-                            <TreeViewItem Header="Settings.Designer.cs" />
-                        </TreeViewItem>
-                    </TreeViewItem>
-                    <TreeViewItem Header="Resources">
-                        <TreeViewItem Header="Icon.png"/>
-                    </TreeViewItem>
-                    <TreeViewItem Header="Themes">
-                        <TreeViewItem Header="Styles.xaml">
-                        </TreeViewItem>
-                    </TreeViewItem>
-                    <TreeViewItem Header="LightTheme"/>
-                </TreeViewItem>
-            </TreeView>
-        </Border>
-        <TabControl  Grid.Column="1" Grid.Row="1" TabStripPlacement="Top" Margin="2.5,5,5,5">
-            <TabItem Header="Properties">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <TextBox Grid.Row="0" Margin="2" IsEnabled="False" Text="Search Properties"/>
-                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto"
+	<Window.Style>
+		<StaticResource ResourceKey="{x:Type Window}"/>
+	</Window.Style>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition MinWidth="130"/>
+			<ColumnDefinition MinWidth="320"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<StackPanel Grid.Row="0" Grid.ColumnSpan="2">
+			<Menu>
+				<MenuItem Header="File">
+					<MenuItem IsCheckable="True" Header="New Item">
+						<MenuItem Header="Item" />
+					</MenuItem>
+					<MenuItem Header="New Project">
+						<MenuItem IsCheckable="True" IsEnabled="False" Header="Project"/>
+					</MenuItem>
+					<Separator/>
+					<MenuItem Header="Save"/>
+					<MenuItem Header="Save All" IsEnabled="False"/>
+					<MenuItem Header="Save Copy of Project"/>
+					<Separator/>
+					<MenuItem Header="Import">
+						<MenuItem IsCheckable="True" Header="Import Adobe Illustrator File"/>
+						<MenuItem IsCheckable="True" Header="Import Adobe Photoshop File"/>
+					</MenuItem>
+					<Separator/>
+					<MenuItem Header="Exit"/>
+					<Separator/>
+				</MenuItem>
+				<MenuItem Header="Edit">
+					<MenuItem IsCheckable="True" Header="Item">
+						<MenuItem Header="Item" />
+					</MenuItem>
+				</MenuItem>
+				<MenuItem Header="View">
+					<MenuItem IsCheckable="True" Header="Item">
+						<MenuItem Header="Item" />
+					</MenuItem>
+				</MenuItem>
+				<MenuItem Header="Object">
+					<MenuItem Header="Edit Text" IsEnabled="False"/>
+					<MenuItem Header="Edit Control" IsEnabled="False"/>
+					<Separator/>
+					<MenuItem Header="Order">
+						<MenuItem Header="Bring to Front"/>
+						<MenuItem Header="Bring Forward"/>
+						<MenuItem Header="Send to Back"/>
+					</MenuItem>
+					<MenuItem Header="Align">
+						<MenuItem Header="Left"/>
+						<MenuItem Header="Top" IsChecked="True"/>
+						<MenuItem Header="Right"/>
+						<MenuItem Header="Bottom"/>
+					</MenuItem>
+					<MenuItem Header="Reset Layout"/>
+					<MenuItem Header="Make Same"/>
+					<MenuItem Header="Flip"/>
+					<Separator/>
+					<MenuItem Header="Group" IsEnabled="False"/>
+					<MenuItem Header="Ungroup" IsEnabled="False"/>
+					<MenuItem Header="Pin Active Container" IsEnabled="False"/>
+				</MenuItem>
+			</Menu>
+		</StackPanel>
+		<Border Margin="5,5,2.5,5" Grid.Row="1" Grid.Column="0">
+			<TreeView>
+				<TreeViewItem IsExpanded="True" Header="DarkBlendTheme">
+					<TreeViewItem IsExpanded="True" Header="References">
+						<TreeViewItem Header="CSharp"/>
+						<TreeViewItem Header="Controls"/>
+						<TreeViewItem Header="Drawing"/>
+					</TreeViewItem>
+					<TreeViewItem Header="Fonts"/>
+					<TreeViewItem Header="Properties">
+						<TreeViewItem Header="AssemblyInfo.cs" />
+						<TreeViewItem Header="DesignTimeResources.cs" />
+						<TreeViewItem Header="Resources.resx">
+							<TreeViewItem Header="Resources.Designer.cs" />
+						</TreeViewItem>
+						<TreeViewItem Header="Settings.xaml">
+							<TreeViewItem Header="Settings.Designer.cs" />
+						</TreeViewItem>
+					</TreeViewItem>
+					<TreeViewItem Header="Resources">
+						<TreeViewItem Header="Icon.png"/>
+					</TreeViewItem>
+					<TreeViewItem Header="Themes">
+						<TreeViewItem Header="Styles.xaml"/>
+					</TreeViewItem>
+					<TreeViewItem Header="LightTheme"/>
+				</TreeViewItem>
+			</TreeView>
+		</Border>
+		<TabControl  Grid.Column="1" Grid.Row="1" TabStripPlacement="Top" Margin="2.5,5,5,5">
+			<TabItem Header="Properties">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<TextBox Grid.Row="0" Margin="2" IsEnabled="False" Text="Search Properties"/>
+					<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto"
 						VerticalScrollBarVisibility="Visible">
-                        <StackPanel>
-                            <Expander Header="Appearance" IsExpanded="True">
-                                <StackPanel Margin="0,0,0,2">
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Content="Opacity"/>
-                                        <TextBox Width="150" Text="20%"  Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Content="Visibility"/>
-                                        <ComboBox Text="Item1" Width="150" Margin="2">
-                                            <ComboBoxItem Padding="2" IsSelected="True" Content="Visible"/>
-                                            <ComboBoxItem Padding="2" Content="Hidden"/>
-                                            <ComboBoxItem Padding="2" Content="Collapsed"/>
-                                        </ComboBox>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Margin="0,0,100,0" Content="Effect"/>
-                                        <Button Content="New" Width="50" Margin="2"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Expander>
-                            <Expander Header="Common" IsExpanded="True">
-                                <StackPanel Margin="0,0,0,2">
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Content="Content"/>
-                                        <TextBox Width="150" Text="New" Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Content="Cursor"/>
-                                        <ComboBox Text="Item1" IsEditable="True" Width="150" Margin="2">
-                                            <ComboBoxItem Padding="2" IsSelected="True"  Content="None"/>
-                                            <ComboBoxItem Padding="2" Content="Arrow"/>
-                                            <ComboBoxItem Padding="2" Content="Cross"/>
-                                        </ComboBox>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Margin="0,0,100,0" Content="DataContext"/>
-                                        <Button Content="New" Width="50" Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Content="IsEnabled"/>
-                                        <CheckBox VerticalAlignment="Center" IsChecked="True" Margin="2" Width="150"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Content="ToolTip"/>
-                                        <TextBox Width="150" Margin="2"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Expander>
-                            <Expander Header="Layout" IsExpanded="True">
-                                <StackPanel Margin="0,0,0,2">
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Content="Width"/>
-                                        <TextBox Width="150" Text="200" Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Content="Height"/>
-                                        <TextBox Width="150" Text="25" Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Content="ZIndex"/>
-                                        <TextBox Width="150" Text="1" Margin="2"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Content="HorizontalAlignment"/>
-                                        <StackPanel Orientation="Horizontal" Width="150" Margin="2">
-                                            <RadioButton Content="L" Width="25" Height="25"/>
-                                            <RadioButton Content="C" Width="25" IsChecked="True" Height="25"/>
-                                            <RadioButton Content="R" Width="25" Height="25"/>
-                                            <RadioButton Content="S" Width="25" Height="25"/>
-                                        </StackPanel>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                        <Label Content="VerticalAlignment"/>
-                                        <StackPanel Orientation="Horizontal" Width="150" Margin="2">
-                                            <RadioButton Content="L" Width="25" Height="25" />
-                                            <RadioButton Content="C" Width="25" IsChecked="True" Height="25" />
-                                            <RadioButton Content="R" Width="25" Height="25" />
-                                            <RadioButton Content="S" Width="25" Height="25" />
-                                        </StackPanel>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Expander>
-                            <Expander Header="Text" />
-                        </StackPanel>
-                    </ScrollViewer>
-                </Grid>
-            </TabItem>
-            <TabItem  Header="Resources">
-                <ListView>
-                    <ListViewItem Padding="5">
-                        <TextBlock Text="Button"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
-                        <TextBlock Text="CheckBox"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
-                        <TextBlock Text="ComboBox"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
-                        <TextBlock Text="Expander"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
-                        <TextBlock Text="Label"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
-                        <TextBlock Text="ListView"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
-                        <TextBlock Text="Menu"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
-                        <TextBlock Text="RadioButton"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
-                        <TextBlock Text="ScrollViewer"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
-                        <TextBlock Text="TabControl"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
-                        <TextBlock Text="TextBox"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
-                        <TextBlock Text="TreeView"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
-                        <TextBlock Text="ToggleButton"/>
-                    </ListViewItem>
-                </ListView>
-            </TabItem>
-            <TabItem Header="Data">
-                <StackPanel>
-                    <Calendar Width="200" Height="200" Style="{DynamicResource CalendarStyle}">
-                    </Calendar>
-                    <GroupBox Padding="5" Header="GroupBox" >
-                        <StackPanel Orientation="Horizontal">
-                            <Button Width="40" Height="20" Margin="2" Content="Left"/>
-                            <Button Width="40" Height="20" Margin="2" Content="Center"/>
-                            <Button Width="40" Height="20" Margin="2" Content="Right"/>
-                        </StackPanel>
-                    </GroupBox>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="DataGrid">
-                <StackPanel>
-                    <DataGrid x:Name="DataGrid" AutoGenerateColumns="False" Height="120" CanUserAddRows="false"
-                                SelectionMode="Extended" Style="{DynamicResource DataGridStyle}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="Auto" />
-                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" />
-                            <DataGridTextColumn Header="Birthday" Binding="{Binding Birthday}" Width="Auto" />
-                        </DataGrid.Columns>
-                        <DataGrid.RowDetailsTemplate>
-                            <DataTemplate>
-                                <DockPanel>
-                                    <Image DockPanel.Dock="Left" Source="{Binding ImageUrl}" Height="64" Margin="10" />
-                                    <StackPanel Orientation="Vertical" Margin="10" >
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="ID: " FontWeight="Bold" />
-                                            <TextBlock Text="{Binding Id}" />
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Name: " FontWeight="Bold" />
-                                            <TextBlock Text="{Binding Name}"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Birthday: " FontWeight="Bold" />
-                                            <TextBlock Text="{Binding Birthday, StringFormat=d}" />
-                                        </StackPanel>
-                                    </StackPanel>
-                                </DockPanel>
-                            </DataTemplate>
-                        </DataGrid.RowDetailsTemplate>
-                    </DataGrid>
-                </StackPanel>
-            </TabItem>
-        </TabControl>
-    </Grid>
+						<StackPanel>
+							<Expander Header="Appearance" IsExpanded="True">
+								<StackPanel Margin="0,0,0,2">
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="Opacity"/>
+										<TextBox Width="150" Text="20%"  Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="Visibility"/>
+										<ComboBox Text="Item1" Width="150" Margin="2">
+											<ComboBoxItem Padding="2" IsSelected="True" Content="Visible"/>
+											<ComboBoxItem Padding="2" Content="Hidden"/>
+											<ComboBoxItem Padding="2" Content="Collapsed"/>
+										</ComboBox>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Margin="0,0,100,0" Content="Effect"/>
+										<Button Content="New" Width="50" Margin="2"/>
+									</StackPanel>
+								</StackPanel>
+							</Expander>
+							<Expander Header="Common" IsExpanded="True">
+								<StackPanel Margin="0,0,0,2">
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="Content"/>
+										<TextBox Width="150" Text="New" Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="Cursor"/>
+										<ComboBox Text="Item1" IsEditable="True" Width="150" Margin="2">
+											<ComboBoxItem Padding="2" IsSelected="True"  Content="None"/>
+											<ComboBoxItem Padding="2" Content="Arrow"/>
+											<ComboBoxItem Padding="2" Content="Cross"/>
+										</ComboBox>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Margin="0,0,100,0" Content="DataContext"/>
+										<Button Content="New" Width="50" Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="IsEnabled"/>
+										<CheckBox VerticalAlignment="Center" IsChecked="True" Margin="2" Width="150"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="ToolTip"/>
+										<TextBox Width="150" Margin="2"/>
+									</StackPanel>
+								</StackPanel>
+							</Expander>
+							<Expander Header="Layout" IsExpanded="True">
+								<StackPanel Margin="0,0,0,2">
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="Width"/>
+										<TextBox Width="150" Text="200" Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="Height"/>
+										<TextBox Width="150" Text="25" Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="ZIndex"/>
+										<TextBox Width="150" Text="1" Margin="2"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="HorizontalAlignment"/>
+										<StackPanel Orientation="Horizontal" Width="150" Margin="2">
+											<RadioButton Content="L" Width="25" Height="25"/>
+											<RadioButton Content="C" Width="25" IsChecked="True" Height="25"/>
+											<RadioButton Content="R" Width="25" Height="25"/>
+											<RadioButton Content="S" Width="25" Height="25"/>
+										</StackPanel>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+										<Label Content="VerticalAlignment"/>
+										<StackPanel Orientation="Horizontal" Width="150" Margin="2">
+											<RadioButton Content="L" Width="25" Height="25" />
+											<RadioButton Content="C" Width="25" IsChecked="True" Height="25" />
+											<RadioButton Content="R" Width="25" Height="25" />
+											<RadioButton Content="S" Width="25" Height="25" />
+										</StackPanel>
+									</StackPanel>
+								</StackPanel>
+							</Expander>
+							<Expander Header="Text" />
+						</StackPanel>
+					</ScrollViewer>
+				</Grid>
+			</TabItem>
+			<TabItem  Header="Resources">
+				<ListView>
+					<ListViewItem Padding="5">
+						<TextBlock Text="Button"/>
+					</ListViewItem>
+					<ListViewItem Padding="5">
+						<TextBlock Text="CheckBox"/>
+					</ListViewItem>
+					<ListViewItem Padding="5">
+						<TextBlock Text="ComboBox"/>
+					</ListViewItem>
+					<ListViewItem Padding="5">
+						<TextBlock Text="Expander"/>
+					</ListViewItem>
+					<ListViewItem Padding="5">
+						<TextBlock Text="Label"/>
+					</ListViewItem>
+					<ListViewItem Padding="5">
+						<TextBlock Text="ListView"/>
+					</ListViewItem>
+					<ListViewItem Padding="5">
+						<TextBlock Text="Menu"/>
+					</ListViewItem>
+					<ListViewItem Padding="5">
+						<TextBlock Text="RadioButton"/>
+					</ListViewItem>
+					<ListViewItem Padding="5">
+						<TextBlock Text="ScrollViewer"/>
+					</ListViewItem>
+					<ListViewItem Padding="5">
+						<TextBlock Text="TabControl"/>
+					</ListViewItem>
+					<ListViewItem Padding="5">
+						<TextBlock Text="TextBox"/>
+					</ListViewItem>
+					<ListViewItem Padding="5">
+						<TextBlock Text="TreeView"/>
+					</ListViewItem>
+					<ListViewItem Padding="5">
+						<TextBlock Text="ToggleButton"/>
+					</ListViewItem>
+				</ListView>
+			</TabItem>
+			<TabItem Header="Data">
+				<StackPanel>
+					<Calendar Width="200" Height="200" Style="{DynamicResource CalendarStyle}"/>
+					<GroupBox Padding="5" Header="GroupBox" >
+						<StackPanel Orientation="Horizontal">
+							<Button Width="40" Height="20" Margin="2" Content="Left"/>
+							<Button Width="40" Height="20" Margin="2" Content="Center"/>
+							<Button Width="40" Height="20" Margin="2" Content="Right"/>
+						</StackPanel>
+					</GroupBox>
+				</StackPanel>
+			</TabItem>
+			<TabItem Header="DataGrid">
+				<StackPanel>
+					<DataGrid x:Name="DataGrid" AutoGenerateColumns="False" Height="120" CanUserAddRows="false"
+						SelectionMode="Extended" Style="{DynamicResource DataGridStyle}"
+						ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"
+						RowStyle="{DynamicResource DataGridRowStyle}"
+						CellStyle="{DynamicResource DataGridCellStyle}"
+						RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle}">
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="Auto" />
+							<DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" />
+							<DataGridTextColumn Header="Birthday" Binding="{Binding Birthday}" Width="Auto" />
+						</DataGrid.Columns>
+						<DataGrid.RowDetailsTemplate>
+							<DataTemplate>
+								<DockPanel>
+									<Image DockPanel.Dock="Left" Source="{Binding ImageUrl}" Height="64" Margin="10" />
+									<StackPanel Orientation="Vertical" Margin="10" >
+										<StackPanel Orientation="Horizontal">
+											<TextBlock Text="ID: " FontWeight="Bold" />
+											<TextBlock Text="{Binding Id}" />
+										</StackPanel>
+										<StackPanel Orientation="Horizontal">
+											<TextBlock Text="Name: " FontWeight="Bold" />
+											<TextBlock Text="{Binding Name}"/>
+										</StackPanel>
+										<StackPanel Orientation="Horizontal">
+											<TextBlock Text="Birthday: " FontWeight="Bold" />
+											<TextBlock Text="{Binding Birthday, StringFormat=d}" />
+										</StackPanel>
+									</StackPanel>
+								</DockPanel>
+							</DataTemplate>
+						</DataGrid.RowDetailsTemplate>
+					</DataGrid>
+				</StackPanel>
+			</TabItem>
+		</TabControl>
+	</Grid>
 </Window>
