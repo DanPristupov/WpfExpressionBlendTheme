@@ -2039,6 +2039,23 @@
         </Setter>
     </Style>
 
+    <Style TargetType="{x:Type ContextMenu}">
+        <Setter Property="Background" Value="{StaticResource MenuBackground}"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContextMenu}">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" 
+        					BorderThickness="{TemplateBinding BorderThickness}" 
+        					Background="{TemplateBinding Background}" 
+        					Padding="{TemplateBinding Padding}" 
+        					SnapsToDevicePixels="true">
+                        <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     
     <ControlTemplate x:Key="{ComponentResourceKey ResourceId=SubmenuItemTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}" TargetType="{x:Type MenuItem}">
         <Grid SnapsToDevicePixels="true">
