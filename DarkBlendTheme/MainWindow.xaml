@@ -20,6 +20,11 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
             <Menu>
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <DockPanel HorizontalAlignment="Stretch"/>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
                 <MenuItem Header="File">
                     <MenuItem IsCheckable="True" Header="New Item">
                         <MenuItem Header="Item" />
@@ -73,6 +78,7 @@
                     <MenuItem Header="Ungroup" IsEnabled="False"/>
                     <MenuItem Header="Pin Active Container" IsEnabled="False"/>
                 </MenuItem>
+                <MenuItem Header="Help" IsEnabled="True" HorizontalAlignment="Right"/>
             </Menu>
         </StackPanel>
         <Border Margin="5,5,2.5,5" Grid.Row="1" Grid.Column="0">

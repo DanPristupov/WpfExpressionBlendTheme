@@ -2321,7 +2321,9 @@
                 <Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
             </Trigger>
             <Trigger Property="IsHighlighted" Value="true">
-                <Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemPressedFill}"/>
+                <Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemSelectionFill}"/>
+                <Setter Property="TextBlock.Foreground" Value="{StaticResource MouseOverForegroundBrush}"/>
+                <Setter Property="Fill" TargetName="GlyphPanel" Value="{StaticResource MouseOverForegroundBrush}"/>
             </Trigger>
             <Trigger Property="IsKeyboardFocused" Value="true">
                 <Setter Property="Fill" TargetName="Bg" Value="{StaticResource MenuItemPressedFill}"/>
@@ -2456,24 +2458,28 @@
         <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
-        <Setter Property="MinHeight" Value="25"/>
+        <Setter Property="MinHeight" Value="21"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="Template" Value="{DynamicResource {ComponentResourceKey ResourceId=SubmenuItemTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}"/>
         <Style.Triggers>
             <Trigger Property="Role" Value="TopLevelHeader">
-                <Setter Property="Padding" Value="7,5,8,3"/>
+                <Setter Property="Height" Value="25"/>
+                <Setter Property="Padding" Value="7,6,8,3"/>
                 <Setter Property="Template" Value="{DynamicResource {ComponentResourceKey ResourceId=TopLevelHeaderTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}"/>
             </Trigger>
             <Trigger Property="Role" Value="TopLevelItem">
-                <Setter Property="Padding" Value="7,5,8,3"/>
+                <Setter Property="Height" Value="25"/>
+                <Setter Property="Padding" Value="7,6,8,3"/>
                 <Setter Property="Template" Value="{DynamicResource {ComponentResourceKey ResourceId=TopLevelItemTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}"/>
             </Trigger>
             <Trigger Property="Role" Value="SubmenuHeader">
-                <Setter Property="Padding" Value="2,6,2,6"/>
+                <Setter Property="Height" Value="21"/>
+                <Setter Property="Padding" Value="2,4,2,2"/>
                 <Setter Property="Template" Value="{DynamicResource {ComponentResourceKey ResourceId=SubmenuHeaderTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}"/>
             </Trigger>
             <Trigger Property="Role" Value="SubmenuItem">
-                <Setter Property="Padding" Value="2,6,2,6"/>
+                <Setter Property="Height" Value="21"/>
+                <Setter Property="Padding" Value="2,4,2,2"/>
             </Trigger>
         </Style.Triggers>
     </Style>
