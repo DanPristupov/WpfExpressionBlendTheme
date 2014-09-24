@@ -77,6 +77,18 @@
         </StackPanel>
         <Border Margin="5,5,2.5,5" Grid.Row="1" Grid.Column="0">
             <TreeView>
+                <TreeView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Add..."/>
+                        <MenuItem Header="Rename"/>
+                        <MenuItem Header="Remove"/>
+                        <Separator/>
+                        <MenuItem Header="Copy"/>
+                        <MenuItem Header="Cut"/>
+                        <MenuItem Header="Paste"/>
+                        <MenuItem Header="Move"/>
+                    </ContextMenu>
+                </TreeView.ContextMenu>
                 <TreeViewItem IsExpanded="True" Header="DarkBlendTheme">
                     <TreeViewItem IsExpanded="True" Header="References">
                         <TreeViewItem Header="CSharp"/>
