@@ -2045,9 +2045,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ContextMenu}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" 
+                    <Border BorderBrush="{StaticResource SubMenuBorderBrush}" 
         					BorderThickness="{TemplateBinding BorderThickness}" 
-        					Background="{TemplateBinding Background}" 
+        					Background="{StaticResource SubMenuBackgroundBrush}" 
         					Padding="{TemplateBinding Padding}" 
         					SnapsToDevicePixels="true">
                         <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
