@@ -17,6 +17,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition />
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
             <Menu>
@@ -81,7 +82,7 @@
                 <MenuItem Header="Help" IsEnabled="True" HorizontalAlignment="Right"/>
             </Menu>
         </StackPanel>
-        <Border Margin="5,5,2.5,5" Grid.Row="1" Grid.Column="0">
+        <Border Margin="5,5,2.5,1" Grid.Row="1" Grid.Column="0">
             <TreeView>
                 <TreeView.ContextMenu>
                     <ContextMenu>
@@ -123,7 +124,7 @@
                 </TreeViewItem>
             </TreeView>
         </Border>
-        <TabControl  Grid.Column="1" Grid.Row="1" TabStripPlacement="Top" Margin="2.5,5,5,5">
+        <TabControl  Grid.Column="1" Grid.Row="1" TabStripPlacement="Top" Margin="2.5,5,5,1">
             <TabItem Header="Properties">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -317,5 +318,9 @@
                 </StackPanel>
             </TabItem>
         </TabControl>
+        <StatusBar Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <StatusBarItem>Ready</StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right" IsEnabled="False">INS</StatusBarItem>
+        </StatusBar>
     </Grid>
 </Window>
