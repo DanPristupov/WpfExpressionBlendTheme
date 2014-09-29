@@ -8,7 +8,7 @@
         <owners>Dan Pristupov</owners>
         <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
         <projectUrl>http://github.com/DanPristupov/WpfThemes</projectUrl>
-        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>A WPF theme which will make an application look like Blend</description>
         <summary>A WPF theme which will make an application look like Blend</summary>
         <releaseNotes>Added Context Menu support. Fixed menu height.</releaseNotes>
