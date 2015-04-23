@@ -142,8 +142,46 @@
                             <ScaleTransform ScaleY="-1" ScaleX="1"/>
                             <SkewTransform AngleY="0" AngleX="0"/>
                             <RotateTransform Angle="0"/>
-                            <TranslateTransform/>
+                            <TranslateTransform />
                         </TransformGroup>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="RightStyle" TargetType="{x:Type FrameworkElement}">
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <RotateTransform Angle="90" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="RoundedCornerLeftStyle" TargetType="{x:Type FrameworkElement}">
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <RotateTransform Angle="-90" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleY="-1"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="LeftStyle" TargetType="{x:Type FrameworkElement}">
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <RotateTransform Angle="-90" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="DefaultStyle" TargetType="{x:Type FrameworkElement}">
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <RotateTransform Angle="0" />
                     </Setter.Value>
                 </Setter>
             </Style>
@@ -152,7 +190,9 @@
                 <Setter Property="Control.Template">
                     <Setter.Value>
                         <ControlTemplate>
-                            <Rectangle Margin="3,3,3,1" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                            <Rectangle Margin="3,3,3,1" SnapsToDevicePixels="true"
+                                       Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                                       StrokeThickness="1" StrokeDashArray="1 2"/>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
@@ -169,29 +209,37 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type TabItem}">
-                            <Grid SnapsToDevicePixels="true" Margin="1,0,-12,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="24"/>
-                                </Grid.ColumnDefinitions>
-                                <Border x:Name="Bd"
-									Grid.Column="0"
-									CornerRadius="3,0,0,0"
-									BorderBrush="{TemplateBinding BorderBrush}"
-									BorderThickness="0"
-									Background="{TemplateBinding Background}"
-									Padding="{TemplateBinding Padding}">
-                                    <ContentPresenter x:Name="Content" Margin="6,1,6,1" ContentSource="Header"
-										HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
-										RecognizesAccessKey="True"
-										SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-										VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-                                </Border>
-                                <Path x:Name="RoundedCorner"
-									Grid.Column="1"
-									Stretch="Fill"
-									Data="{StaticResource TabItemRoundedCorner}"
-									Fill="{TemplateBinding Background}" />
+                            <Grid x:Name="Container">
+                                <Grid x:Name="Grid" SnapsToDevicePixels="true" Margin="1,0,-12,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Border x:Name="Bd"
+									    Grid.Column="0"
+									    CornerRadius="3,0,0,0"
+									    BorderBrush="{TemplateBinding BorderBrush}"
+									    BorderThickness="0"
+									    Background="{TemplateBinding Background}"
+									    Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter x:Name="Content" Margin="6,1,6,1" ContentSource="Header"
+										    HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+										    RecognizesAccessKey="True"
+										    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+										    VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                                    </Border>
+                                    <Path x:Name="RoundedCorner"
+                                          Grid.Column="1"
+                                          Grid.Row="0"
+                                          Width="24"
+                                          Stretch="Fill"
+                                          Data="{StaticResource TabItemRoundedCorner}"
+                                          Fill="{TemplateBinding Background}" />
+                                </Grid>
                             </Grid>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="true">
@@ -219,9 +267,27 @@
                                 </Trigger>
                                 <Trigger Property="TabStripPlacement" Value="Left">
                                     <!--<Setter Property="BorderThickness" TargetName="Bd" Value="1,1,0,1"/>-->
+                                    <Setter Property="Grid.Row" TargetName="Bd" Value="0"/>
+                                    <Setter Property="Grid.Column" TargetName="Bd" Value="0"/>
+                                    <Setter Property="Grid.Row" TargetName="RoundedCorner" Value="1"/>
+                                    <Setter Property="Grid.Column" TargetName="RoundedCorner" Value="0"/>
+                                    <Setter Property="Style" TargetName="RoundedCorner" Value="{StaticResource RoundedCornerLeftStyle}"/>
+                                    <Setter Property="Style" TargetName="Bd" Value="{StaticResource LeftStyle}"/>
+                                    <Setter Property="Style" TargetName="Content" Value="{StaticResource DefaultStyle}"/>
+                                    <Setter Property="Margin" TargetName="Grid" Value="0,1,0,-16"/>
+                                    <Setter Property="CornerRadius" TargetName="Bd" Value="0 3 0 0"/>
+                                    <Setter Property="Margin" TargetName="RoundedCorner" Value="0 4 0 0"/>
                                 </Trigger>
                                 <Trigger Property="TabStripPlacement" Value="Right">
                                     <!--<Setter Property="BorderThickness" TargetName="Bd" Value="0,1,1,1"/>-->
+                                    <Setter Property="Grid.Row" TargetName="Bd" Value="0"/>
+                                    <Setter Property="Grid.Column" TargetName="Bd" Value="1"/>
+                                    <Setter Property="Grid.Row" TargetName="RoundedCorner" Value="1"/>
+                                    <Setter Property="Grid.Column" TargetName="RoundedCorner" Value="1"/>
+                                    <Setter Property="Style" TargetName="RoundedCorner" Value="{StaticResource RightStyle}"/>
+                                    <Setter Property="Style" TargetName="Bd" Value="{StaticResource RightStyle}"/>
+                                    <Setter Property="Style" TargetName="Content" Value="{StaticResource DefaultStyle}"/>
+                                    <Setter Property="Margin" TargetName="Grid" Value="0,1,0,-12"/>
                                 </Trigger>
                                 <MultiTrigger>
                                     <MultiTrigger.Conditions>
@@ -329,6 +395,8 @@
                             <Setter Property="Height" TargetName="RowDefinition0" Value="*"/>
                             <Setter Property="Height" TargetName="RowDefinition1" Value="0"/>
                             <!--<Setter Property="Margin" TargetName="HeaderPanel" Value="0,2,2,2"/>-->
+                            <Setter Property="Grid.Column" TargetName="HeaderPanel" Value="1"/>
+
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
