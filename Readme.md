@@ -5,7 +5,8 @@
 ![Alt text](Screenshot.png)
 Before / After
 ####List of supported controls
-- Button- CheckBox- ComboBox- Expander- Label- ListView
+- Button- CheckBox- ComboBox- Expander
+- GroupBox- Label- ListBox- ListView
 - Menu- RadioButton- ScrollViewer- TabControl- TextBox- ToggleButton- TreeView
 
 ####How to use that theme in your application

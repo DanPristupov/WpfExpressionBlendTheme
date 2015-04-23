@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>WPFThemes.DarkBlend</id>
+        <version>1.0.7</version>
+        <title>WPF DarkBlend Theme</title>
+        <authors>Dan Pristupov</authors>
+        <owners>Dan Pristupov</owners>
+        <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+        <projectUrl>http://github.com/DanPristupov/WpfThemes</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A WPF theme which will make an application look like Blend</description>
+        <summary>A WPF theme which will make an application look like Blend</summary>
+        <releaseNotes>Added Context Menu support. Fixed menu height.</releaseNotes>
+        <tags>Expression Blend Dark WPF Theme Skin Style Themes</tags>
+    </metadata>
+    <files>
+        <file src="..\DarkBlendTheme\Themes\LeftMarginMultiplierConverter.cs" target="content\Themes\LeftMarginMultiplierConverter.cs" />
+        <file src="..\DarkBlendTheme\Themes\Styles.xaml" target="content\Themes\Styles.xaml" />
+        <file src="..\DarkBlendTheme\Themes\TreeViewItemExtensions.cs" target="content\Themes\TreeViewItemExtensions.cs" />
+        <file src="readme.txt" target="readme.txt" />
+    </files>
+</package>
