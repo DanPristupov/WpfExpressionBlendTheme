@@ -1873,6 +1873,7 @@
         </Setter>
     </Style>
     <Style x:Key="TreeViewToggleButtonStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
@@ -1948,6 +1949,7 @@
         </Setter>
     </Style>
     <Style x:Key="TreeViewSelectedToggleButtonStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
