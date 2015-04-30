@@ -1,55 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DarkBlendTheme
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    ///     Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            var users = new List<User>
+            Users = new List<User>
             {
-                new User()
-                {
-                    Id = 1,
-                    Name = "John Doe",
-                    Birthday = new DateTime(1971, 7, 23),
-                    ImageUrl = "http://www.wpf-tutorial.com/images/misc/john_doe.jpg"
-                },
-                new User() {Id = 2, Name = "Jane Doe", Birthday = new DateTime(1974, 1, 17)},
-                new User() {Id = 3, Name = "Sally Doe", Birthday = new DateTime(1991, 9, 12)},
-                new User() {Id = 3, Name = "Simon Doe", Birthday = new DateTime(1981, 9, 5)},
-                new User() {Id = 3, Name = "Ann Doe", Birthday = new DateTime(1984, 7, 3)},
+                new User {Id = 1, Name = "John", Birthday = new DateTime(1971, 7, 23)},
+                new User {Id = 2, Name = "Jane", Birthday = new DateTime(1971, 1, 17)},
+                new User {Id = 3, Name = "Mary", Birthday = new DateTime(1991, 10, 12)},
+                new User {Id = 4, Name = "Simon", Birthday = new DateTime(1981, 9, 5)},
+                new User {Id = 5, Name = "Ann", Birthday = new DateTime(1984, 7, 3)}
             };
 
-            DataGrid.ItemsSource = users;
+            DataGrid.ItemsSource = Users;
         }
+
+        public List<User> Users { get; set; }
     }
 
     public class User
     {
         public int Id { get; set; }
-
         public string Name { get; set; }
-
         public DateTime Birthday { get; set; }
-
         public string ImageUrl { get; set; }
     }
 }
