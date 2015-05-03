@@ -123,7 +123,7 @@
             </TreeView>
         </Border>
         <TabControl  Grid.Column="1" Grid.Row="1" TabStripPlacement="Top" Margin="2.5,5,5,1">
-            <TabItem Header="Properties">
+            <TabItem Header="Controls">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -198,122 +198,78 @@
                                     <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
                                         <Label Content="HorizontalAlignment"/>
                                         <StackPanel Orientation="Horizontal" Width="150" Margin="2">
-                                            <RadioButton Content="L" Width="25" Height="25"/>
-                                            <RadioButton Content="C" Width="25" IsChecked="True" Height="25"/>
-                                            <RadioButton Content="R" Width="25" Height="25"/>
-                                            <RadioButton Content="S" Width="25" Height="25"/>
+                                            <RadioButton Content="L" VerticalAlignment="Center" Margin="4" />
+                                            <RadioButton Content="C" VerticalAlignment="Center" Margin="4" IsChecked="True" />
+                                            <RadioButton Content="R" VerticalAlignment="Center" Margin="4" />
+                                            <RadioButton Content="S" VerticalAlignment="Center" Margin="4" />
                                         </StackPanel>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
                                         <Label Content="VerticalAlignment"/>
                                         <StackPanel Orientation="Horizontal" Width="150" Margin="2">
-                                            <RadioButton Content="L" Width="25" Height="25" />
-                                            <RadioButton Content="C" Width="25" IsChecked="True" Height="25" />
-                                            <RadioButton Content="R" Width="25" Height="25" />
-                                            <RadioButton Content="S" Width="25" Height="25" />
+                                            <RadioButton Content="L" VerticalAlignment="Center" Margin="4" />
+                                            <RadioButton Content="C" VerticalAlignment="Center" Margin="4" IsChecked="True" />
+                                            <RadioButton Content="R" VerticalAlignment="Center" Margin="4" />
+                                            <RadioButton Content="S" VerticalAlignment="Center" Margin="4"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </StackPanel>
                             </Expander>
-                            <Expander Header="Text" />
+                            <Expander Header="Text">
+                                <GroupBox Padding="5" Header="GroupBox" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Width="40" Height="20" Margin="2" Content="Left"/>
+                                        <Button Width="40" Height="20" Margin="2" Content="Center"/>
+                                        <Button Width="40" Height="20" Margin="2" Content="Right"/>
+                                    </StackPanel>
+                                </GroupBox>
+                            </Expander>
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
             </TabItem>
-            <TabItem  Header="Resources">
-                <ListView>
-                    <ListViewItem Padding="5">
+            <TabItem Header="ListBox">
+                <ListBox>
+                    <ListBoxItem Padding="5">
                         <TextBlock Text="Button"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
+                    </ListBoxItem>
+                    <ListBoxItem Padding="5">
                         <TextBlock Text="CheckBox"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
+                    </ListBoxItem>
+                    <ListBoxItem Padding="5">
                         <TextBlock Text="ComboBox"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
+                    </ListBoxItem>
+                    <ListBoxItem Padding="5">
                         <TextBlock Text="Expander"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
+                    </ListBoxItem>
+                    <ListBoxItem Padding="5">
                         <TextBlock Text="Label"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
+                    </ListBoxItem>
+                    <ListBoxItem Padding="5">
                         <TextBlock Text="ListView"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
+                    </ListBoxItem>
+                    <ListBoxItem Padding="5">
                         <TextBlock Text="Menu"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
+                    </ListBoxItem>
+                    <ListBoxItem Padding="5">
                         <TextBlock Text="RadioButton"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
+                    </ListBoxItem>
+                    <ListBoxItem Padding="5">
                         <TextBlock Text="ScrollViewer"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
+                    </ListBoxItem>
+                    <ListBoxItem Padding="5">
                         <TextBlock Text="TabControl"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
+                    </ListBoxItem>
+                    <ListBoxItem Padding="5">
                         <TextBlock Text="TextBox"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
+                    </ListBoxItem>
+                    <ListBoxItem Padding="5">
                         <TextBlock Text="TreeView"/>
-                    </ListViewItem>
-                    <ListViewItem Padding="5">
+                    </ListBoxItem>
+                    <ListBoxItem Padding="5">
                         <TextBlock Text="ToggleButton"/>
-                    </ListViewItem>
-                </ListView>
-            </TabItem>
-            <TabItem Header="Data">
-                <StackPanel>
-                    <ListBox>
-                        <ListBoxItem Padding="5">
-                            <TextBlock Text="Button"/>
-                        </ListBoxItem>
-                        <ListBoxItem Padding="5">
-                            <TextBlock Text="CheckBox"/>
-                        </ListBoxItem>
-                        <ListBoxItem Padding="5">
-                            <TextBlock Text="ComboBox"/>
-                        </ListBoxItem>
-                        <ListBoxItem Padding="5">
-                            <TextBlock Text="Expander"/>
-                        </ListBoxItem>
-                        <ListBoxItem Padding="5">
-                            <TextBlock Text="Label"/>
-                        </ListBoxItem>
-                        <ListBoxItem Padding="5">
-                            <TextBlock Text="ListView"/>
-                        </ListBoxItem>
-                        <ListBoxItem Padding="5">
-                            <TextBlock Text="Menu"/>
-                        </ListBoxItem>
-                        <ListBoxItem Padding="5">
-                            <TextBlock Text="RadioButton"/>
-                        </ListBoxItem>
-                        <ListBoxItem Padding="5">
-                            <TextBlock Text="ScrollViewer"/>
-                        </ListBoxItem>
-                        <ListBoxItem Padding="5">
-                            <TextBlock Text="TabControl"/>
-                        </ListBoxItem>
-                        <ListBoxItem Padding="5">
-                            <TextBlock Text="TextBox"/>
-                        </ListBoxItem>
-                        <ListBoxItem Padding="5">
-                            <TextBlock Text="TreeView"/>
-                        </ListBoxItem>
-                        <ListBoxItem Padding="5">
-                            <TextBlock Text="ToggleButton"/>
-                        </ListBoxItem>
-                    </ListBox>
-                    <GroupBox Padding="5" Header="GroupBox" >
-                        <StackPanel Orientation="Horizontal">
-                            <Button Width="40" Height="20" Margin="2" Content="Left"/>
-                            <Button Width="40" Height="20" Margin="2" Content="Center"/>
-                            <Button Width="40" Height="20" Margin="2" Content="Right"/>
-                        </StackPanel>
-                    </GroupBox>
-                </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
             </TabItem>
             <TabItem Header="DataGrid">
                 <DataGrid x:Name="DataGrid" ItemsSource="{Binding Users}" HeadersVisibility="Column" />
