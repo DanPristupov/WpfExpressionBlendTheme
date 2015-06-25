@@ -340,6 +340,7 @@
                                     <ComboBoxItem Padding="2" IsSelected="True" Content="Visible"/>
                                     <ComboBoxItem Padding="2" Content="Hidden"/>
                                 </ComboBox>
+                                <StackPanel Margin="10 46 10 10"/>
                             </StackPanel>
                         </Expander>
                         <Expander Header="Label">
@@ -361,17 +362,35 @@
                             </Grid>
                         </Expander>
                         <Expander Header="ListBox">
-                            <ListBox>
-                                <ListBoxItem Padding="5">
-                                    <TextBlock Text="Button"/>
-                                </ListBoxItem>
-                                <ListBoxItem Padding="5">
-                                    <TextBlock Text="CheckBox"/>
-                                </ListBoxItem>
-                                <ListBoxItem Padding="5">
-                                    <TextBlock Text="ComboBox"/>
-                                </ListBoxItem>
-                            </ListBox>
+                            <StackPanel>
+                                <ListBox>
+                                    <ListBoxItem Padding="5">
+                                        <TextBlock Text="Button"/>
+                                    </ListBoxItem>
+                                    <ListBoxItem Padding="5">
+                                        <TextBlock Text="CheckBox"/>
+                                    </ListBoxItem>
+                                    <ListBoxItem Padding="5">
+                                        <TextBlock Text="ComboBox"/>
+                                    </ListBoxItem>
+                                    <ListBoxItem Padding="5">
+                                        <TextBlock Text="Expander"/>
+                                    </ListBoxItem>
+                                    <ListBoxItem Padding="5">
+                                        <TextBlock Text="Label"/>
+                                    </ListBoxItem>
+                                    <ListBoxItem Padding="5">
+                                        <TextBlock Text="ListView"/>
+                                    </ListBoxItem>
+                                    <ListBoxItem Padding="5">
+                                        <TextBlock Text="Menu"/>
+                                    </ListBoxItem>
+                                    <ListBoxItem Padding="5">
+                                        <TextBlock Text="RadioButton"/>
+                                    </ListBoxItem>
+                                </ListBox>
+                                <StackPanel Orientation="Horizontal" Margin="10 4 10 10" HorizontalAlignment="Center"/>
+                            </StackPanel>
                         </Expander>
                         <Expander Header="Menu">
                             <StackPanel>
@@ -382,14 +401,24 @@
                                         </ItemsPanelTemplate>
                                     </Menu.ItemsPanel>
                                     <MenuItem Header="File">
-                                        <MenuItem Header="New">
+                                        <MenuItem IsCheckable="True" Header="New Item">
+                                            <MenuItem Header="Item" />
+                                        </MenuItem>
+                                        <MenuItem Header="New Project">
                                             <MenuItem IsCheckable="True" IsEnabled="False" Header="Project"/>
                                         </MenuItem>
                                         <Separator/>
                                         <MenuItem Header="Save"/>
                                         <MenuItem Header="Save All" IsEnabled="False"/>
+                                        <MenuItem Header="Save Copy of Project"/>
+                                        <Separator/>
+                                        <MenuItem Header="Import">
+                                            <MenuItem IsCheckable="True" Header="Import Adobe Illustrator File"/>
+                                            <MenuItem IsCheckable="True" Header="Import Adobe Photoshop File"/>
+                                        </MenuItem>
                                         <Separator/>
                                         <MenuItem Header="Exit"/>
+                                        <Separator/>
                                     </MenuItem>
                                     <MenuItem Header="Edit">
                                         <MenuItem IsCheckable="True" Header="Item">
@@ -403,8 +432,73 @@
                                     </MenuItem>
                                     <MenuItem Header="Help" IsEnabled="True" HorizontalAlignment="Right"/>
                                 </Menu>
-                                <StackPanel Orientation="Horizontal" Margin="10 44 10 10" HorizontalAlignment="Center"/>
+                                <StackPanel Orientation="Horizontal" Margin="10 180 10 10" HorizontalAlignment="Center"/>
                             </StackPanel>
+                        </Expander>
+                        <Expander Header="ScrollViewer" Width="250">
+                            <ScrollViewer Height="215" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
+                                <TextBlock Width="250" Margin="10" TextWrapping="Wrap">
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
+                                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+                                    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
+                                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+                                    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+                                    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                                    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+                                    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                                </TextBlock>
+                            </ScrollViewer>
+                        </Expander>
+                        <Expander Header="RadioButton">
+                            <Grid HorizontalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Margin="0,0,10,0" Content="Normal" HorizontalAlignment="Right"/>
+                                <RadioButton Grid.Row="0" Grid.Column="1" Content="Radio button" IsChecked="True" VerticalAlignment="Center" Margin="4"/>
+
+                                <Label Grid.Row="1" Grid.Column="0" Margin="0,0,10,0" Content="Disabled" HorizontalAlignment="Right"/>
+                                <RadioButton Grid.Row="1" Grid.Column="1" Content="Radio button" VerticalAlignment="Center" IsEnabled="False" Margin="4"/>
+                            </Grid>
+                        </Expander>
+                        <Expander Header="TextBox">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                    <Label Content="Normal"/>
+                                    <TextBox Width="150" Margin="2"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
+                                    <Label Content="Disabled"/>
+                                    <TextBox Width="150" Margin="2" IsEnabled="False"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Expander>
+                        <Expander Header="ToggleButton">
+                            <Grid HorizontalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Margin="0,0,10,0" Content="Normal" HorizontalAlignment="Right"/>
+                                <Button Grid.Row="0" Grid.Column="1" Content="Button" Width="50" Margin="2"/>
+
+                                <Label Grid.Row="1" Grid.Column="0" Margin="0,0,10,0" Content="Disabled" HorizontalAlignment="Right"/>
+                                <Button Grid.Row="1" Grid.Column="1" Content="Button" Width="50" Margin="2" IsEnabled="False"/>
+                            </Grid>
                         </Expander>
                     </StackPanel>
                 </ScrollViewer>
