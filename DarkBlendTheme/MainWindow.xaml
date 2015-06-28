@@ -9,8 +9,8 @@
         Style ="{StaticResource {x:Type Window}}">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -435,8 +435,8 @@
                                 <StackPanel Orientation="Horizontal" Margin="10 180 10 10" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </Expander>
-                        <Expander Header="ScrollViewer" Width="250">
-                            <ScrollViewer Height="215" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
+                        <Expander Header="ScrollViewer">
+                            <ScrollViewer Height="215" Width="250" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
                                 <TextBlock Width="250" Margin="10" TextWrapping="Wrap">
                                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
                                     Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
@@ -471,16 +471,22 @@
                             </Grid>
                         </Expander>
                         <Expander Header="TextBox">
-                            <StackPanel>
-                                <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                    <Label Content="Normal"/>
-                                    <TextBox Width="150" Margin="2"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Margin="0,0,10,0" HorizontalAlignment="Right">
-                                    <Label Content="Disabled"/>
-                                    <TextBox Width="150" Margin="2" IsEnabled="False"/>
-                                </StackPanel>
-                            </StackPanel>
+                            <Grid HorizontalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Margin="0,0,10,0" Content="Normal" HorizontalAlignment="Right"/>
+                                <TextBox Grid.Row="0" Grid.Column="1" Width="150" Margin="2" Text="Text box"/>
+
+                                <Label Grid.Row="1" Grid.Column="0" Margin="0,0,10,0" Content="Disabled" HorizontalAlignment="Right"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Width="150" Margin="2" IsEnabled="False" Text="Text box"/>
+                            </Grid>
                         </Expander>
                         <Expander Header="ToggleButton">
                             <Grid HorizontalAlignment="Center">
@@ -494,11 +500,116 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Row="0" Grid.Column="0" Margin="0,0,10,0" Content="Normal" HorizontalAlignment="Right"/>
-                                <Button Grid.Row="0" Grid.Column="1" Content="Button" Width="50" Margin="2"/>
+                                <ToggleButton Grid.Row="0" Grid.Column="1" Content="Button" Width="50" Margin="2"/>
 
-                                <Label Grid.Row="1" Grid.Column="0" Margin="0,0,10,0" Content="Disabled" HorizontalAlignment="Right"/>
-                                <Button Grid.Row="1" Grid.Column="1" Content="Button" Width="50" Margin="2" IsEnabled="False"/>
+                                <Label Grid.Row="1" Grid.Column="0" Margin="0,0,10,0" Content="Checked" HorizontalAlignment="Right"/>
+                                <ToggleButton Grid.Row="1" Grid.Column="1" Content="Button" Width="50" Margin="2" IsChecked="True"/>
+
+                                <Label Grid.Row="2" Grid.Column="0" Margin="0,0,10,0" Content="Disabled" HorizontalAlignment="Right"/>
+                                <ToggleButton Grid.Row="2" Grid.Column="1" Content="Button" Width="50" Margin="2" IsEnabled="False"/>
                             </Grid>
+                        </Expander>
+                        <Expander Header="TabControl">
+                            <Grid Background="#444444">
+                                <StackPanel Margin="2">
+                                    <TabControl TabStripPlacement="Top">
+                                        <TabItem Header="RButton">
+                                            <StackPanel Margin="10">
+                                                <StackPanel Orientation="Horizontal" Margin="2">
+                                                    <RadioButton Content="Top" VerticalAlignment="Center" Margin="4" IsChecked="True" />
+                                                    <RadioButton Content="Right" VerticalAlignment="Center" Margin="4"  />
+                                                    <RadioButton Content="Bottom" VerticalAlignment="Center" Margin="4" />
+                                                    <RadioButton Content="Left" VerticalAlignment="Center" Margin="4" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </TabItem>
+                                        <TabItem Header="Button"/>
+                                    </TabControl>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TabControl TabStripPlacement="Left">
+                                            <TabItem Header="RButton">
+                                                <StackPanel Orientation="Horizontal" Margin="2">
+                                                    <StackPanel Width="84" Margin="2">
+                                                        <RadioButton Content="Top" VerticalAlignment="Center" Margin="4" />
+                                                        <RadioButton Content="Right" VerticalAlignment="Center" Margin="4"  />
+                                                        <RadioButton Content="Bottom" VerticalAlignment="Center" Margin="4" />
+                                                        <RadioButton Content="Left" VerticalAlignment="Center" Margin="4" IsChecked="True" />
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </TabItem>
+                                            <TabItem Header="Button"/>
+                                        </TabControl>
+                                        <TabControl TabStripPlacement="Right">
+                                            <TabItem Header="RButton">
+                                                <StackPanel Orientation="Horizontal" Margin="2">
+                                                    <StackPanel Width="84" Margin="2">
+                                                        <RadioButton Content="Top" VerticalAlignment="Center" Margin="4" />
+                                                        <RadioButton Content="Right" VerticalAlignment="Center" Margin="4" IsChecked="True"  />
+                                                        <RadioButton Content="Bottom" VerticalAlignment="Center" Margin="4" />
+                                                        <RadioButton Content="Left" VerticalAlignment="Center" Margin="4"  />
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </TabItem>
+                                            <TabItem Header="Button"/>
+                                        </TabControl>
+                                    </StackPanel>
+                                    <TabControl TabStripPlacement="Bottom">
+                                        <TabItem Header="RButton">
+                                            <StackPanel Margin="10">
+                                                <StackPanel Orientation="Horizontal" Margin="2">
+                                                    <RadioButton Content="Top" VerticalAlignment="Center" Margin="4" />
+                                                    <RadioButton Content="Right" VerticalAlignment="Center" Margin="4"  />
+                                                    <RadioButton Content="Bottom" VerticalAlignment="Center" Margin="4" IsChecked="True" />
+                                                    <RadioButton Content="Left" VerticalAlignment="Center" Margin="4" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </TabItem>
+                                        <TabItem Header="Button"/>
+                                    </TabControl>
+                                </StackPanel>
+                            </Grid>
+                        </Expander>
+                        <Expander Header="TreeView">
+                            <TreeView>
+                                <TreeView.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Add..."/>
+                                        <MenuItem Header="Rename"/>
+                                        <MenuItem Header="Remove"/>
+                                        <Separator/>
+                                        <MenuItem Header="Copy"/>
+                                        <MenuItem Header="Cut"/>
+                                        <MenuItem Header="Paste"/>
+                                        <MenuItem Header="Move"/>
+                                    </ContextMenu>
+                                </TreeView.ContextMenu>
+                                <TreeViewItem IsExpanded="True" Header="DarkBlendTheme">
+                                    <TreeViewItem IsExpanded="True" Header="References">
+                                        <TreeViewItem Header="CSharp"/>
+                                        <TreeViewItem Header="Controls"/>
+                                        <TreeViewItem Header="Drawing"/>
+                                    </TreeViewItem>
+                                    <TreeViewItem Header="Fonts"/>
+                                    <TreeViewItem Header="Properties">
+                                        <TreeViewItem Header="AssemblyInfo.cs" />
+                                        <TreeViewItem Header="DesignTimeResources.cs" />
+                                        <TreeViewItem Header="Resources.resx">
+                                            <TreeViewItem Header="Resources.Designer.cs" />
+                                        </TreeViewItem>
+                                        <TreeViewItem Header="Settings.xaml">
+                                            <TreeViewItem Header="Settings.Designer.cs" />
+                                        </TreeViewItem>
+                                    </TreeViewItem>
+                                    <TreeViewItem Header="Resources">
+                                        <TreeViewItem Header="Icon.png"/>
+                                    </TreeViewItem>
+                                    <TreeViewItem Header="Themes">
+                                        <TreeViewItem Header="Styles.xaml">
+                                        </TreeViewItem>
+                                    </TreeViewItem>
+                                    <TreeViewItem Header="LightTheme"/>
+                                </TreeViewItem>
+                            </TreeView>
                         </Expander>
                     </StackPanel>
                 </ScrollViewer>
