@@ -1,1 +1,585 @@
-Hello world!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="wpf xaml themes expression dark blend">
+	<meta name="author" content="">
+	
+	<title>EXPRESSION - XAML themes</title>
+	
+	<!-- CSS -->
+	<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/simpletextrotator.css" rel="stylesheet">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+	<link href="assets/css/et-line-font.css" rel="stylesheet">
+	<link href="assets/css/magnific-popup.css" rel="stylesheet">
+	<link href="assets/css/flexslider.css" rel="stylesheet">
+	<link href="assets/css/owl.carousel.css" rel="stylesheet">
+	<link href="assets/css/animate.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<style type="text/css">
+
+		.hs-caption {
+			color: black;
+			background-image: url("assets/images/dark_embroidery.png");
+			background-repeat: repeat-y left top;
+		}
+
+		.caption {
+			padding-top: 100px;
+		}
+
+		.container{
+			max-width: 970px;
+		}
+
+		section{
+			color: white;
+		}
+
+		.custom-module {
+			color: white;
+			background-color: #262626;
+		}
+
+		.content-box-title  {
+			color: white;
+		}
+
+		.controls-image {
+			-webkit-box-shadow: 6px 6px 10px 5px rgba(0,0,0,0.23);
+			-moz-box-shadow: 6px 6px 10px 5px rgba(0,0,0,0.23);
+			box-shadow: 6px 6px 10px 5px rgba(0,0,0,0.23);
+		}
+
+		.controls-image img {
+			max-width: 300px;
+		}
+
+		.black-line {
+			background-color: black;
+		}
+
+		.navbar-custom .navbar-brand {
+			color: #FFCF00;
+		}
+
+		.navbar-custom .nav li > a {
+			color: #FFCF00;
+		}
+
+		.main-image {
+			display: inline-block;
+			margin-left: auto;
+    		margin-right: auto;
+    		width: 45%;
+		}
+		
+		#images{
+			text-align:center;
+    	   	margin-top: 70px;
+		}
+
+		.widget .widget-title {
+			border-bottom: 1px dotted #c2c2c2;
+			font-size: 22px;
+			padding: 0 0 20px;
+			margin: 30px;
+		}
+
+		.module-title .big{
+			font-size: 40px;
+		}
+
+		.divider-y {
+			border-top: 1px solid #FFCF00;;
+			margin: 0;
+		}
+
+		.fa-big {
+			font-size: 24px;
+		}
+		
+	</style>
+</head>
+<body>
+
+	<!-- Preloader -->
+	<div class="page-loader">
+		<div class="loader">Loading...</div>
+	</div>
+
+	<!-- Navigation start -->
+	<nav class="navbar navbar-custom navbar-transparent navbar-fixed-top black-line" role="navigation">
+
+		<div class="container">
+	
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="zyrk-index.html">expression</a>
+			</div>
+	
+			<div class="collapse navbar-collapse" id="custom-collapse">
+	
+				<ul class="nav navbar-nav navbar-right">
+	
+					<li><a href="zyrk-index.html">WPF Theme</a></li>
+
+					<li><a href="zyrk-portfolio.html">Animation</a></li>
+
+					<li><a href="https://github.com/DanPristupov/WpfThemes"><i class="fa fa-big fa-github"></i></a></li>
+	
+				</ul>
+			</div>
+	
+		</div>
+
+	</nav>
+	<!-- Navigation end -->
+
+	<!-- Home start -->
+	<section id="home" class="home-section home-fade home-full-height">
+		
+		<div class="hs-caption caption">
+				
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="images">
+						<img class="main-image controls-image" src="assets/images/oldApp.png" alt="">
+						<img class="main-image controls-image" src="assets/images/newApp.png" alt="">
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</section >
+	<!-- Home end -->
+
+	<!-- Wrapper start -->
+	<div class="main">
+
+		<!-- Divider -->
+		<hr class="divider-w">
+		<!-- Divider -->
+
+		<!--Component start-->
+		<section class="custom-module">
+			<div class="container">
+
+				<div class="row widget custom-module mt-10">
+					<h1 class="widget-title text-center font-alt">Controls</h3>
+				</div>
+
+				<div class="row">
+
+					<div class="col-sm-12">
+
+						<div class="row multi-columns-row mb-70">
+
+							<!-- Content box 1 row start -->
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="content-box">
+									<h3 class="content-box-title">Button</h3>
+									<p></p>
+									<div>
+										<img class="controls-image" src="assets/images/button.png" alt="">
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="content-box">
+									<h3 class="content-box-title">CheckBox</h3>
+									<p></p>
+									<div>
+										<img class="controls-image" src="assets/images/checkBox.png" alt="">
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="content-box">
+									<h3 class="content-box-title">ComboBox</h3>
+									<p></p>
+									<div>
+										<img class="controls-image" src="assets/images/comboBox.png" alt="">
+									</div>
+								</div>
+							</div>
+							<!-- Content box 1 row end -->
+
+							<!-- Content box 2 row start -->
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="content-box">
+									<h3 class="content-box-title">Expander</h3>
+									<p></p>
+									<div>
+										<img class="controls-image" src="assets/images/expander.png" alt="">
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="content-box">
+									<h3 class="content-box-title">GroupBox</h3>
+									<p></p>
+									<div>
+										<img class="controls-image" src="assets/images/groupBox.png" alt="">
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="content-box">
+									<h3 class="content-box-title">Label</h3>
+									<p></p>
+									<div>
+										<img class="controls-image" src="assets/images/label.png" alt="">
+									</div>
+								</div>
+							</div>
+							<!-- Content box 2 row end -->
+
+							<!-- Content box 3 row start -->
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="content-box">
+									<h3 class="content-box-title">ListBox</h3>
+									<p></p>
+									<div>
+										<img class="controls-image" src="assets/images/listBox.png" alt="">
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="content-box">
+									<h3 class="content-box-title">ScrollViewer</h3>
+									<p></p>
+									<div>
+										<img class="controls-image" src="assets/images/scrollViewer.png" alt="">
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="content-box">
+									<h3 class="content-box-title">Menu</h3>
+									<p></p>
+									<div>
+										<img class="controls-image" src="assets/images/menu.png" alt="">
+									</div>
+								</div>
+							</div>
+							<!-- Content box 3 row end -->
+
+							<!-- Content box 4 row start -->
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="content-box">
+									<h3 class="content-box-title">RadioButton</h3>
+									<p></p>
+									<div>
+										<img class="controls-image" src="assets/images/radioButton.png" alt="">
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="content-box">
+									<h3 class="content-box-title">TextBox</h3>
+									<p></p>
+									<div>
+										<img class="controls-image" src="assets/images/textBox.png" alt="">
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="content-box">
+									<h3 class="content-box-title">ToggleButton</h3>
+									<p></p>
+									<div>
+										<img class="controls-image" src="assets/images/toggleButton.png" alt="">
+									</div>
+								</div>
+							</div>
+							<!-- Content box 4 row end -->
+
+							<!-- Content box 5 row start -->
+							
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="content-box">
+									<h3 class="content-box-title">TabControl</h3>
+									<p></p>
+									<div>
+										<img class="controls-image" src="assets/images/tabCOntrol.png" alt="">
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<div class="content-box">
+									<h3 class="content-box-title">TreeView</h3>
+									<p></p>
+									<div>
+										<img class="controls-image" src="assets/images/treeView.png" alt="">
+									</div>
+								</div>
+							</div>
+
+
+							<!-- Content box 5 row end -->
+
+						</div><!-- .row -->
+
+					</div>
+
+				</div><!-- .row -->
+
+			</div>
+		</section>
+		<!--Component end-->
+
+		<section id="news" class="mb-70 mt-70">
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-sm-12 text-center">
+
+						<h2 class="module-title font-alt mb-20">Make your application look dark and cool <br> with our theme</h2>
+
+						<a href="#about" class="section-scroll btn btn-border-d btn-round">Dark Blend Theme</a>
+					</div>
+
+				</div><!-- .row -->
+
+			</div>
+		</section>
+
+		<!-- DataGrid start -->
+		<section class="module bg-dark-60 pt-0 pb-0" data-background="assets/images/section-7.jpg">
+
+			<div class="testimonials-slider pt-140 pb-140">
+				<ul class="slides">
+
+					<!-- Slide 1 start -->
+					<li>
+						<div class="container">
+
+							<div class="row">
+
+								<div class="col-sm-8 col-sm-offset-2">
+									<div class="content-box">
+										<h3 class="content-box-title">TreeView</h3>
+										<p></p>
+										<div class="controls-image">
+											<img src="assets/images/textBox.png" alt="">
+										</div>
+									</div>
+								</div>
+
+							</div><!-- .row -->
+
+							<div class="row">
+
+								<div class="col-sm-4 col-sm-offset-4">
+									<div class="testimonial-author">
+										<div class="testimonial-caption font-alt">
+											<div class="testimonial-title">Data grid</div>
+										</div>
+									</div>
+								</div>
+
+							</div><!-- .row -->
+
+						</div><!-- .container -->
+					</li>
+					<!-- Slide 1 end -->
+
+					<!-- Slide 2 start -->
+					<li>
+						<div class="container">
+
+							<div class="row">
+
+								<div class="col-sm-8 col-sm-offset-2">
+									<div class="content-box">
+										<h3 class="content-box-title">TreeView</h3>
+										<p></p>
+										<div class="controls-image">
+											<img src="assets/images/textBox.png" alt="">
+										</div>
+									</div>
+								</div>
+
+							</div><!-- .row -->
+
+							<div class="row">
+
+								<div class="col-sm-4 col-sm-offset-4">
+									<div class="testimonial-author">
+										<div class="testimonial-caption font-alt">
+											<div class="testimonial-title">Data grid</div>
+										</div>
+									</div>
+								</div>
+
+							</div><!-- .row -->
+
+						</div><!-- .container -->
+					</li>
+					<!-- Slide 2 end -->
+
+					<!-- Slide 3 start -->
+					<li>
+						<div class="container">
+
+							<div class="row">
+
+								<div class="col-sm-8 col-sm-offset-2">
+									<div class="content-box">
+										<h3 class="content-box-title font-serif">TreeView</h3>
+										<p></p>
+										<div class="controls-image">
+											<img src="assets/images/textBox.png" alt="">
+										</div>
+									</div>
+								</div>
+
+							</div><!-- .row -->
+
+							<div class="row">
+
+								<div class="col-sm-4 col-sm-offset-4">
+									<div class="testimonial-author">
+										<div class="testimonial-caption font-alt">
+											<div class="testimonial-title">Data grid</div>
+										</div>
+									</div>
+								</div>
+
+							</div><!-- .row -->
+
+						</div><!-- .container -->
+					</li>
+					<!-- Slide 3 end -->
+
+				</ul>
+			</div><!-- .testimonials-slider -->
+
+		</section>
+		<!-- Testimonials end -->
+
+		<!-- Contact start -->
+		<section id="contact" class="module">
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-sm-6 col-sm-offset-3">
+
+						<h2 class="module-title font-alt">Get in touch</h2>
+
+					</div>
+
+				</div><!-- .row -->
+
+				<div class="row">
+
+					<div class="col-sm-6 col-sm-offset-3">
+
+						<form id="contact-form" role="form" novalidate="">
+
+							<div class="form-group">
+								<label class="sr-only" for="cname">Name</label>
+								<input type="text" id="cname" class="form-control" name="cname" placeholder="Name*" required="" data-validation-required-message="Please enter your name.">
+								<p class="help-block text-danger"></p>
+							</div>
+
+							<div class="form-group">
+								<label class="sr-only" for="cemail">Your Email</label>
+								<input type="email" id="cemail" name="cemail" class="form-control" placeholder="Your E-mail*" required="" data-validation-required-message="Please enter your email address.">
+								<p class="help-block text-danger"></p>
+							</div>
+
+							<div class="form-group">
+								<textarea class="form-control" id="cmessage" name="cmessage" rows="7" placeholder="Message*" required="" data-validation-required-message="Please enter your message."></textarea>
+								<p class="help-block text-danger"></p>
+							</div>
+
+							<div class="text-center">
+								<button type="submit" class="btn btn-block btn-round btn-d">Submit</button>
+							</div>
+
+						</form>
+
+						<!-- Ajax response -->
+						<div id="contact-response" class="ajax-response font-alt"></div>
+
+					</div>
+
+				</div><!-- .row -->
+
+			</div>
+		</section>
+		<!-- Contact end -->
+
+		<!-- Footer start -->
+		<footer class="footer bg-dark">
+			<div class="container">
+	
+				<div class="row">
+	
+					<div class="col-sm-6">
+						<p class="copyright font-alt">© 2015 <a href="index.html">Zyrk</a>, All Rights Reserved.</p>
+					</div>
+	
+					<div class="col-sm-6">
+						<div class="footer-social-links">
+							<a href="#"><i class="fa fa-github"></i></a>
+						</div>
+					</div>
+	
+				</div><!-- .row -->
+	
+			</div>
+		</footer>
+		<!-- Footer end -->
+	
+	</div>
+	<!-- Wrapper start -->
+	
+	<!-- Scroll-up -->
+	<div class="scroll-up">
+		<a href="#totop"><i class="fa fa-angle-double-up"></i></a>
+	</div>
+	
+	<!-- Javascript files -->
+	<script src="assets/js/jquery-2.1.3.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
+	<script src="assets/js/appear.js"></script>
+	<script src="assets/js/jquery.simple-text-rotator.min.js"></script>
+	<script src="assets/js/jqBootstrapValidation.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script src="assets/js/gmaps.js"></script>
+	<script src="assets/js/isotope.pkgd.min.js"></script>
+	<script src="assets/js/imagesloaded.pkgd.js"></script>
+	<script src="assets/js/jquery.flexslider-min.js"></script>
+	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="assets/js/jquery.fitvids.js"></script>
+	<script src="assets/js/smoothscroll.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+	<script src="assets/js/owl.carousel.min.js"></script>
+	<script src="assets/js/contact.js"></script>
+	<script src="assets/js/custom.js"></script>
+
+</body>
+</html>

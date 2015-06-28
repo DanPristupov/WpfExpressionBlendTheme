@@ -1,0 +1,10 @@
+# Site settings
+title: Too close enough to touch
+email: your-email@domain.com
+description: "Expression Themes"
+baseurl: ""
+url: "http://yourdomain.com"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
