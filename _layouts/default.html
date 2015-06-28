@@ -1,19 +1,47 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   {% include head.html %}
 
-    <body>
-
+<body>
     {% include header.html %}
 
-    <div class="page-content">
-      <div class="wrap">
-      {{ content }}
-      </div>
-    </div>
+    {{ content }}
 
     {% include footer.html %}
 
-    </body>
+
+<!-- Wrapper start -->
+    <!-- Scroll-up -->
+    <div class="scroll-up">
+        <a href="#totop"><i class="fa fa-angle-double-up"></i></a>
+    </div>
+
+    <!-- Javascript files -->
+    <script src="assets/js/jquery-2.1.3.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/appear.js"></script>
+    <script src="assets/js/jquery.simple-text-rotator.min.js"></script>
+    <script src="assets/js/jqBootstrapValidation.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.js"></script>
+    <script src="assets/js/jquery.flexslider-min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.fitvids.js"></script>
+    <script src="assets/js/smoothscroll.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/contact.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-64587711-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
 </html>
