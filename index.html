@@ -3,23 +3,50 @@ layout: default
 title: EXPRESSION - XAML themes
 ---
 	<!-- Home start -->
-	<section id="home" class="home-section home-fade home-full-height">
+	<section>
 		
-		<div class="hs-caption caption">
-				
-			<div class="row">
-				<div class="col-sm-12">
-					<div id="images">
-						<img class="main-image controls-image" src="assets/images/oldApp.png" alt="">
-						<img class="main-image controls-image" src="assets/images/newApp.png" alt="">
+		<div class="hs-caption">
+			<div class=" text-center">
+				<div class="row">
+					<div class="col-sm-12">
+						<div id="images">
+							<img class="main-image controls-image" src="assets/images/oldApp.png" alt="">
+							<img class="main-image controls-image" src="assets/images/newApp.png" alt="">
+						</div>
 					</div>
 				</div>
-			</div>
+				<div class="row mt-10 mb-30">
+					<div class="expression col-sm-12">
 
+							<a href="https://github.com/DanPristupov/WpfThemes" class="section-scroll btn button btn-expression btn-border-d btn-circle"><i class="fa fa-big fa-github"></i> Fork me on github</a>
+							
+					</div>
+				</div><!-- .row -->
+
+				
+			</div>
 		</div>
 
 	</section >
 	<!-- Home end -->
+
+	<section class="mt-40 mb-40">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-sm-8 col-sm-offset-2 ">
+
+					<p class="module-title-big text-center">How to install Dark Blend Theme?</p>
+					<p class="module-title-small mb-20 text-center">Run the following command in the Package Manager Console </p>
+
+					<pre><code>PM&gt; Install-Package WPFThemes.DarkBlend</code></pre>
+				</div>
+
+			</div><!-- .row -->
+
+		</div>
+	</section>
 
 	<!-- Wrapper start -->
 	<div class="main">
@@ -205,23 +232,6 @@ title: EXPRESSION - XAML themes
 		</section>
 		<!--Component end-->
 
-		<section id="news" class="mb-70 mt-70">
-			<div class="container">
-
-				<div class="row">
-
-					<div class="col-sm-12 text-center">
-
-						<h2 class="module-title font-alt mb-20">Make your application look dark and cool <br> with our theme</h2>
-
-						<a href="#about" class="section-scroll btn btn-border-d btn-round">Dark Blend Theme</a>
-					</div>
-
-				</div><!-- .row -->
-
-			</div>
-		</section>
-
 		<!-- DataGrid start -->
 		<section class="module bg-dark-60 pt-0 pb-0" data-background="assets/images/section-7.jpg">
 
@@ -336,51 +346,14 @@ title: EXPRESSION - XAML themes
 		</section>
 		<!-- Testimonials end -->
 
-		<!-- Contact start -->
-		<section id="contact" class="module">
+		<section id="news" class="mb-70 mt-70">
 			<div class="container">
 
 				<div class="row">
 
-					<div class="col-sm-6 col-sm-offset-3">
+					<div class="col-sm-12 text-center">
 
-						<h2 class="module-title font-alt">Get in touch</h2>
-
-					</div>
-
-				</div><!-- .row -->
-
-				<div class="row">
-
-					<div class="col-sm-6 col-sm-offset-3">
-
-						<form id="contact-form" role="form" novalidate="">
-
-							<div class="form-group">
-								<label class="sr-only" for="cname">Name</label>
-								<input type="text" id="cname" class="form-control" name="cname" placeholder="Name*" required="" data-validation-required-message="Please enter your name.">
-								<p class="help-block text-danger"></p>
-							</div>
-
-							<div class="form-group">
-								<label class="sr-only" for="cemail">Your Email</label>
-								<input type="email" id="cemail" name="cemail" class="form-control" placeholder="Your E-mail*" required="" data-validation-required-message="Please enter your email address.">
-								<p class="help-block text-danger"></p>
-							</div>
-
-							<div class="form-group">
-								<textarea class="form-control" id="cmessage" name="cmessage" rows="7" placeholder="Message*" required="" data-validation-required-message="Please enter your message."></textarea>
-								<p class="help-block text-danger"></p>
-							</div>
-
-							<div class="text-center">
-								<button type="submit" class="btn btn-block btn-round btn-d">Submit</button>
-							</div>
-
-						</form>
-
-						<!-- Ajax response -->
-						<div id="contact-response" class="ajax-response font-alt"></div>
+						<h2 class="module-title font-alt mb-20">Make your application look dark and cool <br> with our theme</h2>
 
 					</div>
 
@@ -388,7 +361,6 @@ title: EXPRESSION - XAML themes
 
 			</div>
 		</section>
-		<!-- Contact end -->
 
 		<!-- Footer start -->
 		<footer class="footer bg-dark">
