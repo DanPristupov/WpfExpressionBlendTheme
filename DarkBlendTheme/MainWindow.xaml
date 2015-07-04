@@ -392,6 +392,24 @@
                                 <StackPanel Orientation="Horizontal" Margin="10 4 10 10" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </Expander>
+                        <Expander Header="ListView">
+                            <ListView x:Name="ListView" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <WrapPanel>
+                                            <TextBlock Text="Name: " />
+                                            <TextBlock Text="{Binding DataContext.Name, RelativeSource={RelativeSource TemplatedParent}}" FontWeight="Bold" />
+                                            <TextBlock Text=", " />
+                                            <TextBlock Text="PhoneNumber: " />
+                                            <TextBlock Text="{Binding DataContext.PhoneNumber, RelativeSource={RelativeSource TemplatedParent}}" FontWeight="Bold" />
+                                        </WrapPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Expander>
+                        <Expander Header="ListView">
+                            <ListView x:Name="ListView1" DisplayMemberPath="Name" />
+                        </Expander>
                         <Expander Header="Menu">
                             <StackPanel>
                                 <Menu>
@@ -610,6 +628,9 @@
                                     <TreeViewItem Header="LightTheme"/>
                                 </TreeViewItem>
                             </TreeView>
+                        </Expander>
+                        <Expander Header="DataGrid">
+                            <DataGrid x:Name="DataGrid1" HeadersVisibility="Column" />
                         </Expander>
                     </StackPanel>
                 </ScrollViewer>
