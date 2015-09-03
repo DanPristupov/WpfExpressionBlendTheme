@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         x:Class="DarkBlendTheme.MainWindow"
-        Title="MainWindow" Height="500" Width="460"
+        Title="MainWindow" Height="550" Width="500"
         Style ="{StaticResource {x:Type Window}}">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
