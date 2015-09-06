@@ -1656,24 +1656,24 @@
                     <BulletDecorator Background="Transparent">
                         <BulletDecorator.Bullet>
                             <Border x:Name="RadioButtonBorder"
-                                        Width="12"
-										Height="12"
-										CornerRadius="6" 
-										BorderThickness="{TemplateBinding BorderThickness}"
-										BorderBrush="{TemplateBinding BorderBrush}" 
-										Background="{TemplateBinding Background}">
-                                <Border x:Name="RadioMark" 
-                                            Width="6"
-										    Height="6"
-										    CornerRadius="6"
-										    BorderBrush="{StaticResource RadioButtonForeground}" 
-										    Background="{StaticResource RadioButtonForeground}"/>
+                                    Width="12"
+                                    Height="12"
+                                    CornerRadius="6"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    Background="{TemplateBinding Background}">
+                                <Border x:Name="RadioMark"
+                                        Width="6"
+                                        Height="6"
+                                        CornerRadius="6"
+                                        BorderBrush="{StaticResource RadioButtonForeground}"
+                                        Background="{StaticResource RadioButtonForeground}"/>
                             </Border>
                         </BulletDecorator.Bullet>
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-												Margin="{TemplateBinding Padding}" 
-												RecognizesAccessKey="True" 
-												VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                          Margin="{TemplateBinding Padding}"
+                                          RecognizesAccessKey="True"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </BulletDecorator>
                     <ControlTemplate.Triggers>
                         <Trigger Property="HasContent" Value="true">
@@ -2918,14 +2918,14 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                     <Border x:Name="Bd"
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="{TemplateBinding BorderThickness}" 
-                                Background="{TemplateBinding Background}" 
-                                Padding="{TemplateBinding Padding}" 
-                                SnapsToDevicePixels="true">
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}"
+                            SnapsToDevicePixels="true">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="true">
