@@ -393,7 +393,12 @@
                             </StackPanel>
                         </Expander>
                         <Expander Header="ListView">
-                            <ListView x:Name="ListView" >
+                            <ListView x:Name="ListView">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource ListViewItemStyle}">
+                                        <Setter Property="Padding" Value="5"/>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <WrapPanel>
@@ -407,8 +412,33 @@
                                 </ListView.ItemTemplate>
                             </ListView>
                         </Expander>
-                        <Expander Header="ListView">
-                            <ListView x:Name="ListView1" DisplayMemberPath="Name" />
+                        <Expander Header="ListViewWithGridView" MaxHeight="150">
+                            <ListView Name="ListViewWithGridView" ItemsSource="{Binding}" Style="{StaticResource ListViewWithGridViewStyle}">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource ListViewItemGridViewStyle}">
+                                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                                <ListView.View>
+                                    <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
+                                        <GridViewColumn Width="200" Header="Progress">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <ProgressBar Name="progYTDDownloadProgress" Height="20" Value="{Binding Progress}"
+                                                                     Background="Transparent" Minimum="0" Maximum="100"
+                                                                     BorderBrush="{Binding Foreground, RelativeSource={RelativeSource Self}}" />
+                                                        <TextBlock Name="progYTDDownloadProgressText" VerticalAlignment="Center"
+                                                                   Text="{Binding ProgressPercent}" Margin="4 0 0 0" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Video Title" Width="200" />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
                         </Expander>
                         <Expander Header="Menu">
                             <StackPanel>
