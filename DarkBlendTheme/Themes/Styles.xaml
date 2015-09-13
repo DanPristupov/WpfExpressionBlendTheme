@@ -3248,9 +3248,9 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="IsNewItem" Value="True">
+           <!-- <Trigger Property="IsNewItem" Value="True">
                 <Setter Property="Margin" Value="{Binding NewItemMargin, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
-            </Trigger>
+            </Trigger>-->
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="{DynamicResource DataGridRowSelectedBrush}"/>
                 <Setter Property="Foreground" Value="Black"/>
