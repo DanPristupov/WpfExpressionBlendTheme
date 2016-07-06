@@ -56,11 +56,9 @@ If you want to apply the theme to the control which is derived from Window (for 
 ```
 That's it.
 
-###Todo
-
-- Some standard controls are missed, but don't worry, I'm working on them now.
-
-
 ###Feedback
 
 I hope you find it useful. Feel free to contact me for any questions you may have.
+
+###You might be also interested in WPF Office Theme
+https://github.com/TanyaPristupova/WpfOfficeTheme
