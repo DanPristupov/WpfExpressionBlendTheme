@@ -557,6 +557,78 @@
                                 <ToggleButton Grid.Row="2" Grid.Column="1" Content="Button" Width="50" Margin="2" IsEnabled="False"/>
                             </Grid>
                         </Expander>
+                        <Expander Header="Normal TabControl">
+                            <Grid Background="#444444">
+                                <StackPanel Margin="2">
+                                    <TabControl TabStripPlacement="Top">
+                                        <TabControl.Resources>
+                                            <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource NormalTabItem}"/>
+                                        </TabControl.Resources>
+                                        <TabItem Header="RButton">
+                                            <StackPanel Margin="10">
+                                                <StackPanel Orientation="Horizontal" Margin="2">
+                                                    <RadioButton Content="Top" VerticalAlignment="Center" Margin="4" IsChecked="True" />
+                                                    <RadioButton Content="Right" VerticalAlignment="Center" Margin="4"  />
+                                                    <RadioButton Content="Bottom" VerticalAlignment="Center" Margin="4" />
+                                                    <RadioButton Content="Left" VerticalAlignment="Center" Margin="4" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </TabItem>
+                                        <TabItem Header="Button"/>
+                                    </TabControl>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TabControl TabStripPlacement="Left">
+                                            <TabControl.Resources>
+                                                <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource NormalTabItem}"/>
+                                            </TabControl.Resources>
+                                            <TabItem Header="RButton">
+                                                <StackPanel Orientation="Horizontal" Margin="2">
+                                                    <StackPanel Width="60" Margin="2">
+                                                        <RadioButton Content="Top" VerticalAlignment="Center" Margin="4" />
+                                                        <RadioButton Content="Right" VerticalAlignment="Center" Margin="4"  />
+                                                        <RadioButton Content="Bottom" VerticalAlignment="Center" Margin="4" />
+                                                        <RadioButton Content="Left" VerticalAlignment="Center" Margin="4" IsChecked="True" />
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </TabItem>
+                                            <TabItem Header="Button"/>
+                                        </TabControl>
+                                        <TabControl TabStripPlacement="Right">
+                                            <TabControl.Resources>
+                                                <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource NormalTabItem}"/>
+                                            </TabControl.Resources>
+                                            <TabItem Header="RButton">
+                                                <StackPanel Orientation="Horizontal" Margin="2">
+                                                    <StackPanel Width="60" Margin="2">
+                                                        <RadioButton Content="Top" VerticalAlignment="Center" Margin="4" />
+                                                        <RadioButton Content="Right" VerticalAlignment="Center" Margin="4" IsChecked="True"  />
+                                                        <RadioButton Content="Bottom" VerticalAlignment="Center" Margin="4" />
+                                                        <RadioButton Content="Left" VerticalAlignment="Center" Margin="4"  />
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </TabItem>
+                                            <TabItem Header="Button"/>
+                                        </TabControl>
+                                    </StackPanel>
+                                    <TabControl TabStripPlacement="Bottom">
+                                        <TabControl.Resources>
+                                            <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource NormalTabItem}"/>
+                                        </TabControl.Resources>
+                                        <TabItem Header="RButton">
+                                            <StackPanel Margin="10">
+                                                <StackPanel Orientation="Horizontal" Margin="2">
+                                                    <RadioButton Content="Top" VerticalAlignment="Center" Margin="4" />
+                                                    <RadioButton Content="Right" VerticalAlignment="Center" Margin="4"  />
+                                                    <RadioButton Content="Bottom" VerticalAlignment="Center" Margin="4" IsChecked="True" />
+                                                    <RadioButton Content="Left" VerticalAlignment="Center" Margin="4" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </TabItem>
+                                        <TabItem Header="Button"/>
+                                    </TabControl>
+                                </StackPanel>
+                            </Grid>
+                        </Expander>
                         <Expander Header="TabControl">
                             <Grid Background="#444444">
                                 <StackPanel Margin="2">
