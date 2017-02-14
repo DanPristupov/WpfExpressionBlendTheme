@@ -5,23 +5,25 @@
                     xmlns:darkBlendTheme="clr-namespace:DarkBlendTheme"
                     mc:Ignorable="d">
 
-    <!--Converters-->
+    <!--#region Converters-->
     <BooleanToVisibilityConverter x:Key="bool2VisibilityConverter"/>
+    <!--#endregion-->
 
-    <!--Colors-->
+    <!--#region Colors-->
     <Color x:Key="WindowBackgroundColor">#444444</Color>
     <Color x:Key="DarkBackgroundColor">#333333</Color>
     <Color x:Key="LightBackgroundColor">#595959</Color>
     <Color x:Key="BackgroundColor">#3D3D3D</Color>
     <Color x:Key="DisabledBackgroundColor">#424242</Color>
     <Color x:Key="LightDisabledBackgroundColor">#666666</Color>
-    
+
     <Color x:Key="ForegroundColor">#EFEFEF</Color>
 
     <Color x:Key="HighlightColor">#BDBDBD</Color>
     <Color x:Key="HotColor">#525252</Color>
-    
-    <!--Brushes-->
+    <!--#endregion-->
+
+    <!--#region Brushes-->
     <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource ForegroundColor}"/>
     <SolidColorBrush x:Key="MouseOverForegroundBrush" Color="{StaticResource DarkBackgroundColor}"/>
     <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{StaticResource WindowBackgroundColor}"/>
@@ -109,9 +111,9 @@
     <SolidColorBrush x:Key="DataGridHeaderBackgroundBrush" Color="{StaticResource DarkBackgroundColor}"/>
     <SolidColorBrush x:Key="DataGridHeaderMouseOverBrush" Color="#AAAAAA"/>
     <SolidColorBrush x:Key="DataGridHeaderBorderBrush" Color="{StaticResource DisabledBackgroundColor}"/>
-	<SolidColorBrush x:Key="DataGridRowBorderBrush" Color="{StaticResource DisabledBackgroundColor}"/>
+    <SolidColorBrush x:Key="DataGridRowBorderBrush" Color="{StaticResource DisabledBackgroundColor}"/>
     <SolidColorBrush x:Key="DataGridRowBackgroundBrush" Color="{StaticResource DarkBackgroundColor}"/>
-	<SolidColorBrush x:Key="DataGridRowSelectedBrush" Color="{StaticResource HighlightColor}"/>
+    <SolidColorBrush x:Key="DataGridRowSelectedBrush" Color="{StaticResource HighlightColor}"/>
     <SolidColorBrush x:Key="GridLinesBrush" Color="Transparent"/>
     <SolidColorBrush x:Key="{x:Static DataGrid.FocusBorderBrushKey}" Color="Red"/>
 
@@ -126,9 +128,9 @@
     <Geometry x:Key="RepeatButton">M3.5445026,0 L7.0890052,7.0890053 L3.0459049E-09,7.0890053 z</Geometry>
     <Geometry x:Key="ComboBoxArrow">M-0,6 L-0,8 8,8 8,-0 6,-0 6,6 z</Geometry>
     <Geometry x:Key="ExpanderToggleButtonArrow">M5,-0 L9,5 1,5 z</Geometry>
-    
+    <!--#endregion-->
 
-    <!--FontStyle-->
+    <!--#region FontStyle-->
     <Style TargetType="{x:Type TextBlock}">
         <Setter Property="FontFamily" Value="Calibri light"/>
         <!--<Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>-->
@@ -147,9 +149,9 @@
         <Setter Property="FontFamily" Value="Calibri light"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
     </Style>
+    <!--#endregion-->
 
-
-    <!--TabControl-->
+    <!--#region TabControl-->
     <Style x:Key="NormalTabItem" TargetType="{x:Type TabItem}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource TabItemFocusVisual}"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
@@ -518,7 +520,9 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!-- ScrollBar -->
+    <!--#endregion-->
+
+    <!--#region ScrollBar-->
     <Style TargetType="{x:Type ScrollViewer}">
         <Setter Property="Background" Value="{DynamicResource ScrollViewerBackground}"/>
         <Setter Property="Template">
@@ -902,8 +906,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--#endregion-->
 
-    <!-- TextBox -->
+    <!--#region TextBox-->
     <Style BasedOn="{StaticResource {x:Type Control}}" TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="{StaticResource TextBoxBackground}"/>
         <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorder}"/>
@@ -946,8 +951,9 @@
             </MultiTrigger>-->
         </Style.Triggers>
     </Style>
+    <!--#endregion-->
 
-    <!-- ComboBox -->
+    <!--#region ComboBox-->
     <Style x:Key="ComboBoxFocusVisual">
         <Setter Property="Control.Template">
             <Setter.Value>
@@ -1222,8 +1228,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--#endregion-->
 
-    <!-- Button-->
+    <!--#region Button-->
     <Style x:Key="ButtonFocusVisual">
         <Setter Property="Control.Template">
             <Setter.Value>
@@ -1279,8 +1286,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--#endregion-->
 
-    <!-- ToggleButton-->
+    <!--#region ToggleButton-->
     <Style TargetType="{x:Type ToggleButton}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
         <Setter Property="Background" Value="{StaticResource ButtonBackground}"/>
@@ -1330,10 +1338,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--#endregion-->
 
-    <!-- Expander -->
-
-
+    <!--#region Expander-->
     <Style x:Key="ExpanderRightHeaderStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Template">
             <Setter.Value>
@@ -1641,10 +1648,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--#endregion-->
 
-    <!-- CheckBox-->
-
-
+    <!--#region CheckBox-->
     <Style x:Key="EmptyCheckBoxFocusVisual">
         <Setter Property="Control.Template">
             <Setter.Value>
@@ -1722,10 +1728,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--#endregion-->
 
-    <!-- RadioButton -->
-
-
+    <!--#region RadioButton-->
     <Style x:Key="RadioFocusVisual">
         <Setter Property="Control.Template">
             <Setter.Value>
@@ -1789,8 +1794,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--#endregion-->
 
-    <!-- ListView -->
+    <!--#region ListView-->
     <Style x:Key="FocusVisual">
         <Setter Property="Control.Template">
             <Setter.Value>
@@ -2149,9 +2155,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--#endregion-->
 
-    <!-- TreeView -->
-
+    <!--#region TreeView-->
     <Style TargetType="{x:Type TreeView}">
         <Setter Property="Background" Value="{StaticResource TreeViewBackground}"/>
         <Setter Property="Padding" Value="1"/>
@@ -2257,8 +2263,7 @@
                             <MultiTrigger.Conditions>
                                 <Condition Property="HasHeader" Value="false"/>
                                 <Condition Property="Width" Value="Auto"/>
-                            </MultiTrigger.Conditions>
-                            
+                            </MultiTrigger.Conditions>                           
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -2443,8 +2448,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--#endregion-->
 
-    <!-- StatusBar -->
+    <!--#region StatusBar-->
     <Style TargetType="{x:Type StatusBar}">
         <Setter Property="Margin" Value="1 0 3 0"/>
         <Setter Property="Height" Value="18"/>
@@ -2483,8 +2489,9 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!-- Menu -->
+    <!--#endregion-->
 
+    <!--#region Menu-->
     <Style TargetType="{x:Type Menu}">
         <Setter Property="Background" Value="{StaticResource MenuBackground}"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
@@ -2947,8 +2954,9 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
-    <!-- Separator -->
+    <!--#endregion-->
+
+    <!--#region Separator-->
     <Style x:Key="{x:Static MenuItem.SeparatorStyleKey}" TargetType="{x:Type Separator}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Template">
@@ -2961,9 +2969,9 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <!-- ListBox -->
+    <!--#endregion-->
 
+    <!--#region ListBox-->
     <Style TargetType="{x:Type ListBox}">
         <Setter Property="Background" Value="{StaticResource ListBackground}"/>
         <Setter Property="BorderBrush" Value="{StaticResource ListBorder}"/>
@@ -3049,8 +3057,9 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <!-- GroupBox -->
+    <!--#endregion-->
+
+    <!--#region GroupBox-->
     <BorderGapMaskConverter x:Key="BorderGapMaskConverter"/>
     <Style TargetType="{x:Type GroupBox}">
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -3118,10 +3127,11 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <!-- DataGrid styles -->
-    
-    <!-- DataGridSelectAllButtonStyle -->
+    <!--#endregion-->
+
+    <!--#region DataGrid styles-->
+
+    <!-- DataGridSelectAllButtonStyle-->
     <Style x:Key="{ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}" TargetType="{x:Type Button}">
         <Setter Property="Template">
             <Setter.Value>
@@ -3438,4 +3448,6 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!--#endregion-->
 </ResourceDictionary>
