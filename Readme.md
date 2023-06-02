@@ -1,10 +1,13 @@
-#Dark Blend theme for WPF 
+# Dark Blend theme for WPF 
 
 ### A WPF theme which will make an application look like Blend.
 
-![Alt text](Screenshot.png)
-Before / After
-####List of supported controls
+<p align="center">
+    <img src="Screenshot.png" alt="before/after">
+    Before / After
+</p>
+
+### List of supported controls
 - Button
 - CheckBox
 - ComboBox
@@ -22,20 +25,21 @@ Before / After
 - TreeView
 - DataGrid
 
-####How to use that theme in your application
-#####NuGet
-1. To install WPF DarkBlend Theme, run the following command in the Package Manager Console:
+### How to use that theme in your application?
 
+#### NuGet
+
+To install WPF DarkBlend Theme, run the following command in the Package Manager Console:
 ```
-PM> Install-Package WPFThemes.DarkBlend
+Install-Package WPFThemes.DarkBlend
 ```
 
-#####Manually
+#### Manually
+
 1. Download the project. 
 2. Copy Themes folder with Styles.xaml file to your project. 
 In order to use that theme you need just to add a reference to Styles.xaml into the App.xaml file.
 So, open App.xaml and add following code:
-
 ```
 <Application
 	...
@@ -56,9 +60,9 @@ If you want to apply the theme to the control which is derived from Window (for 
 ```
 That's it.
 
-###Feedback
+### Feedback
 
 I hope you find it useful. Feel free to contact me for any questions you may have.
 
-###You might be also interested in WPF Office Theme
+### You might be also interested in WPF Office Theme
 https://github.com/TanyaPristupova/WpfOfficeTheme
